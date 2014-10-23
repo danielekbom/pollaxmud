@@ -9,9 +9,9 @@ public class Room {
 	private Item[] Items;
 	
 	private Room RoomNorth;
+	private Room RoomEast;
 	private Room RoomSouth;
 	private Room RoomWest;
-	private Room RoomEast;
 	
 	public Room(){
 		System.out.println("Testar att skapa ett rum");

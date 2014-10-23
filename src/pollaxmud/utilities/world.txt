@@ -1,0 +1,10 @@
+Entrance room;Hallway 1;X;X;X;true;X;X;X
+Hallway 1;Room 1245;Hallway 2;Entrance room;Hallway 4;true;true;true;true
+Room 1245;X;X;Hallway 1;X;X;X;true;X
+Hallway 4;Room 1244;Hallway 1;Room 1243;X;true;true;true;X
+Room 1244;X;X;Hallway 4;X;X;X;true;X
+Room 1243;Hallway 4;X;X;X;true;X;X;X
+Hallway 2;Room 1246;Hallway 3;X;Hallway 1;true;true;X;true
+Room 1246;X;X;Hallway 2;X;X;X;true;X
+Hallway 3;X;X;Room 1247;Hallway 2;X;X;true;true
+Room 1247;Hallway 3;X;X;X;true;X;X;X
