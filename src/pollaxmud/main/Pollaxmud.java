@@ -1,11 +1,10 @@
-package pollaxmud;
+package pollaxmud.main;
 
 public class Pollaxmud {
 
 	public static void main(String[] args) {
-		
-	System.out.println("Hej");
-			
+		// TODO Auto-generated method stub
+
 	}
 
 }
