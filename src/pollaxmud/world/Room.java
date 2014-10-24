@@ -25,4 +25,9 @@ public class Room {
 		return Name;
 	}
 	
+	public void printEntranceText(){
+		System.out.println("Current location: " + Name);
+		// Rum 1234 till norr, Hallway 2 till väster osv.
+	}
+	
 }
