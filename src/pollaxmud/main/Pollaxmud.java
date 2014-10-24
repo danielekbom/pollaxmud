@@ -11,7 +11,9 @@ public class Pollaxmud {
 	public static void main(String[] args) {
 		
 		StartingWorld = WorldImporter.ImportWorld();
-		
+		Room testRoom = new Room("Daniels sovrum");
+		StartingWorld.addRoom(testRoom);
+		System.out.println(StartingWorld.getFirstRoom().getName());
 	}
 
 }

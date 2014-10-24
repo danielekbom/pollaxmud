@@ -5,6 +5,8 @@ import pollaxmud.entities.Item;
 
 public class Room {
 
+	private String Name;
+	
 	private Creature[] Creatures;
 	private Item[] Items;
 	
@@ -13,8 +15,12 @@ public class Room {
 	private Room RoomSouth;
 	private Room RoomWest;
 	
-	public Room(){
-
+	public Room(String name){
+		this.Name = name;
+	}
+	
+	public String getName(){
+		return Name;
 	}
 	
 }
