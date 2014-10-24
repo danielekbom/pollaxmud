@@ -14,7 +14,7 @@ public class Room {
 	private Room RoomWest;
 	
 	public Room(){
-		System.out.println("Testar att skapa ett rum");
+
 	}
 	
 }
