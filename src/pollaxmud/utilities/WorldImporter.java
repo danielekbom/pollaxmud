@@ -15,7 +15,7 @@ public class WorldImporter {
 		World importedWorld = new World();
 		
 		try{
-			File file = new File("./world.txt");
+			File file = new File("world.txt");
 			FileReader fileReader = new FileReader(file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			String line;
