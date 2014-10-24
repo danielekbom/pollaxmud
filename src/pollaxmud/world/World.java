@@ -8,7 +8,7 @@ public class World {
 	private List<Room> Rooms = new ArrayList<Room>();
 	
 	public World(){
-		System.out.println("Testar skapa värld :)");
+		
 	}
 	
 	public void addRoom(Room roomToAdd){
@@ -17,8 +17,8 @@ public class World {
 		}
 	}
 	
-	public Room getFirstRoom(){
-		return Rooms.get(0);
+	public Room getRoomAtIndex(int index){
+		return Rooms.get(index);
 	}
 	
 }
