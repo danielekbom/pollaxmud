@@ -6,6 +6,7 @@ import pollaxmud.entities.Item;
 public class Room {
 
 	private String Name;
+	private boolean Unlocked;
 	
 	private Creature[] Creatures;
 	private Item[] Items;
@@ -15,8 +16,9 @@ public class Room {
 	private Room RoomSouth;
 	private Room RoomWest;
 	
-	public Room(String name){
+	public Room(String name, boolean unlocked){
 		this.Name = name;
+		this.Unlocked = unlocked;
 	}
 	
 	public String getName(){
