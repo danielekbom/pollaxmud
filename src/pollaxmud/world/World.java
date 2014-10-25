@@ -21,4 +21,13 @@ public class World {
 		return Rooms.get(index);
 	}
 	
+	public Room getRoomByName(String name){
+		for(Room room : Rooms){
+			if(room.getName().equals(name)){
+				return room;
+			}
+		}
+		return null;
+	}
+	
 }

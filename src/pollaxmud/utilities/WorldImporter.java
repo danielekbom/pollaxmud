@@ -2,7 +2,6 @@ package pollaxmud.utilities;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -25,6 +24,19 @@ public class WorldImporter {
 				data = line.split(";");
 				roomToAdd = new Room(data[0],Boolean.parseBoolean(data[5]));
 				importedWorld.addRoom(roomToAdd);
+			}
+			file = new File("world.txt");
+			fileReader = new FileReader(file);
+			bufferedReader = new BufferedReader(fileReader);
+			while((line = bufferedReader.readLine()) != null){
+				data = line.split(";");
+				roomToAdd = importedWorld.getRoomByName(data[0]);
+				if(roomToAdd != null){
+					if(!data[1].equals("X"))roomToAdd.setRoomNorth(importedWorld.getRoomByName(data[1]));
+					if(!data[2].equals("X"))roomToAdd.setRoomEast(importedWorld.getRoomByName(data[2]));
+					if(!data[3].equals("X"))roomToAdd.setRoomSouth(importedWorld.getRoomByName(data[3]));
+					if(!data[4].equals("X"))roomToAdd.setRoomWest(importedWorld.getRoomByName(data[4]));
+				}
 			}
 			fileReader.close();
 		}catch(IOException e){

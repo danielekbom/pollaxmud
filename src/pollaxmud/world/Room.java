@@ -27,7 +27,50 @@ public class Room {
 	
 	public void printEntranceText(){
 		System.out.println("Current location: " + Name);
-		// Rum 1234 till norr, Hallway 2 till väster osv.
+		if(RoomNorth != null){
+			System.out.println("To the north: " + RoomNorth.getName());
+		}
+		if(RoomEast != null){
+			System.out.println("To the east: " + RoomEast.getName());
+		}
+		if(RoomSouth != null){
+			System.out.println("To the south: " + RoomSouth.getName());
+		}
+		if(RoomWest != null){
+			System.out.println("To the west: " + RoomWest.getName());
+		}
+	}
+	
+	public void setRoomNorth(Room room){
+		RoomNorth = room;
+	}
+	
+	public void setRoomEast(Room room){
+		RoomEast = room;
+	}
+	
+	public void setRoomSouth(Room room){
+		RoomSouth = room;
+	}
+	
+	public void setRoomWest(Room room){
+		RoomWest = room;
+	}
+	
+	public Room getRoomNorth(){
+		return RoomNorth;
+	}
+	
+	public Room getRoomEast(){
+		return RoomEast;
+	}
+	
+	public Room getRoomSouth(){
+		return RoomSouth;
+	}
+	
+	public Room getRoomWest(){
+		return RoomWest;
 	}
 	
 }
