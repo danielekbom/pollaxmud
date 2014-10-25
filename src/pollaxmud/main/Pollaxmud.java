@@ -23,8 +23,11 @@ public class Pollaxmud {
 		String inputString = "";
 		while(!inputString.equalsIgnoreCase("quit")){
 			inputString = scanner.next();
-			InputHandler.handleInput(inputString);
+			InputHandler.handleInput(inputString, PlayerOne);
 		}
+		scanner.close();
+		
+		System.out.println("Exits game");
 		
 	}
 

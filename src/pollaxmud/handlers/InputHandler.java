@@ -1,13 +1,25 @@
 package pollaxmud.handlers;
 
+import pollaxmud.entities.Player;
+
 public class InputHandler {
 
-	public static void handleInput(String inputString){
+	public static void handleInput(String inputString, Player player){
 		if(inputString.equalsIgnoreCase("north")){
-			System.out.println("walk to the north");
+			player.walkNorth();
+			player.getCurrentLocation().printEntranceText();
 		}
 		if(inputString.equalsIgnoreCase("east")){
-			System.out.println("walk to the south");
+			player.walkEast();
+			player.getCurrentLocation().printEntranceText();
+		}
+		if(inputString.equalsIgnoreCase("south")){
+			player.walkSouth();
+			player.getCurrentLocation().printEntranceText();
+		}
+		if(inputString.equalsIgnoreCase("west")){
+			player.walkWest();
+			player.getCurrentLocation().printEntranceText();
 		}
 	}
 	

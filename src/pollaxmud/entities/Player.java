@@ -10,6 +10,22 @@ public class Player {
 		CurrentLocation = location;
 	}
 	
+	public void walkNorth(){
+		setCurrentLocation(CurrentLocation.getRoomNorth());
+	}
+	
+	public void walkEast(){
+		setCurrentLocation(CurrentLocation.getRoomEast());
+	}
+	
+	public void walkSouth(){
+		setCurrentLocation(CurrentLocation.getRoomSouth());
+	}
+	
+	public void walkWest(){
+		setCurrentLocation(CurrentLocation.getRoomWest());
+	}
+	
 	public void setCurrentLocation(Room newLocation){
 		CurrentLocation = newLocation;
 	}
