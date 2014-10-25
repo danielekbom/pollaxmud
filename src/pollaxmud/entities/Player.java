@@ -10,6 +10,10 @@ public class Player {
 		CurrentLocation = location;
 	}
 	
+	public void setCurrentLocation(Room newLocation){
+		CurrentLocation = newLocation;
+	}
+	
 	public Room getCurrentLocation(){
 		return CurrentLocation;
 	}
