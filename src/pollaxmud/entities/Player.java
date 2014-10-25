@@ -1,9 +1,16 @@
 package pollaxmud.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pollaxmud.world.Room;
 
 public class Player {
 
+	private List<Course> UnfinishedCourses = new ArrayList<Course>();
+	private List<Course> FinishedCourses = new ArrayList<Course>();
+	private Item[] Backpack = new Item[10];
+	int HP = 60;
 	Room CurrentLocation;
 	
 	public Player(Room location){
