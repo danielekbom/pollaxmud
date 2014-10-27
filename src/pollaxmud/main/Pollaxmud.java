@@ -1,3 +1,9 @@
+/**
+ * @author      Daniel Ekbom, Oscar Sandén <address @ example.com>
+ * @version     1.0
+ * @since       2014-10-27
+ */
+
 package pollaxmud.main;
 
 import java.util.Scanner;

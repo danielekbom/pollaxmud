@@ -33,10 +33,16 @@ public class Player {
 		setCurrentLocation(CurrentLocation.getRoomWest());
 	}
 	
+	
+	/**
+	 * Set the players location to newLocation
+	 *
+	 * @param  newLocation The new location of the player.
+	 */
 	public void setCurrentLocation(Room newLocation){
 		CurrentLocation = newLocation;
 	}
-	
+
 	public Room getCurrentLocation(){
 		return CurrentLocation;
 	}
