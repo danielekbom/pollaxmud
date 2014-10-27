@@ -3,6 +3,7 @@ package pollaxmud.world;
 import java.util.ArrayList;
 import java.util.List;
 
+import pollaxmud.entities.Book;
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Item.ItemType;
@@ -39,9 +40,8 @@ public class Room {
 			System.out.println("Items on this location: ");
 			for(Item item : Items){
 				if(item.getType() == ItemType.BOOK){
-					System.out.println("Book: " + item.getName());
-				}
-				if(item.getType() == ItemType.KEY){
+					System.out.println("Book: " + ((Book) item).getName());
+				}else if(item.getType() == ItemType.KEY){
 					System.out.println("A key");
 				}
 			}
@@ -91,6 +91,10 @@ public class Room {
 	
 	public Room getRoomWest(){
 		return RoomWest;
+	}
+	
+	public boolean getUnlocked(){
+		return Unlocked;
 	}
 	
 }

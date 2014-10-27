@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 import pollaxmud.entities.Item;
+import pollaxmud.entities.Key;
 
 public class World {
 
@@ -31,6 +32,16 @@ public class World {
 		}
 	}
 	
+	public int getNumberOfLockedRooms(){
+		int counter = 0;
+		for(Room room : Rooms){
+			if(room.getUnlocked() == false){
+				counter++;
+			}
+		}
+		return counter;
+	}
+	
 	public Room getRoomAtIndex(int index){
 		return Rooms.get(index);
 	}
@@ -42,6 +53,15 @@ public class World {
 			}
 		}
 		return null;
+	}
+	
+	public void addKeysToWorld(){
+		int numberOfKeysToAdd = (int)(getNumberOfLockedRooms()*1.5);
+		List<Key> keys = new ArrayList<Key>();
+		for(int i = 0; i < numberOfKeysToAdd; i++){
+			keys.add(new Key());
+		}
+		putItemsRandomly(keys);
 	}
 	
 }

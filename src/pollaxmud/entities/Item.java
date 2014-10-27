@@ -1,13 +1,11 @@
 package pollaxmud.entities;
 
 public class Item {
-
-	public String getName(){
-		return "";
-	}
+	protected int Weight;
+	protected ItemType Type;
 	
 	public ItemType getType(){
-		return null;
+		return Type;
 	}
 	
 	public enum ItemType{

@@ -30,8 +30,8 @@ public class Pollaxmud {
 	public static void main(String[] args) {
 		Books = BookImporter.ImportBooks();
 		Courses = CourseImporter.ImportCourses(Books);
-		StartingWorld = WorldImporter.ImportWorld();
-		StartingWorld.putItemsRandomly(Books);
+
+		initializeWorld();
 		
 		PlayerOne = new Player(StartingWorld.getRoomAtIndex(0));
 		PlayerOne.getCurrentLocation().printEntranceText();
@@ -42,10 +42,15 @@ public class Pollaxmud {
 			inputString = scanner.next();
 			InputHandler.handleInput(inputString, PlayerOne);
 		}
+		
 		scanner.close();
-		
 		System.out.println("Exits game");
-		
+	}
+	
+	public static void initializeWorld(){
+		StartingWorld = WorldImporter.ImportWorld();
+		StartingWorld.putItemsRandomly(Books);
+		StartingWorld.addKeysToWorld();
 	}
 
 }

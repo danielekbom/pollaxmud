@@ -1,9 +1,9 @@
 Entrance room;Hallway 1;X;X;X;true
 Hallway 1;Room 1245;Hallway 2;Entrance room;Hallway 4;true
 Room 1245;X;X;Hallway 1;X;true
-Hallway 4;Room 1244;Hallway 1;Room 1243;X;true
-Room 1244;X;X;Hallway 4;X;true
-Room 1243;Hallway 4;X;X;X;true
+Hallway 4;Room 1244;Hallway 1;Room 1243;X;false
+Room 1244;X;X;Hallway 4;X;false
+Room 1243;Hallway 4;X;X;X;false
 Hallway 2;Room 1246;Hallway 3;X;Hallway 1;true
 Room 1246;X;X;Hallway 2;X;true
 Hallway 3;X;X;Room 1247;Hallway 2;true
