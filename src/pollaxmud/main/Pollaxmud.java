@@ -27,7 +27,7 @@ public class Pollaxmud {
 		}
 		scanner.close();
 		
-		System.out.println("Exits gameeeee");
+		System.out.println("Exits game");
 		
 	}
 
