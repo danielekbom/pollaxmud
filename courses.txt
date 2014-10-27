@@ -18,6 +18,3 @@ Transformmetoder;Transformation;5
 Signaler och inbyggda system I;Signals;10
 Diskret matematik;Discrete matematics;5
 Företagsekonomi;Planned economy;5
-
-
-
