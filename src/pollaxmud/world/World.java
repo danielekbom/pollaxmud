@@ -1,7 +1,11 @@
 package pollaxmud.world;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
+import pollaxmud.entities.Item;
 
 public class World {
 
@@ -14,6 +18,16 @@ public class World {
 	public void addRoom(Room roomToAdd){
 		if(roomToAdd != null){
 			Rooms.add(roomToAdd);
+		}
+	}
+	
+	public void putItemsRandomly(List<? extends Item> items){
+		int numberOfRooms = Rooms.size();
+		Room locationToAddTo;
+		Random rand = new Random();
+		for(Item item : items){
+			locationToAddTo = this.getRoomAtIndex(rand.nextInt(numberOfRooms));
+			locationToAddTo.addItem(item);
 		}
 	}
 	

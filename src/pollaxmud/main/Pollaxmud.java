@@ -6,11 +6,13 @@
 
 package pollaxmud.main;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
+import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
 import pollaxmud.handlers.InputHandler;
 import pollaxmud.utilities.BookImporter;
@@ -29,6 +31,7 @@ public class Pollaxmud {
 		Books = BookImporter.ImportBooks();
 		Courses = CourseImporter.ImportCourses(Books);
 		StartingWorld = WorldImporter.ImportWorld();
+		StartingWorld.putItemsRandomly(Books);
 		
 		PlayerOne = new Player(StartingWorld.getRoomAtIndex(0));
 		PlayerOne.getCurrentLocation().printEntranceText();

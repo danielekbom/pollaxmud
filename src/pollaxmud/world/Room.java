@@ -1,5 +1,8 @@
 package pollaxmud.world;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Item;
 
@@ -9,7 +12,7 @@ public class Room {
 	private boolean Unlocked;
 	
 	private Creature[] Creatures;
-	private Item[] Items;
+	private List<Item> Items = new ArrayList<Item>();
 	
 	private Room RoomNorth;
 	private Room RoomEast;
@@ -21,12 +24,21 @@ public class Room {
 		this.Unlocked = unlocked;
 	}
 	
+	public void addItem(Item itemToAdd){
+		Items.add(itemToAdd);
+	}
+	
 	public String getName(){
 		return Name;
 	}
 	
 	public void printEntranceText(){
 		System.out.println("Current location: " + Name);
+		System.out.print("Items on this location: ");
+		for(Item item : Items){
+			System.out.print(item.getName() + " ");
+		}
+		System.out.println();
 		if(RoomNorth != null){
 			System.out.println("To the north: " + RoomNorth.getName());
 		}

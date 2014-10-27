@@ -1,6 +1,7 @@
 package pollaxmud.entities;
+import pollaxmud.entities.Item;
 
-public class Book {
+public class Book extends Item{
 	private String name;
 	private String author;
 	private String year;
