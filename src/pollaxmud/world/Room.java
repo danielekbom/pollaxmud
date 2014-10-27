@@ -5,6 +5,7 @@ import java.util.List;
 
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Item;
+import pollaxmud.entities.Item.ItemType;
 
 public class Room {
 
@@ -34,11 +35,18 @@ public class Room {
 	
 	public void printEntranceText(){
 		System.out.println("Current location: " + Name);
-		System.out.print("Items on this location: ");
-		for(Item item : Items){
-			System.out.print(item.getName() + " ");
+		if(!Items.isEmpty()){
+			System.out.println("Items on this location: ");
+			for(Item item : Items){
+				if(item.getType() == ItemType.BOOK){
+					System.out.println("Book: " + item.getName());
+				}
+				if(item.getType() == ItemType.KEY){
+					System.out.println("A key");
+				}
+			}
 		}
-		System.out.println();
+		System.out.println("---------------------------------------");
 		if(RoomNorth != null){
 			System.out.println("To the north: " + RoomNorth.getName());
 		}

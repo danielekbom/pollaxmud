@@ -9,6 +9,7 @@ import java.util.List;
 
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Item;
+import pollaxmud.entities.Item.ItemType;
 
 /**
  * Imports books from books.txt
