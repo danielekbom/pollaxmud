@@ -3,18 +3,24 @@ package pollaxmud.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sun.javafx.tk.PrintPipeline;
+
 import pollaxmud.world.Room;
 
 public class Player {
 
-	private List<Course> UnfinishedCourses = new ArrayList<Course>();
-	private List<Course> FinishedCourses = new ArrayList<Course>();
-	private Item[] Backpack = new Item[10];
-	private int HP = 60;
+	private List<Course> UnfinishedCourses;
+	private List<Course> FinishedCourses;
+	private Backpack CurrentBackpack;
+	private int HP;
 	private Room CurrentLocation;
 	
 	public Player(Room location){
+		UnfinishedCourses = new ArrayList<Course>();
+		FinishedCourses = new ArrayList<Course>();
+		HP = 60;
 		CurrentLocation = location;
+		CurrentBackpack = new Backpack();
 	}
 	
 	public void walkNorth(){
@@ -45,6 +51,18 @@ public class Player {
 
 	public Room getCurrentLocation(){
 		return CurrentLocation;
+	}
+	
+	public int getBackpackCapacity(){
+		return CurrentBackpack.getSpace();
+	}
+	
+	public void addItemToBackpack(Item item){
+		CurrentBackpack.addItem(item);
+	}
+	
+	public void printBackpackInventory(){
+		CurrentBackpack.printInventory();
 	}
 	
 }

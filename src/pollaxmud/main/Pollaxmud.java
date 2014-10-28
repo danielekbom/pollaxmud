@@ -48,7 +48,7 @@ public class Pollaxmud {
 		Scanner scanner = new Scanner(System.in);
 		String inputString = "";
 		while(!inputString.equalsIgnoreCase("quit")){
-			inputString = scanner.next();
+			inputString = scanner.nextLine();
 			InputHandler.handleInput(inputString, PlayerOne, mapCanvas);
 		}
 		
