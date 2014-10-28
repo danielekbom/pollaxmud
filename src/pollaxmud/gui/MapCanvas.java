@@ -20,7 +20,7 @@ public class MapCanvas extends Canvas{
 	Player player;
 	
 	public MapCanvas(Player player){
-        setSize(200, 200);
+        setSize(340, 670);
         setBackground(Color.white);
         this.player = player;
     }
