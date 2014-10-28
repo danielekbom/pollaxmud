@@ -48,7 +48,7 @@ public class Pollaxmud {
 		Scanner scanner = new Scanner(System.in);
 		String inputString = "";
 		while(!inputString.equalsIgnoreCase("quit")){
-			inputString = scanner.next();
+			inputString = scanner.nextLine();
 			InputHandler.handleInput(inputString, PlayerOne, mapCanvas);
 		}
 		
@@ -64,8 +64,8 @@ public class Pollaxmud {
 	
 	public static void initializeMap(Canvas mapCanvas, JFrame map){
         map.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        map.setSize(445, 335);
-        map.setTitle("Map");
+        map.setSize(340, 670);
+        map.setTitle("Pollax Map");
         map.setResizable(false);
         map.add(mapCanvas);
         map.setVisible(true);

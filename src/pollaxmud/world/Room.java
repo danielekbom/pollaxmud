@@ -46,6 +46,29 @@ public class Room {
 		return Name;
 	}
 	
+	public Item getItemByName(String name){
+		for(Item item : Items){
+			if(item.getName().equalsIgnoreCase(name)){
+				return item;
+			}
+		}
+		return null;
+	}
+	
+	public void deleteItemByName(String name){
+		boolean found = false;
+		int itemIndex = 0;
+		for(Item item : Items){
+			if(item.getName().equalsIgnoreCase(name)){
+				itemIndex = Items.indexOf(item);
+				found = true;
+			}
+		}
+		if(found){
+			Items.remove(itemIndex);
+		}
+	}
+	
 	public void printEntranceText(){
 		System.out.println("Current location: " + Name);
 		if(!Items.isEmpty()){
@@ -54,7 +77,7 @@ public class Room {
 				if(item.getType() == ItemType.BOOK){
 					System.out.println("Book: " + ((Book) item).getName());
 				}else if(item.getType() == ItemType.KEY){
-					System.out.println("A key");
+					System.out.println(item.getName());
 				}
 			}
 		}

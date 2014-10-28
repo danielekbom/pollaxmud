@@ -20,18 +20,16 @@ public class MapCanvas extends Canvas{
 	Player player;
 	
 	public MapCanvas(Player player){
-        setSize(200, 200);
+        setSize(340, 670);
         setBackground(Color.white);
         this.player = player;
     }
 
     public void paint(Graphics g){
-     
-        g.setColor(Color.RED);
-        
-        Image img1 = Toolkit.getDefaultToolkit().getImage("map.jpg"); 
-        g.drawImage(img1, 0, 0, this); 
-        g.fillOval(player.getCurrentLocation().getXPosition(), player.getCurrentLocation().getYPosition(), 10, 10);
+        Image mapImage = Toolkit.getDefaultToolkit().getImage("map.jpg");
+        Image playerImage = Toolkit.getDefaultToolkit().getImage("player.gif");
+        g.drawImage(mapImage, 0, 0, this);
+        g.drawImage(playerImage, player.getCurrentLocation().getXPosition() - 10, player.getCurrentLocation().getYPosition() - 15, 20, 25, this); 
     }
 	
 }
