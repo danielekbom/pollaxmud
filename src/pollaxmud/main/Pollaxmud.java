@@ -16,7 +16,7 @@ import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
-import pollaxmud.gui.MapFrame;
+import pollaxmud.gui.MapCanvas;
 import pollaxmud.handlers.InputHandler;
 import pollaxmud.utilities.BookImporter;
 import pollaxmud.utilities.CourseImporter;
@@ -41,7 +41,7 @@ public class Pollaxmud {
 		PlayerOne = new Player(StartingWorld.getRoomAtIndex(0));
 		PlayerOne.getCurrentLocation().printEntranceText();
 		
-		Canvas mapCanvas = new MapFrame(PlayerOne);
+		Canvas mapCanvas = new MapCanvas(PlayerOne);
         JFrame map = new JFrame();
 		initializeMap(mapCanvas, map);
 		

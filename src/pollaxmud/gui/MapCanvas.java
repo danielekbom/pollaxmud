@@ -15,11 +15,11 @@ import javax.swing.JPanel;
 
 import pollaxmud.entities.Player;
 
-public class MapFrame extends Canvas{
+public class MapCanvas extends Canvas{
 	
 	Player player;
 	
-	public MapFrame(Player player){
+	public MapCanvas(Player player){
         setSize(200, 200);
         setBackground(Color.white);
         this.player = player;
@@ -31,7 +31,6 @@ public class MapFrame extends Canvas{
         
         Image img1 = Toolkit.getDefaultToolkit().getImage("map.jpg"); 
         g.drawImage(img1, 0, 0, this); 
-        //g.fillOval(182, 185, 10, 10);
         g.fillOval(player.getCurrentLocation().getXPosition(), player.getCurrentLocation().getYPosition(), 10, 10);
     }
 	
