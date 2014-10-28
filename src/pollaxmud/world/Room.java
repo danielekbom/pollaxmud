@@ -13,6 +13,9 @@ public class Room {
 	private String Name;
 	private boolean Unlocked;
 	
+	private int XPosition;
+	private int YPosition;
+	
 	private Creature[] Creatures;
 	private List<Item> Items = new ArrayList<Item>();
 	
@@ -24,6 +27,15 @@ public class Room {
 	public Room(String name, boolean unlocked){
 		this.Name = name;
 		this.Unlocked = unlocked;
+		XPosition = 0;
+		YPosition = 0;
+	}
+	
+	public Room(String name, boolean unlocked, int x, int y){
+		this.Name = name;
+		this.Unlocked = unlocked;
+		XPosition = x;
+		YPosition = y;
 	}
 	
 	public void addItem(Item itemToAdd){
@@ -95,6 +107,14 @@ public class Room {
 	
 	public boolean getUnlocked(){
 		return Unlocked;
+	}
+	
+	public int getXPosition(){
+		return XPosition;
+	}
+	
+	public int getYPosition(){
+		return YPosition;
 	}
 	
 }

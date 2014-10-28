@@ -1,10 +1,10 @@
-Entrance room;Hallway 1;X;X;X;true
-Hallway 1;Room 1245;Hallway 2;Entrance room;Hallway 4;true
-Room 1245;X;X;Hallway 1;X;true
-Hallway 4;Room 1244;Hallway 1;Room 1243;X;false
-Room 1244;X;X;Hallway 4;X;false
-Room 1243;Hallway 4;X;X;X;false
-Hallway 2;Room 1246;Hallway 3;X;Hallway 1;true
-Room 1246;X;X;Hallway 2;X;true
-Hallway 3;X;X;Room 1247;Hallway 2;true
-Room 1247;Hallway 3;X;X;X;true
+Entrance room;Hallway 1;X;X;X;true;188;188
+Hallway 1;Room 1245;Hallway 2;Entrance room;Hallway 4;true;185;159
+Room 1245;X;X;Hallway 1;X;true;185;131
+Hallway 4;Room 1244;Hallway 1;Room 1243;X;false;64;165
+Room 1244;X;X;Hallway 4;X;false;65;131
+Room 1243;Hallway 4;X;X;X;false;75;199
+Hallway 2;Room 1246;Hallway 3;X;Hallway 1;true;318;170
+Room 1246;X;X;Hallway 2;X;true;330;144
+Hallway 3;X;X;Room 1247;Hallway 2;true;392;142
+Room 1247;Hallway 3;X;X;X;true;391;203

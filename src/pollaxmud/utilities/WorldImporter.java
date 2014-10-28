@@ -22,7 +22,7 @@ public class WorldImporter {
 			Room roomToAdd;
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
-				roomToAdd = new Room(data[0],Boolean.parseBoolean(data[5]));
+				roomToAdd = new Room(data[0],Boolean.parseBoolean(data[5]),Integer.parseInt(data[6]),Integer.parseInt(data[7]));
 				importedWorld.addRoom(roomToAdd);
 			}
 			file = new File("world.txt");
