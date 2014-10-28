@@ -10,12 +10,12 @@ Storehouse 1;X;X;X;Hallway 2;true;215;539
 Room 2203;X;X;X;Hallway 1;true;215;588
 Hallway 1;Hallway 2;Room 2203;X;Room 2214;true;171;591
 Hallway 2;Hallway 3;Storehouse 1;Hallway 1;Room 2215;true;171;539
-Hallway 3;Hallway 4;Entrance room;Hallway 2;Room 2244;true;171;490
+Hallway 3;Hallway 4;Entrance room;Hallway 2;Room 2244;true;173;490
 Hallway 4;Skybridge 1;Teachers room;Hallway 3;Room 2245;true;171;445
-Skybridge 1;Hallway 5;X;Hallway 4;X;true;168;400
+Skybridge 1;Hallway 5;X;Hallway 4;X;true;170;400
 Hallway 5;Hallway 6;Personal room;Skybridge 1;Room 4208;true;170;358
 Hallway 6;Skybridge 2;Room 4216;Hallway 5;Room 4214;true;170;314
-Skybridge 2;Hallway 7;X;Hallway 6;X;true;168;272
+Skybridge 2;Hallway 7;X;Hallway 6;X;true;170;272
 Hallway 7;Hallway 9;Skrubben;Skybridge 2;Hallway 8;true;170;237
 Hallway 8;X;Hallway 7;Room 1210;Room 1211;true;128;228
 Hallway 9;X;Room 1214;Hallway 7;Hallway 10;true;172;200
