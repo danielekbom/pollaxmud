@@ -11,43 +11,19 @@ public class InputHandler {
 		switch(inputString){
 		case "go north":
 		case "n":
-			if(player.getCurrentLocation().getRoomNorth() != null){
-				player.walkNorth();
-				player.getCurrentLocation().printEntranceText();
-				canvas.repaint();
-			}else{
-				System.out.println("Can not walk to the north!");
-			}
+			handleInputGoNorth(player, canvas);
 			break;
 		case "go east":
 		case "e":
-			if(player.getCurrentLocation().getRoomEast() != null){
-				player.walkEast();
-				player.getCurrentLocation().printEntranceText();
-				canvas.repaint();
-			}else{
-				System.out.println("Can not walk to the east!");
-			}
+			handleInputGoEast(player, canvas);
 			break;
 		case "go south":
 		case "s":
-			if(player.getCurrentLocation().getRoomSouth() != null){
-				player.walkSouth();
-				player.getCurrentLocation().printEntranceText();
-				canvas.repaint();
-			}else{
-				System.out.println("Can not walk to the south!");
-			}
+			handleInputGoSouth(player, canvas);
 			break;
 		case "go west":
 		case "w":
-			if(player.getCurrentLocation().getRoomWest() != null){
-				player.walkWest();
-				player.getCurrentLocation().printEntranceText();
-				canvas.repaint();
-			}else{
-				System.out.println("Can not walk to the west!");
-			}
+			handleInputGoWest(player, canvas);
 			break;
 		case "inventory":
 		case "i":
@@ -55,18 +31,62 @@ public class InputHandler {
 			break;
 		default:
 			if(inputString.startsWith("pick up")){
-				String itemName = inputString.substring(8);
-				Item itemToPickUp = player.getCurrentLocation().getItemByName(itemName);
-				if(itemToPickUp != null){
-					player.addItemToBackpack(itemToPickUp);
-					player.getCurrentLocation().deleteItemByName(itemName);
-					System.out.println("You picked up: " + itemName);
-				}else{
-					System.out.println("Item does not exists!");
-				}
+				handleInputPickUp(player, inputString);
 			}else{
 				System.out.println("Unknown command!");
 			}
+		}
+	}
+
+	private static void handleInputGoNorth(Player player, Canvas canvas) {
+		if(player.getCurrentLocation().getRoomNorth() != null){
+			player.walkNorth();
+			player.getCurrentLocation().printEntranceText();
+			canvas.repaint();
+		}else{
+			System.out.println("Can not walk to the north!");
+		}
+	}
+	
+	private static void handleInputGoEast(Player player, Canvas canvas) {
+		if(player.getCurrentLocation().getRoomEast() != null){
+			player.walkEast();
+			player.getCurrentLocation().printEntranceText();
+			canvas.repaint();
+		}else{
+			System.out.println("Can not walk to the east!");
+		}
+	}
+	
+	private static void handleInputGoSouth(Player player, Canvas canvas) {
+		if(player.getCurrentLocation().getRoomSouth() != null){
+			player.walkSouth();
+			player.getCurrentLocation().printEntranceText();
+			canvas.repaint();
+		}else{
+			System.out.println("Can not walk to the south!");
+		}
+	}
+	
+	private static void handleInputGoWest(Player player, Canvas canvas) {
+		if(player.getCurrentLocation().getRoomWest() != null){
+			player.walkWest();
+			player.getCurrentLocation().printEntranceText();
+			canvas.repaint();
+		}else{
+			System.out.println("Can not walk to the west!");
+		}
+	}
+	
+	private static void handleInputPickUp(Player player, String inputString) {
+		String itemName = inputString.substring(8);
+		Item itemToPickUp = player.getCurrentLocation().getItemByName(itemName);
+		if(itemToPickUp != null){
+			player.addItemToBackpack(itemToPickUp);
+			player.getCurrentLocation().deleteItemByName(itemName);
+			System.out.println("You picked up: " + itemName);
+		}else{
+			System.out.println("Item does not exists!");
 		}
 	}
 }
