@@ -26,11 +26,11 @@ Hallway 13;X;Room 1258;Hallway 12;Room 1245;true;171;79
 Room 2214;X;Hallway 1;X;X;true;132;589
 Room 2215;X;Hallway 2;X;X;true;132;538
 Room 2244;X;Hallway 3;X;X;true;132;490
-Room 2245;X;Hallway 4;X;X;true;132;444
-Room 4208;X;Hallway 5;X;X;true;132;360
-Room 4214;X;Hallway 6;X;X;true;132;314
-Room 1210;Hallway 8;X;X;X;true;120;258
-Room 1211;X;Hallway 8;X;X;true;91;228
+Room 2245;X;Hallway 4;X;X;false;132;444
+Room 4208;X;Hallway 5;X;X;false;132;360
+Room 4214;X;Hallway 6;X;X;false;132;314
+Room 1210;Hallway 8;X;X;X;false;120;258
+Room 1211;X;Hallway 8;X;X;false;91;228
 WC 1;X;Hallway 10;X;X;true;106;194
 WC 2;X;Hallway 11;X;X;true;104;140
 Room 1245;X;Hallway 13;X;X;true;127;78
