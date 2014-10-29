@@ -5,16 +5,34 @@ import java.util.List;
 
 import pollaxmud.entities.Item.ItemType;
 
+/**
+ * This is the class for the players Backpack
+ * @author Oscar and Daniel
+ *
+ */
 public class Backpack {
 
+	/**
+	 * Maximum capacity for the backpack.
+	 */
 	int Capacity;
+	/**
+	 * The items in the backpack
+	 */
 	List<Item> Inventory;
 	
+	/**
+	 * Constructor for a backpack
+	 */
 	public Backpack(){
 		Capacity = 10;
 		Inventory = new ArrayList();
 	}
 	
+	/**
+	 * Return the amount of free space in a backpack.
+	 * @return The amount of free space as an int.
+	 */
 	public int getSpace(){
 		int weight = 0;
 		for(Item item : Inventory){
@@ -23,6 +41,11 @@ public class Backpack {
 		return Capacity - weight;
 	}
 	
+	/**
+	 * Adds an item to a backpack.
+	 * @param item The item to add to the backpack.
+	 * @return Return true if the item was added successfully.
+	 */
 	public boolean addItem(Item item){
 		if(getSpace() >= item.getWeight()){
 			Inventory.add(item);
@@ -32,6 +55,9 @@ public class Backpack {
 		return false;
 	}
 	
+	/**
+	 * Will print the backpacks inventory to the terminal.
+	 */
 	public void printInventory(){
 		if(Inventory.isEmpty()){
 			System.out.println("Backpack is empty!");
