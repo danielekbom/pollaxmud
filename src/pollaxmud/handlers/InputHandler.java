@@ -8,7 +8,9 @@ import pollaxmud.entities.Player;
 public class InputHandler {
 
 	public static void handleInput(String inputString, Player player, Canvas canvas){
-		if(inputString.equalsIgnoreCase("go north") || inputString.equalsIgnoreCase("n")){
+		switch(inputString){
+		case "go north":
+		case "n":
 			if(player.getCurrentLocation().getRoomNorth() != null){
 				player.walkNorth();
 				player.getCurrentLocation().printEntranceText();
@@ -16,7 +18,9 @@ public class InputHandler {
 			}else{
 				System.out.println("Can not walk to the north!");
 			}
-		}else if(inputString.equalsIgnoreCase("go east") || inputString.equalsIgnoreCase("e")){
+			break;
+		case "go east":
+		case "e":
 			if(player.getCurrentLocation().getRoomEast() != null){
 				player.walkEast();
 				player.getCurrentLocation().printEntranceText();
@@ -24,7 +28,9 @@ public class InputHandler {
 			}else{
 				System.out.println("Can not walk to the east!");
 			}
-		}else if(inputString.equalsIgnoreCase("go south") || inputString.equalsIgnoreCase("s")){
+			break;
+		case "go south":
+		case "s":
 			if(player.getCurrentLocation().getRoomSouth() != null){
 				player.walkSouth();
 				player.getCurrentLocation().printEntranceText();
@@ -32,7 +38,9 @@ public class InputHandler {
 			}else{
 				System.out.println("Can not walk to the south!");
 			}
-		}else if(inputString.equalsIgnoreCase("go west") || inputString.equalsIgnoreCase("w")){
+			break;
+		case "go west":
+		case "w":
 			if(player.getCurrentLocation().getRoomWest() != null){
 				player.walkWest();
 				player.getCurrentLocation().printEntranceText();
@@ -40,21 +48,25 @@ public class InputHandler {
 			}else{
 				System.out.println("Can not walk to the west!");
 			}
-		}else if(inputString.equalsIgnoreCase("inventory")){
+			break;
+		case "inventory":
+		case "i":
 			player.printBackpackInventory();
-		}else if(inputString.startsWith("pick up")){
-			String itemName = inputString.substring(8);
-			Item itemToPickUp = player.getCurrentLocation().getItemByName(itemName);
-			if(itemToPickUp != null){
-				player.addItemToBackpack(itemToPickUp);
-				player.getCurrentLocation().deleteItemByName(itemName);
-				System.out.println("You picked up: " + itemName);
+			break;
+		default:
+			if(inputString.startsWith("pick up")){
+				String itemName = inputString.substring(8);
+				Item itemToPickUp = player.getCurrentLocation().getItemByName(itemName);
+				if(itemToPickUp != null){
+					player.addItemToBackpack(itemToPickUp);
+					player.getCurrentLocation().deleteItemByName(itemName);
+					System.out.println("You picked up: " + itemName);
+				}else{
+					System.out.println("Item does not exists!");
+				}
 			}else{
-				System.out.println("Item does not exists!");
+				System.out.println("Unknown command!");
 			}
-		}else{
-			System.out.println("Unknown command!");
 		}
 	}
-	
 }
