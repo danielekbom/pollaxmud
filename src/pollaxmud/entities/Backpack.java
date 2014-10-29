@@ -12,13 +12,7 @@ import pollaxmud.entities.Item.ItemType;
  */
 public class Backpack {
 
-	/**
-	 * Maximum capacity for the backpack.
-	 */
 	int Capacity;
-	/**
-	 * The items in the backpack
-	 */
 	List<Item> Inventory;
 	
 	/**
