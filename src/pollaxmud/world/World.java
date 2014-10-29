@@ -6,6 +6,7 @@ import java.util.Random;
 
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Key;
+import pollaxmud.entities.Creature;
 
 public class World {
 
@@ -28,6 +29,16 @@ public class World {
 		for(Item item : items){
 			locationToAddTo = this.getRoomAtIndex(rand.nextInt(numberOfRooms));
 			locationToAddTo.addItem(item);
+		}
+	}
+	
+	public void putCreaturesRandomly(List<? extends Creature> creatures) {
+		int numberOfRooms = Rooms.size();
+		Room locationToAddTo;
+		Random rand = new Random();
+		for(Creature creature : creatures){
+			locationToAddTo = this.getRoomAtIndex(rand.nextInt(numberOfRooms));
+			locationToAddTo.addCreature(creature);
 		}
 	}
 	

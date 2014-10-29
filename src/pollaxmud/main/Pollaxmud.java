@@ -16,10 +16,12 @@ import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
+import pollaxmud.entities.Teacher;
 import pollaxmud.gui.MapCanvas;
 import pollaxmud.handlers.InputHandler;
 import pollaxmud.utilities.BookImporter;
 import pollaxmud.utilities.CourseImporter;
+import pollaxmud.utilities.TeacherImporter;
 import pollaxmud.utilities.WorldImporter;
 import pollaxmud.world.World;
 
@@ -31,10 +33,12 @@ public class Pollaxmud {
 	private static Player PlayerOne;
 	private static List<Book> Books;
 	private static List<Course> Courses;
+	private static List<Teacher> Teachers;
 	
 	public static void main(String[] args) {		
 		Books = BookImporter.ImportBooks();
 		Courses = CourseImporter.ImportCourses(Books);
+		Teachers = TeacherImporter.ImportTeachers();
         
 		initializeWorld();
 		
@@ -60,6 +64,7 @@ public class Pollaxmud {
 		StartingWorld = WorldImporter.ImportWorld();
 		StartingWorld.putItemsRandomly(Books);
 		StartingWorld.addKeysToWorld();
+		StartingWorld.putCreaturesRandomly(Teachers);
 	}
 	
 	public static void initializeMap(Canvas mapCanvas, JFrame map){

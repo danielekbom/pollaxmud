@@ -5,6 +5,7 @@ import java.util.List;
 
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Creature;
+import pollaxmud.entities.Creature.CreatureType;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Item.ItemType;
 
@@ -16,7 +17,7 @@ public class Room {
 	private int XPosition;
 	private int YPosition;
 	
-	private Creature[] Creatures;
+	private List<Creature> Creatures = new ArrayList<Creature>();
 	private List<Item> Items = new ArrayList<Item>();
 	
 	private Room RoomNorth;
@@ -40,6 +41,10 @@ public class Room {
 	
 	public void addItem(Item itemToAdd){
 		Items.add(itemToAdd);
+	}
+	
+	public void addCreature(Creature creatureToAdd) {
+		Creatures.add(creatureToAdd);
 	}
 	
 	public String getName(){
@@ -72,12 +77,20 @@ public class Room {
 	public void printEntranceText(){
 		System.out.println("Current location: " + Name);
 		if(!Items.isEmpty()){
-			System.out.println("Items on this location: ");
+			System.out.println("Items on this location:");
 			for(Item item : Items){
 				if(item.getType() == ItemType.BOOK){
 					System.out.println("Book: " + ((Book) item).getName());
 				}else if(item.getType() == ItemType.KEY){
 					System.out.println(item.getName());
+				}
+			}
+		}
+		if(!Creatures.isEmpty()) {
+			System.out.println("People in this location:");
+			for(Creature creature : Creatures) {
+				if(creature.getType() == CreatureType.TEACHER) {
+					System.out.println(creature.getName() + " (Teacher)");
 				}
 			}
 		}
