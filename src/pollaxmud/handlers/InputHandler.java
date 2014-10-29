@@ -8,7 +8,7 @@ import pollaxmud.entities.Player;
 public class InputHandler {
 
 	public static void handleInput(String inputString, Player player, Canvas canvas){
-		if(inputString.equalsIgnoreCase("go north")){
+		if(inputString.equalsIgnoreCase("go north") || inputString.equalsIgnoreCase("n")){
 			if(player.getCurrentLocation().getRoomNorth() != null){
 				player.walkNorth();
 				player.getCurrentLocation().printEntranceText();
@@ -16,7 +16,7 @@ public class InputHandler {
 			}else{
 				System.out.println("Can not walk to the north!");
 			}
-		}else if(inputString.equalsIgnoreCase("go east")){
+		}else if(inputString.equalsIgnoreCase("go east") || inputString.equalsIgnoreCase("e")){
 			if(player.getCurrentLocation().getRoomEast() != null){
 				player.walkEast();
 				player.getCurrentLocation().printEntranceText();
@@ -24,7 +24,7 @@ public class InputHandler {
 			}else{
 				System.out.println("Can not walk to the east!");
 			}
-		}else if(inputString.equalsIgnoreCase("go south")){
+		}else if(inputString.equalsIgnoreCase("go south") || inputString.equalsIgnoreCase("s")){
 			if(player.getCurrentLocation().getRoomSouth() != null){
 				player.walkSouth();
 				player.getCurrentLocation().printEntranceText();
@@ -32,7 +32,7 @@ public class InputHandler {
 			}else{
 				System.out.println("Can not walk to the south!");
 			}
-		}else if(inputString.equalsIgnoreCase("go west")){
+		}else if(inputString.equalsIgnoreCase("go west") || inputString.equalsIgnoreCase("w")){
 			if(player.getCurrentLocation().getRoomWest() != null){
 				player.walkWest();
 				player.getCurrentLocation().printEntranceText();
