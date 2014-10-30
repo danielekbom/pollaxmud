@@ -43,6 +43,8 @@ public class InputHandler {
 		default:
 			if(inputString.startsWith("pick up")){
 				handleInputPickUp(player, inputString);
+			}else if(inputString.startsWith("use key with")){
+				handleInputUseKey(player, inputString);
 			}else{
 				System.out.println("Unknown command!");
 			}
@@ -74,6 +76,10 @@ public class InputHandler {
 	}
 	
 	private static void handleInputPickUp(Player player, String inputString) {
+		if(inputString.length() <= 8){
+			System.out.println("No item specified!");
+			return;
+		}
 		String itemName = inputString.substring(8);
 		Item itemToPickUp = player.getCurrentLocation().getItemByName(itemName);
 		if(itemToPickUp != null){
@@ -83,5 +89,14 @@ public class InputHandler {
 		}else{
 			System.out.println("Item does not exists!");
 		}
+	}
+	
+	private static void handleInputUseKey(Player player, String inputString){
+		if(inputString.length() <= 13){
+			System.out.println("Invalid direction!");
+			return;
+		}
+		String direction = inputString.substring(13);
+		System.out.println(direction);
 	}
 }
