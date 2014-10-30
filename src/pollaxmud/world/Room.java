@@ -7,7 +7,7 @@ import pollaxmud.entities.Book;
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Creature.CreatureType;
 import pollaxmud.entities.Item;
-import pollaxmud.entities.Item.ItemType;
+import pollaxmud.Enums.ItemType;
 
 public class Room {
 

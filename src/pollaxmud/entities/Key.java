@@ -1,4 +1,5 @@
 package pollaxmud.entities;
+import pollaxmud.Enums.ItemType;
 
 public class Key extends Item{
 	

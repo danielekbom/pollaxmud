@@ -1,4 +1,5 @@
 package pollaxmud.entities;
+import pollaxmud.Enums.ItemType;
 
 public class Item {
 	protected int Weight;
@@ -19,9 +20,5 @@ public class Item {
 	
 	public void printName(){
 		System.out.print(Name);
-	}
-	
-	public enum ItemType{
-		BOOK, KEY;
 	}
 }

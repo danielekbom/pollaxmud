@@ -2,8 +2,7 @@ package pollaxmud.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import pollaxmud.entities.Item.ItemType;
+import pollaxmud.Enums.ItemType;
 
 /**
  * This is the class for the players Backpack
