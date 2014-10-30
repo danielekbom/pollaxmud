@@ -2,6 +2,7 @@ package pollaxmud.handlers;
 
 import java.awt.Canvas;
 
+import pollaxmud.Enums.Direction;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
 
@@ -49,8 +50,8 @@ public class InputHandler {
 	}
 
 	private static void handleInputGoNorth(Player player, Canvas canvas) {
-		if(player.getCurrentLocation().getRoomNorth() != null){
-			if(player.getCurrentLocation().getRoomNorth().getUnlocked()){
+		if(player.getCurrentLocation().getRoomInDirection(Direction.NORTH) != null){
+			if(player.getCurrentLocation().getRoomInDirection(Direction.NORTH).getUnlocked()){
 				player.walkNorth();
 				player.getCurrentLocation().printEntranceText();
 				canvas.repaint();
@@ -63,8 +64,8 @@ public class InputHandler {
 	}
 	
 	private static void handleInputGoEast(Player player, Canvas canvas) {
-		if(player.getCurrentLocation().getRoomEast() != null){
-			if(player.getCurrentLocation().getRoomEast().getUnlocked()){
+		if(player.getCurrentLocation().getRoomInDirection(Direction.EAST) != null){
+			if(player.getCurrentLocation().getRoomInDirection(Direction.EAST).getUnlocked()){
 				player.walkEast();
 				player.getCurrentLocation().printEntranceText();
 				canvas.repaint();
@@ -77,8 +78,8 @@ public class InputHandler {
 	}
 	
 	private static void handleInputGoSouth(Player player, Canvas canvas) {
-		if(player.getCurrentLocation().getRoomSouth() != null){
-			if(player.getCurrentLocation().getRoomSouth().getUnlocked()){
+		if(player.getCurrentLocation().getRoomInDirection(Direction.SOUTH) != null){
+			if(player.getCurrentLocation().getRoomInDirection(Direction.SOUTH).getUnlocked()){
 				player.walkSouth();
 				player.getCurrentLocation().printEntranceText();
 				canvas.repaint();
@@ -91,8 +92,8 @@ public class InputHandler {
 	}
 	
 	private static void handleInputGoWest(Player player, Canvas canvas) {
-		if(player.getCurrentLocation().getRoomWest() != null){
-			if(player.getCurrentLocation().getRoomWest().getUnlocked()){
+		if(player.getCurrentLocation().getRoomInDirection(Direction.WEST) != null){
+			if(player.getCurrentLocation().getRoomInDirection(Direction.WEST).getUnlocked()){
 				player.walkWest();
 				player.getCurrentLocation().printEntranceText();
 				canvas.repaint();

@@ -3,10 +3,9 @@ package pollaxmud.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-//import com.sun.javafx.tk.PrintPipeline;
-
 import java.util.Random;
 
+import pollaxmud.Enums.Direction;
 import pollaxmud.world.Room;
 
 public class Player {
@@ -67,19 +66,19 @@ public class Player {
 	}
 
 	public void walkNorth(){
-		setCurrentLocation(CurrentLocation.getRoomNorth());
+		setCurrentLocation(CurrentLocation.getRoomInDirection(Direction.NORTH));
 	}
 	
 	public void walkEast(){
-		setCurrentLocation(CurrentLocation.getRoomEast());
+		setCurrentLocation(CurrentLocation.getRoomInDirection(Direction.EAST));
 	}
 	
 	public void walkSouth(){
-		setCurrentLocation(CurrentLocation.getRoomSouth());
+		setCurrentLocation(CurrentLocation.getRoomInDirection(Direction.SOUTH));
 	}
 	
 	public void walkWest(){
-		setCurrentLocation(CurrentLocation.getRoomWest());
+		setCurrentLocation(CurrentLocation.getRoomInDirection(Direction.WEST));
 	}
 	
 	

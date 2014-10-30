@@ -3,11 +3,10 @@ package pollaxmud.world;
 import java.util.ArrayList;
 import java.util.List;
 
-import pollaxmud.entities.Book;
+import pollaxmud.Enums.Direction;
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Creature.CreatureType;
 import pollaxmud.entities.Item;
-import pollaxmud.Enums.ItemType;
 
 public class Room {
 
@@ -124,6 +123,21 @@ public class Room {
 		RoomWest = room;
 	}
 	
+	public Room getRoomInDirection(Direction direction){
+		switch(direction){
+		case NORTH:
+			return RoomNorth;
+		case EAST:
+			return RoomEast;
+		case SOUTH:
+			return RoomSouth;
+		case WEST:
+			return RoomWest;
+		default:
+			return null;
+		}
+	}
+	/*
 	public Room getRoomNorth(){
 		return RoomNorth;
 	}
@@ -138,7 +152,7 @@ public class Room {
 	
 	public Room getRoomWest(){
 		return RoomWest;
-	}
+	}*/
 	
 	public boolean getUnlocked(){
 		return Unlocked;
