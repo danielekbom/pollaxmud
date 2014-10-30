@@ -39,6 +39,7 @@ public class Pollaxmud {
 		Books = BookImporter.ImportBooks();
 		Courses = CourseImporter.ImportCourses(Books);
 		Teachers = TeacherImporter.ImportTeachers(Courses);
+		// TODO: Add controls here.
 
         
 		initializeWorld();
