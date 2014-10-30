@@ -26,6 +26,9 @@ public class Course {
 	}
 	
 	public String getBookName(){
+		if(CourseBook == null){
+			return "No book";
+		}
 		return CourseBook.getName();
 	}
 }
