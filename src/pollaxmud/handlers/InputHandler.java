@@ -29,6 +29,8 @@ public class InputHandler {
 		case "i":
 			player.printBackpackInventory();
 			break;
+		case "quit":
+			break;
 		default:
 			if(inputString.startsWith("pick up")){
 				handleInputPickUp(player, inputString);
