@@ -24,4 +24,8 @@ public class Course {
 	public int getHP(){
 		return HP;
 	}
+	
+	public String getBookName(){
+		return CourseBook.getName();
+	}
 }

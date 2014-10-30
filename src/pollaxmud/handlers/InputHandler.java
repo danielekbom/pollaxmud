@@ -29,6 +29,10 @@ public class InputHandler {
 		case "i":
 			player.printBackpackInventory();
 			break;
+		case "finished":
+		case "f":
+			handleInputFinished(player);
+			break;
 		case "quit":
 			break;
 		default:
@@ -78,6 +82,11 @@ public class InputHandler {
 		}else{
 			System.out.println("Can not walk to the west!");
 		}
+	}
+	
+	private static void handleInputFinished(Player player){
+		System.out.println("Finished courses: ");
+		player.printFinishedCourses();
 	}
 	
 	private static void handleInputPickUp(Player player, String inputString) {

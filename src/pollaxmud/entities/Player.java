@@ -107,5 +107,15 @@ public class Player {
 	public void printBackpackInventory(){
 		CurrentBackpack.printInventory();
 	}
+
+	public void printFinishedCourses() {
+		int totalCredits = 0;
+		System.out.printf("Name:\tCredits:\tBook:\n");
+		for(Course course : FinishedCourses){
+			System.out.printf("%s\t%d\t%s", course.getName(), course.getHP(), course.getBookName());
+			totalCredits += course.getHP();
+		}
+		System.out.println("Total finished credits: " + totalCredits);
+	}
 	
 }

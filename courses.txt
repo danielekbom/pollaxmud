@@ -1,7 +1,7 @@
 Algebra I;Algebra och geometri 2;5
 Baskurs i matematik;Matematik startbok 2;5
 Introduktion till IT;Intro IT;10
-Envariabelanalys;Calculus;2009;10
+Envariabelanalys;Calculus;10
 Datorarkitektur;Computer architecture and design;10
 Programkonstruktion och datastrukturer;Algorithms;20
 IOOPM;Programming in C;20
