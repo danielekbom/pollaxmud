@@ -50,9 +50,13 @@ public class InputHandler {
 
 	private static void handleInputGoNorth(Player player, Canvas canvas) {
 		if(player.getCurrentLocation().getRoomNorth() != null){
-			player.walkNorth();
-			player.getCurrentLocation().printEntranceText();
-			canvas.repaint();
+			if(player.getCurrentLocation().getRoomNorth().getUnlocked()){
+				player.walkNorth();
+				player.getCurrentLocation().printEntranceText();
+				canvas.repaint();
+			}else{
+				System.out.println("Door is locked!");
+			}
 		}else{
 			System.out.println("Can not walk to the north!");
 		}
@@ -60,9 +64,13 @@ public class InputHandler {
 	
 	private static void handleInputGoEast(Player player, Canvas canvas) {
 		if(player.getCurrentLocation().getRoomEast() != null){
-			player.walkEast();
-			player.getCurrentLocation().printEntranceText();
-			canvas.repaint();
+			if(player.getCurrentLocation().getRoomEast().getUnlocked()){
+				player.walkEast();
+				player.getCurrentLocation().printEntranceText();
+				canvas.repaint();
+			}else{
+				System.out.println("Door is locked!");
+			}
 		}else{
 			System.out.println("Can not walk to the east!");
 		}
@@ -70,9 +78,13 @@ public class InputHandler {
 	
 	private static void handleInputGoSouth(Player player, Canvas canvas) {
 		if(player.getCurrentLocation().getRoomSouth() != null){
-			player.walkSouth();
-			player.getCurrentLocation().printEntranceText();
-			canvas.repaint();
+			if(player.getCurrentLocation().getRoomSouth().getUnlocked()){
+				player.walkSouth();
+				player.getCurrentLocation().printEntranceText();
+				canvas.repaint();
+			}else{
+				System.out.println("Door is locked!");
+			}
 		}else{
 			System.out.println("Can not walk to the south!");
 		}
@@ -80,9 +92,13 @@ public class InputHandler {
 	
 	private static void handleInputGoWest(Player player, Canvas canvas) {
 		if(player.getCurrentLocation().getRoomWest() != null){
-			player.walkWest();
-			player.getCurrentLocation().printEntranceText();
-			canvas.repaint();
+			if(player.getCurrentLocation().getRoomWest().getUnlocked()){
+				player.walkWest();
+				player.getCurrentLocation().printEntranceText();
+				canvas.repaint();
+			}else{
+				System.out.println("Door is locked!");
+			}
 		}else{
 			System.out.println("Can not walk to the west!");
 		}

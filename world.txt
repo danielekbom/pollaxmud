@@ -5,7 +5,7 @@ Room 1214;X;X;X;Hallway 9;true;215;200
 Skrubben;X;X;X;Hallway 7;true;215;238
 Room 4216;X;X;X;Hallway 6;true;214;314
 Personal room;X;X;X;Hallway 5;true;215;360
-Teachers room;X;X;X;Hallway 4;true;214;444
+Teachers room;X;X;X;Hallway 4;false;214;444
 Storehouse 1;X;X;X;Hallway 2;true;215;539
 Room 2203;X;X;X;Hallway 1;true;215;588
 Hallway 1;Hallway 2;Room 2203;X;Room 2214;true;171;591
