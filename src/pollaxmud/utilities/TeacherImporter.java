@@ -12,6 +12,13 @@ import pollaxmud.entities.Teacher;
 
 public class TeacherImporter {
 
+	/**
+	 * Will import Teachers from "teachers.txt" and if the courses
+	 * they teach in exists they will be added to a List of teachers
+	 * that will be returned.
+	 * @param courses The list of courses for the game.
+	 * @return A list of the teachers to add in game.
+	 */
 	public static List<Teacher> ImportTeachers(List<Course> courses){
 		List<Teacher> teachers = new ArrayList<Teacher>();
 		
