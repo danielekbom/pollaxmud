@@ -11,4 +11,11 @@ public class Book extends Item{
 		this.Weight = weight;
 		this.Type = ItemType.BOOK;
 	}
+	
+	@Override
+	public void printName(){
+		super.printName();
+		System.out.print(" (" + Author + ")");
+	}
+	
 }	

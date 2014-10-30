@@ -17,6 +17,10 @@ public class Item {
 		return Name;
 	}
 	
+	public void printName(){
+		System.out.print(Name);
+	}
+	
 	public enum ItemType{
 		BOOK, KEY;
 	}
