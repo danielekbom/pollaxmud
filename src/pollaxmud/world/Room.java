@@ -72,8 +72,10 @@ public class Room {
 	}
 	
 	public void printEntranceText(){
+		System.out.println("***************************************");
 		System.out.println("Current location: " + Name);
 		if(!Items.isEmpty()){
+			System.out.println("---------------------------------------");
 			System.out.println("Items on this location:");
 			for(Item item : Items){
 				item.printName();
@@ -81,14 +83,16 @@ public class Room {
 			}
 		}
 		if(!Creatures.isEmpty()) {
+			System.out.println("---------------------------------------");
 			System.out.println("People in this location:");
 			for(Creature creature : Creatures) {
 				if(creature.getType() == CreatureType.TEACHER) {
-					System.out.println(creature.getName() + " (Teacher)");
+					System.out.println("Teacher: " + creature.getName());
 				}
 			}
 		}
 		System.out.println("---------------------------------------");
+		System.out.println("Possible movements:");
 		if(RoomNorth != null){
 			System.out.println("To the north: " + RoomNorth.getName());
 		}
@@ -101,6 +105,7 @@ public class Room {
 		if(RoomWest != null){
 			System.out.println("To the west: " + RoomWest.getName());
 		}
+		System.out.println("***************************************");
 	}
 	
 	public void setRoomNorth(Room room){

@@ -81,7 +81,7 @@ public class TeacherImporter {
 				}				
 			}
 			if(!found) {
-				Teacher newTeacher = new Teacher(course.getName() + " teacher.", course.getName());
+				Teacher newTeacher = new Teacher(course.getName(), course.getName());
 				newTeachersList.add(newTeacher);
 			}
 			found = false;

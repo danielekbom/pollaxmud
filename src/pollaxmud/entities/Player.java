@@ -109,6 +109,7 @@ public class Player {
 	}
 
 	public void printCourses(boolean finished){
+		System.out.println("---------------------------------------");
 		List<Course> courses = finished ? FinishedCourses : UnfinishedCourses;
 		int totalCredits = 0;
 		System.out.printf("%-30s%-10s%-30s\n", "Name:", "Credits:", "Book:");
