@@ -12,8 +12,8 @@ import pollaxmud.entities.Item.ItemType;
  */
 public class Backpack {
 
-	int Capacity;
-	List<Item> Inventory;
+	private int Capacity;
+	private List<Item> Inventory;
 	
 	/**
 	 * Constructor for a backpack

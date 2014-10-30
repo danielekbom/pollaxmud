@@ -14,6 +14,7 @@ public class Book extends Item{
 	
 	@Override
 	public void printName(){
+		System.out.print("Book: ");
 		super.printName();
 		System.out.print(" (" + Author + ")");
 	}

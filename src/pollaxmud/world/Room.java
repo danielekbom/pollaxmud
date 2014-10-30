@@ -26,10 +26,7 @@ public class Room {
 	private Room RoomWest;
 	
 	public Room(String name, boolean unlocked){
-		this.Name = name;
-		this.Unlocked = unlocked;
-		XPosition = 0;
-		YPosition = 0;
+		this(name, unlocked, 0, 0);
 	}
 	
 	public Room(String name, boolean unlocked, int x, int y){
@@ -79,11 +76,8 @@ public class Room {
 		if(!Items.isEmpty()){
 			System.out.println("Items on this location:");
 			for(Item item : Items){
-				if(item.getType() == ItemType.BOOK){
-					System.out.println("Book: " + ((Book) item).getName());
-				}else if(item.getType() == ItemType.KEY){
-					System.out.println(item.getName());
-				}
+				item.printName();
+				System.out.println();
 			}
 		}
 		if(!Creatures.isEmpty()) {
