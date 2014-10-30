@@ -45,6 +45,10 @@ public class TeacherImporter {
 		}
 		if(teachers.size() < courses.size()) {
 			teachers = addMissingTeachers(teachers, courses);
+		} 
+		if (teachers.size() > courses.size()) {
+			// This should never happen. 
+			AssertionError.class.getClass(); // Crash?
 		}
 		return teachers;
 	}
@@ -52,7 +56,7 @@ public class TeacherImporter {
 	/**
 	 * Looks for a Course in a Course List and return true if it exists.
 	 * @param courseName The name of the Course you are looking for as a String
-	 * @param courses The List och Courses you want to look in.
+	 * @param courses The List of Courses you want to look in.
 	 * @return True if the Course exists. Else False.
 	 */
 	private static boolean courseExists(String courseName, List<Course> courses) {
@@ -64,6 +68,13 @@ public class TeacherImporter {
 		return false;
 	}
 	
+/**
+ * Takes a list of teachers and a list of courses. If there are courses without
+ * teachers they get a new teacher assigned to them.
+ * @param teachers List of teachers.
+ * @param courses List of courses.
+ * @return A list of teachers with the new teachers added to the old ones.
+ */
 	private static List<Teacher> addMissingTeachers(List<Teacher> teachers, List<Course> courses) {
 		boolean found = false;
 		List<Teacher> newTeachersList = new ArrayList<Teacher>();
