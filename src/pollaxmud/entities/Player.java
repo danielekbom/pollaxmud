@@ -30,7 +30,7 @@ public class Player {
 		Course courseToAdd = null;
 		Random rand = new Random();
 			
-		while(getCoursesPoints(finishedCourses) < 60){
+		while(getCoursesPoints(finishedCourses) < STARTING_HP){
 			courseToAdd = courses.get(rand.nextInt(coursesSize));
 			if(!courseExists(courseToAdd.getName(), finishedCourses)){
 				finishedCourses.add(courseToAdd);
