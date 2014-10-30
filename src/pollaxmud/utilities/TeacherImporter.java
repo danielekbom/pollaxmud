@@ -43,13 +43,7 @@ public class TeacherImporter {
 		}catch(IOException e){
 			e.printStackTrace();
 		}
-		if(teachers.size() < courses.size()) {
-			teachers = addMissingTeachers(teachers, courses);
-		} 
-		if (teachers.size() > courses.size()) {
-			// This should never happen. 
-			AssertionError.class.getClass(); // Crash?
-		}
+		teachers = addMissingTeachers(teachers, courses);
 		return teachers;
 	}
 	

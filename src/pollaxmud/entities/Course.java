@@ -20,4 +20,8 @@ public class Course {
 	public String getName() {
 		return Name;
 	}
+	
+	public int getHP(){
+		return HP;
+	}
 }

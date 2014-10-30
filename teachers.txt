@@ -1,4 +1,4 @@
 Albert Einstein;Introduktion till IT
 Galileo Galilei;Algebra I
 Isaac Newton;Envariabelanalys
-Aristotle;Baskurs matematik
+Aristotle;Baskurs i matematik

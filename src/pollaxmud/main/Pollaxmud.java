@@ -44,7 +44,7 @@ public class Pollaxmud {
         
 		initializeWorld();
 		
-		PlayerOne = new Player(StartingWorld.getRoomAtIndex(0));
+		PlayerOne = new Player(StartingWorld.getRoomAtIndex(0), Courses);
 		PlayerOne.getCurrentLocation().printEntranceText();
 		
 		Canvas mapCanvas = new MapCanvas(PlayerOne);
@@ -76,6 +76,18 @@ public class Pollaxmud {
         map.setResizable(false);
         map.add(mapCanvas);
         map.setVisible(true);
+	}
+	
+	private boolean validateGameConditiones(){
+		boolean validGame = false;
+		if(coursesHaveTeachers()){
+			validGame = true;
+		}
+		return validGame;
+	}
+	
+	private boolean coursesHaveTeachers(){
+		return true;
 	}
 
 }
