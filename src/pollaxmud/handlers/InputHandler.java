@@ -33,6 +33,10 @@ public class InputHandler {
 		case "f":
 			handleInputFinished(player);
 			break;
+		case "unfinished":
+		case "u":
+			handleInputUnfinished(player);
+			break;
 		case "quit":
 			break;
 		default:
@@ -86,7 +90,12 @@ public class InputHandler {
 	
 	private static void handleInputFinished(Player player){
 		System.out.println("Finished courses: ");
-		player.printFinishedCourses();
+		player.printCourses(true);
+	}
+	
+	private static void handleInputUnfinished(Player player){
+		System.out.println("Unfinished courses: ");
+		player.printCourses(false);
 	}
 	
 	private static void handleInputPickUp(Player player, String inputString) {

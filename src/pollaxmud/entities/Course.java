@@ -21,6 +21,13 @@ public class Course {
 		return Name;
 	}
 	
+	public String getAbbrName(){
+		if(Name.length() > 25){
+			return Name.substring(0, 25) + "...";
+		}
+		return Name;
+	}
+	
 	public int getHP(){
 		return HP;
 	}

@@ -108,14 +108,15 @@ public class Player {
 		CurrentBackpack.printInventory();
 	}
 
-	public void printFinishedCourses() {
+	public void printCourses(boolean finished){
+		List<Course> courses = finished ? FinishedCourses : UnfinishedCourses;
 		int totalCredits = 0;
-		System.out.printf("Name:\tCredits:\tBook:\n");
-		for(Course course : FinishedCourses){
-			System.out.printf("%s\t%d\t%s", course.getName(), course.getHP(), course.getBookName());
+		System.out.printf("%-30s%-10s%-30s\n", "Name:", "Credits:", "Book:");
+		for(Course course : courses){
+			System.out.printf("%-30s%-10d%-30s\n", course.getAbbrName(), course.getHP(), course.getBookName());
 			totalCredits += course.getHP();
 		}
-		System.out.println("Total finished credits: " + totalCredits);
+		System.out.printf("%-30s%-10d\n", "Total:", totalCredits);
 	}
 	
 }
