@@ -37,8 +37,8 @@ public class Pollaxmud {
 	
 	public static void main(String[] args) {		
 		Books = BookImporter.ImportBooks();
-		Teachers = TeacherImporter.ImportTeachers();
 		Courses = CourseImporter.ImportCourses(Books);
+		Teachers = TeacherImporter.ImportTeachers(Courses);
 
         
 		initializeWorld();

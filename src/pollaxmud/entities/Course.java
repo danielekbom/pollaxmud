@@ -16,4 +16,8 @@ public class Course {
 		this.HP = HP;
 		Questions  = new ArrayList<Question>();
 	}
+	
+	public String getName() {
+		return Name;
+	}
 }

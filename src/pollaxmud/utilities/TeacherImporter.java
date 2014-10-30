@@ -7,11 +7,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import pollaxmud.entities.Course;
 import pollaxmud.entities.Teacher;
 
 public class TeacherImporter {
 
-	public static List<Teacher> ImportTeachers(){
+	public static List<Teacher> ImportTeachers(List<Course> courses){
 		List<Teacher> teachers = new ArrayList<Teacher>();
 		
 		try{
@@ -23,8 +24,12 @@ public class TeacherImporter {
 			Teacher newTeacher;
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
-				newTeacher = new Teacher(data[0], data[1]);
-				teachers.add(newTeacher);
+				if(courseExists(data[1], courses)) {
+					newTeacher = new Teacher(data[0], data[1]);
+					teachers.add(newTeacher);
+				} else {
+					System.out.println("No course named" + data [1] + ". Not adding teacher " + data[0]);
+				}
 			}
 			fileReader.close();
 			
@@ -32,5 +37,20 @@ public class TeacherImporter {
 			e.printStackTrace();
 		}
 		return teachers;
+	}
+	
+	/**
+	 * Looks for a Course in a Course List and return true if it exists.
+	 * @param courseName The name of the Course you are looking for as a String
+	 * @param courses The List och Courses you want to look in.
+	 * @return True if the Course exists. Else False.
+	 */
+	private static boolean courseExists(String courseName, List<Course> courses) {
+		for(Course course : courses) {
+			if(course.getName().equals(courseName)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
