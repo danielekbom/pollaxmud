@@ -1,5 +1,5 @@
 /**
- * @author      Daniel Ekbom, Oscar Sandén <address @ example.com>
+ * @author      Daniel Ekbom, Oscar Sandén
  * @version     1.0
  * @since       2014-10-27
  */
@@ -37,8 +37,9 @@ public class Pollaxmud {
 	
 	public static void main(String[] args) {		
 		Books = BookImporter.ImportBooks();
-		Courses = CourseImporter.ImportCourses(Books);
 		Teachers = TeacherImporter.ImportTeachers();
+		Courses = CourseImporter.ImportCourses(Books);
+
         
 		initializeWorld();
 		
