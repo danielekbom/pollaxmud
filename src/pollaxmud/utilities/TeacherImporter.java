@@ -43,6 +43,9 @@ public class TeacherImporter {
 		}catch(IOException e){
 			e.printStackTrace();
 		}
+		if(teachers.size() < courses.size()) {
+			teachers = addMissingTeachers(teachers, courses);
+		}
 		return teachers;
 	}
 	
@@ -59,5 +62,26 @@ public class TeacherImporter {
 			}
 		}
 		return false;
+	}
+	
+	private static List<Teacher> addMissingTeachers(List<Teacher> teachers, List<Course> courses) {
+		boolean found = false;
+		List<Teacher> newTeachersList = new ArrayList<Teacher>();
+		
+		for(Course course : courses) {
+			for(Teacher teacher : teachers) {
+				if(course.getName().equals(teacher.getCourse())) {
+					found = true;
+					continue;
+				}				
+			}
+			if(!found) {
+				Teacher newTeacher = new Teacher(course.getName() + " teacher.", course.getName());
+				newTeachersList.add(newTeacher);
+			}
+			found = false;
+		}
+		teachers.addAll(newTeachersList); // Merging the lists?
+		return teachers;
 	}
 }
