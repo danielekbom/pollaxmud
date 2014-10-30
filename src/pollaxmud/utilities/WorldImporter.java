@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import pollaxmud.world.Room;
 import pollaxmud.world.World;
+import pollaxmud.Enums.Direction;
 
 public class WorldImporter {
 
@@ -32,10 +33,10 @@ public class WorldImporter {
 				data = line.split(";");
 				roomToAdd = importedWorld.getRoomByName(data[0]);
 				if(roomToAdd != null){
-					if(!data[1].equals("X"))roomToAdd.setRoomNorth(importedWorld.getRoomByName(data[1]));
-					if(!data[2].equals("X"))roomToAdd.setRoomEast(importedWorld.getRoomByName(data[2]));
-					if(!data[3].equals("X"))roomToAdd.setRoomSouth(importedWorld.getRoomByName(data[3]));
-					if(!data[4].equals("X"))roomToAdd.setRoomWest(importedWorld.getRoomByName(data[4]));
+					if(!data[1].equals("X"))roomToAdd.setRoomInDirection(importedWorld.getRoomByName(data[1]), Direction.NORTH);
+					if(!data[2].equals("X"))roomToAdd.setRoomInDirection(importedWorld.getRoomByName(data[2]), Direction.EAST);
+					if(!data[3].equals("X"))roomToAdd.setRoomInDirection(importedWorld.getRoomByName(data[3]), Direction.SOUTH);
+					if(!data[4].equals("X"))roomToAdd.setRoomInDirection(importedWorld.getRoomByName(data[4]), Direction.WEST);
 				}
 			}
 			fileReader.close();

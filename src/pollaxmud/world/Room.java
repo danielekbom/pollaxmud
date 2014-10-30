@@ -107,20 +107,23 @@ public class Room {
 		System.out.println("***************************************");
 	}
 	
-	public void setRoomNorth(Room room){
-		RoomNorth = room;
-	}
-	
-	public void setRoomEast(Room room){
-		RoomEast = room;
-	}
-	
-	public void setRoomSouth(Room room){
-		RoomSouth = room;
-	}
-	
-	public void setRoomWest(Room room){
-		RoomWest = room;
+	public void setRoomInDirection(Room room, Direction direction){
+		switch(direction){
+		case NORTH:
+			RoomNorth = room;
+			break;
+		case EAST:
+			RoomEast = room;
+			break;
+		case SOUTH:
+			RoomSouth = room;
+			break;
+		case WEST:
+			RoomWest = room;
+			break;
+		default:
+			System.out.println("Invalid direction!");
+		}
 	}
 	
 	public Room getRoomInDirection(Direction direction){
@@ -137,22 +140,6 @@ public class Room {
 			return null;
 		}
 	}
-	/*
-	public Room getRoomNorth(){
-		return RoomNorth;
-	}
-	
-	public Room getRoomEast(){
-		return RoomEast;
-	}
-	
-	public Room getRoomSouth(){
-		return RoomSouth;
-	}
-	
-	public Room getRoomWest(){
-		return RoomWest;
-	}*/
 	
 	public boolean getUnlocked(){
 		return Unlocked;
