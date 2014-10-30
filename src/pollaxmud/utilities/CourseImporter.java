@@ -26,12 +26,8 @@ public class CourseImporter {
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
 				Book cBook = findBook(data[1], books);
-				if(cBook == null) {
-					System.out.println("No book named" + data [1] + ". Not adding course.");
-				} else {
-					newCourse = new Course(data[0], cBook ,Integer.parseInt(data[2]));
-					courses.add(newCourse);
-				}
+				newCourse = new Course(data[0], cBook ,Integer.parseInt(data[2]));
+				courses.add(newCourse);
 			}
 			fileReader.close();
 			

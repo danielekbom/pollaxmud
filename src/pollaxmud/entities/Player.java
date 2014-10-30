@@ -23,6 +23,21 @@ public class Player {
 		CurrentLocation = location;
 		CurrentBackpack = new Backpack();
 	}
+
+	private List<Course> initializeFinishedCourses(List<Course> courses) {
+		List<Course> finishedCourses = new ArrayList<Course>();
+		int coursesSize = courses.size();
+		Course courseToAdd = null;
+		Random rand = new Random();
+			
+		while(getCoursesPoints(finishedCourses) < 60){
+			courseToAdd = courses.get(rand.nextInt(coursesSize));
+			if(!courseExists(courseToAdd.getName(), finishedCourses)){
+				finishedCourses.add(courseToAdd);
+			}
+		}
+		return finishedCourses;
+	}
 	
 	private List<Course> initializeUnfinishedCourses(List<Course> finishedCourses, List<Course> courses) {
 		List<Course> unfinishedCourses = new ArrayList<Course>();
@@ -31,22 +46,7 @@ public class Player {
 				unfinishedCourses.add(course);
 			}
 		}
-		return null;
-	}
-
-	private List<Course> initializeFinishedCourses(List<Course> courses) {
-		List<Course> finishedCourses = new ArrayList<Course>();
-		int coursesSize = courses.size();
-		Course courseToAdd = null;
-		Random rand = new Random();
-			
-		while(getCoursesPoints(finishedCourses) < STARTING_HP){
-			courseToAdd = courses.get(rand.nextInt(coursesSize));
-			if(!courseExists(courseToAdd.getName(), finishedCourses)){
-				finishedCourses.add(courseToAdd);
-			}
-		}
-		return finishedCourses;
+		return unfinishedCourses;
 	}
 	
 	private int getCoursesPoints(List<Course> courses){
