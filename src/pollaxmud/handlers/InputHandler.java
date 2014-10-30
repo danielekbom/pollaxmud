@@ -12,19 +12,19 @@ public class InputHandler {
 		switch(inputString){
 		case "go north":
 		case "n":
-			handleInputGoNorth(player, canvas);
+			handleInputGo(player, canvas, Direction.NORTH);
 			break;
 		case "go east":
 		case "e":
-			handleInputGoEast(player, canvas);
+			handleInputGo(player, canvas, Direction.EAST);
 			break;
 		case "go south":
 		case "s":
-			handleInputGoSouth(player, canvas);
+			handleInputGo(player, canvas, Direction.SOUTH);
 			break;
 		case "go west":
 		case "w":
-			handleInputGoWest(player, canvas);
+			handleInputGo(player, canvas, Direction.WEST);
 			break;
 		case "inventory":
 		case "i":
@@ -39,7 +39,6 @@ public class InputHandler {
 			handleInputUnfinished(player);
 			break;
 		case "quit":
-		case "q":
 			break;
 		default:
 			if(inputString.startsWith("pick up")){
@@ -49,60 +48,18 @@ public class InputHandler {
 			}
 		}
 	}
-
-	private static void handleInputGoNorth(Player player, Canvas canvas) {
-		if(player.getCurrentLocation().getRoomInDirection(Direction.NORTH) != null){
-			if(player.getCurrentLocation().getRoomInDirection(Direction.NORTH).getUnlocked()){
-				player.walkNorth();
-				player.getCurrentLocation().printEntranceText();
-				canvas.repaint();
-			}else{
-				System.out.println("Door is locked!");
-			}
-		}else{
-			System.out.println("Can not walk to the north!");
-		}
-	}
 	
-	private static void handleInputGoEast(Player player, Canvas canvas) {
-		if(player.getCurrentLocation().getRoomInDirection(Direction.EAST) != null){
-			if(player.getCurrentLocation().getRoomInDirection(Direction.EAST).getUnlocked()){
-				player.walkEast();
+	private static void handleInputGo(Player player, Canvas canvas, Direction direction) {
+		if(player.getCurrentLocation().getRoomInDirection(direction) != null){
+			if(player.getCurrentLocation().getRoomInDirection(direction).getUnlocked()){
+				player.walk(direction);
 				player.getCurrentLocation().printEntranceText();
 				canvas.repaint();
 			}else{
 				System.out.println("Door is locked!");
 			}
 		}else{
-			System.out.println("Can not walk to the east!");
-		}
-	}
-	
-	private static void handleInputGoSouth(Player player, Canvas canvas) {
-		if(player.getCurrentLocation().getRoomInDirection(Direction.SOUTH) != null){
-			if(player.getCurrentLocation().getRoomInDirection(Direction.SOUTH).getUnlocked()){
-				player.walkSouth();
-				player.getCurrentLocation().printEntranceText();
-				canvas.repaint();
-			}else{
-				System.out.println("Door is locked!");
-			}
-		}else{
-			System.out.println("Can not walk to the south!");
-		}
-	}
-	
-	private static void handleInputGoWest(Player player, Canvas canvas) {
-		if(player.getCurrentLocation().getRoomInDirection(Direction.WEST) != null){
-			if(player.getCurrentLocation().getRoomInDirection(Direction.WEST).getUnlocked()){
-				player.walkWest();
-				player.getCurrentLocation().printEntranceText();
-				canvas.repaint();
-			}else{
-				System.out.println("Door is locked!");
-			}
-		}else{
-			System.out.println("Can not walk to the west!");
+			System.out.println("Can not walk to that direction!");
 		}
 	}
 	

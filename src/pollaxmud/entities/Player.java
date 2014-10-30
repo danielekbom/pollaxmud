@@ -65,22 +65,9 @@ public class Player {
 		return false;
 	}
 
-	public void walkNorth(){
-		setCurrentLocation(CurrentLocation.getRoomInDirection(Direction.NORTH));
+	public void walk(Direction direction){
+		setCurrentLocation(CurrentLocation.getRoomInDirection(direction));
 	}
-	
-	public void walkEast(){
-		setCurrentLocation(CurrentLocation.getRoomInDirection(Direction.EAST));
-	}
-	
-	public void walkSouth(){
-		setCurrentLocation(CurrentLocation.getRoomInDirection(Direction.SOUTH));
-	}
-	
-	public void walkWest(){
-		setCurrentLocation(CurrentLocation.getRoomInDirection(Direction.WEST));
-	}
-	
 	
 	/**
 	 * Set the players location to newLocation
