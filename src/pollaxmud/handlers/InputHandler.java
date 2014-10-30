@@ -39,6 +39,7 @@ public class InputHandler {
 			handleInputUnfinished(player);
 			break;
 		case "quit":
+		case "q":
 			break;
 		default:
 			if(inputString.startsWith("pick up")){

@@ -5,7 +5,7 @@ import java.util.List;
 
 import pollaxmud.Enums.Direction;
 import pollaxmud.entities.Creature;
-import pollaxmud.entities.Creature.CreatureType;
+import pollaxmud.Enums.CreatureType;
 import pollaxmud.entities.Item;
 
 public class Room {

@@ -1,5 +1,7 @@
 package pollaxmud.entities;
 
+import pollaxmud.Enums.CreatureType;
+
 public class Teacher extends Creature {
 	private String Course;
 	

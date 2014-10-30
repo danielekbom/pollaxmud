@@ -1,4 +1,5 @@
 package pollaxmud.entities;
+import pollaxmud.Enums.CreatureType;
 
 /**
  * The creature class. For all types of creatures.
@@ -23,9 +24,5 @@ public class Creature {
 	 */
 	public CreatureType getType() {
 		return Type;
-	}
-	
-	public enum CreatureType{
-		TEACHER, SPHINX, PLAYER; // Player?
 	}
 }
