@@ -69,8 +69,23 @@ public class Player {
 		return false;
 	}
 
-	public void walk(Direction direction){
+	/**
+	 * Will move the player in directions if there is a room in that direction
+	 * and the door there is unlocked.
+	 * @param direction The direction we want to move the player.
+	 * @return If the move succeeded or not.
+	 */
+	public boolean walk(Direction direction){
+		if(this.getCurrentLocation().getRoomInDirection(direction) == null) {
+			System.out.println("There's no door there.");
+			return false;
+		}
+		if(this.getCurrentLocation().getRoomInDirection(direction).getUnlocked() == false) {
+			System.out.println("The door is locked.");
+			return false;
+		}
 		setCurrentLocation(CurrentLocation.getRoomInDirection(direction));
+		return true;
 	}
 	
 	/**

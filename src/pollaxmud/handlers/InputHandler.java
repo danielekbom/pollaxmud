@@ -51,18 +51,19 @@ public class InputHandler {
 		}
 	}
 	
+	// Move what's left here directly into switch case maybe?
 	private static void handleInputGo(Player player, Canvas canvas, Direction direction) {
-		if(player.getCurrentLocation().getRoomInDirection(direction) != null){
-			if(player.getCurrentLocation().getRoomInDirection(direction).getUnlocked()){
-				player.walk(direction);
-				player.getCurrentLocation().printEntranceText();
-				canvas.repaint();
-			}else{
-				System.out.println("Door is locked!");
-			}
-		}else{
-			System.out.println("Can not walk to that direction!");
-		}
+		//if(player.getCurrentLocation().getRoomInDirection(direction) != null){
+			//if(player.getCurrentLocation().getRoomInDirection(direction).getUnlocked()){
+				if(player.walk(direction)) {
+					player.getCurrentLocation().printEntranceText();
+					canvas.repaint();
+				}
+			//}else{
+			//	System.out.println("Door is locked!");
+			//}
+		//}else{
+			//System.out.println("Can not walk to that direction!");
 	}
 	
 	private static void handleInputFinished(Player player){
