@@ -40,5 +40,11 @@ public class RoomTest {
 		testRoom1.deleteItemByName("Test book 1");
 		assertEquals(null, testRoom1.getItemByName("Test book 1"));
 	}
+	/*
+	@Test
+	public void testAdjecentRooms() {
+		fail("Not implemented yet");
+	}
+	*/
 
 }
