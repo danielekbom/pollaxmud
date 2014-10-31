@@ -16,16 +16,16 @@ import pollaxmud.Enums.Direction;
 
 public class PlayerTest {
 	// Rooms for testing
-	Room testRoom1 = new Room("Test room 1", true);
-	Room testRoom2 = new Room("Test room 2", true);
+	private Room testRoom1 = new Room("Test room 1", true);
+	private Room testRoom2 = new Room("Test room 2", true);
 	
 	//Items for testing
-	Book testItem1 = new Book("Test book 1", "Test author 1", "1999", 3);
-	Book testItem2 = new Book("Test book 2", "Test author 2", "2000", 2);
-	Key testItem3 = new Key();
+	private Book testItem1 = new Book("Test book 1", "Test author 1", "1999", 3);
+	private Book testItem2 = new Book("Test book 2", "Test author 2", "2000", 2);
+	private Key testItem3 = new Key();
 	
-	List<Course> testCourses1 = new ArrayList<Course>();
-	Player tester = new Player(testRoom1, testCourses1);
+	private List<Course> testCourses1 = new ArrayList<Course>();
+	private Player tester = new Player(testRoom1, testCourses1);
 	
 	
 	@Test
