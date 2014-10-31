@@ -16,6 +16,11 @@ public class Player {
 	private Backpack CurrentBackpack;
 	private Room CurrentLocation;
 	
+	/**
+	 * The constructor for a player.
+	 * @param location The starting location of the player.
+	 * @param courses The courses the player can take.
+	 */
 	public Player(Room location, List<Course> courses){
 		FinishedCourses = initializeFinishedCourses(courses);
 		UnfinishedCourses = initializeUnfinishedCourses(FinishedCourses, courses);
@@ -89,30 +94,48 @@ public class Player {
 	}
 	
 	/**
-	 * Set the players location to newLocation
-	 *
-	 * @param  newLocation The new location of the player.
+	 * Set the players location.
+	 * @param  newLocation The new location of the player as a Room.
 	 */
 	public void setCurrentLocation(Room newLocation){
 		CurrentLocation = newLocation;
 	}
 
+	/**
+	 * Get the players current position
+	 * @return The position as a Room.
+	 */
 	public Room getCurrentLocation(){
 		return CurrentLocation;
 	}
 	
+	/**
+	 * Get the available space in the backpack of the player.
+	 * @return Space in backpack as an Int.
+	 */
 	public int getBackpackCapacity(){
 		return CurrentBackpack.getSpace();
 	}
 	
+	/**
+	 * Will put an item into the backpack of the player if there is room.
+	 * @param item The item to add to the backpack.
+	 */
 	public void addItemToBackpack(Item item){
 		CurrentBackpack.addItem(item);
 	}
 	
+	/**
+	 * Prints the items inside the backpack of the player.
+	 */
 	public void printBackpackInventory(){
 		CurrentBackpack.printInventory();
 	}
 
+	/**
+	 * Prints the courses the player have taken and can take.
+	 * @param finished ?
+	 */
 	public void printCourses(boolean finished){
 		System.out.println("---------------------------------------");
 		List<Course> courses = finished ? FinishedCourses : UnfinishedCourses;
