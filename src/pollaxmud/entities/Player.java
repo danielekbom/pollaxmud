@@ -26,6 +26,10 @@ public class Player {
 	private List<Course> initializeFinishedCourses(List<Course> courses) {
 		List<Course> finishedCourses = new ArrayList<Course>();
 		int coursesSize = courses.size();
+		// TEST
+		if(coursesSize < 1) {
+			return null;
+		}
 		Course courseToAdd = null;
 		Random rand = new Random();
 			
