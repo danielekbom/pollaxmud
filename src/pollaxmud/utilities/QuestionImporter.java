@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Question;
 
@@ -32,7 +31,7 @@ public class QuestionImporter {
 					}
 				}
 			}
-			addBasicQuestion(Courses);
+			addStandardQuestion(Courses);
 			fileReader.close();
 			
 		}catch(IOException e){
@@ -40,7 +39,7 @@ public class QuestionImporter {
 		}
 	}
 	
-	private static void addBasicQuestion(List<Course> Courses) {
+	private static void addStandardQuestion(List<Course> Courses) {
 		for(Course course : Courses) {
 			if(course.hasNoQuestions()) {
 				Question newQuestion = new Question("What is my favourite color?", "Blue", "Red", "Green", "Black");

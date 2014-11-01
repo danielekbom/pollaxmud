@@ -32,7 +32,8 @@ public class TeacherImporter {
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
 				if(courseExists(data[1], courses)) {
-					newTeacher = new Teacher(data[0], data[1]);
+					Course teachersCourse = getCourse(data[1], courses);
+					newTeacher = new Teacher(data[0], teachersCourse);
 					teachers.add(newTeacher);
 				} else {
 					System.out.println("No course named" + data [1] + ". Not adding teacher " + data[0]);
@@ -45,6 +46,21 @@ public class TeacherImporter {
 		}
 		teachers = addMissingTeachers(teachers, courses);
 		return teachers;
+	}
+	
+	/**
+	 * Will get a course out of a list or courses by its name.
+	 * @param courseName The name of the course wanted.
+	 * @param courses The list of courses.
+	 * @return The course returned.
+	 */
+	private static Course getCourse(String courseName, List<Course> courses) {
+		for(Course course : courses) {
+			if(course.getName().equals(courseName)) {
+				return course;
+			}
+		}
+		return null;
 	}
 	
 	/**
@@ -81,7 +97,7 @@ public class TeacherImporter {
 				}				
 			}
 			if(!found) {
-				Teacher newTeacher = new Teacher(course.getName(), course.getName());
+				Teacher newTeacher = new Teacher(course.getName(), course);
 				newTeachersList.add(newTeacher);
 			}
 			found = false;

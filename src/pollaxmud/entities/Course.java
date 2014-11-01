@@ -2,6 +2,7 @@ package pollaxmud.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Course {
 	
@@ -43,17 +44,18 @@ public class Course {
 		this.Questions.add(newQuestion);
 	}
 	
+	public Question returnRandomQuestion() {
+		int length = this.Questions.size();
+		Random random = new Random();
+		return this.Questions.get(random.nextInt(length));
+	}
+	
 	public boolean hasNoQuestions() {
 		if(this.Questions.isEmpty()) {
 			return true;
 		} else {
 			return false;
 		}
-	}
-	
-	// Temp
-	public String getQuestionByIndex(int i) {
-		return Questions.get(i).printQuestion();
 	}
 	
 	//For testing purposes: Remove in final version
