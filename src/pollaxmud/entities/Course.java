@@ -60,6 +60,7 @@ public class Course {
 	public void printAllQuestions() {
 		for(Question question: this.Questions) {
 			System.out.println(question.printQuestion());
+			question.printOptions();
 		}
 	}
 }
