@@ -14,7 +14,7 @@ public class Course {
 		this.Name = name;
 		this.CourseBook = book;
 		this.HP = HP;
-		Questions  = new ArrayList<Question>();
+		this.Questions  = new ArrayList<Question>();
 	}
 	
 	public String getName() {
@@ -37,5 +37,29 @@ public class Course {
 			return "No book";
 		}
 		return CourseBook.getName();
+	}
+	
+	public void addQuestion(Question newQuestion) {
+		this.Questions.add(newQuestion);
+	}
+	
+	public boolean hasNoQuestions() {
+		if(this.Questions.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	// Temp
+	public String getQuestionByIndex(int i) {
+		return Questions.get(i).printQuestion();
+	}
+	
+	//For testing purposes: Remove in final version
+	public void printAllQuestions() {
+		for(Question question: this.Questions) {
+			System.out.println(question.printQuestion());
+		}
 	}
 }

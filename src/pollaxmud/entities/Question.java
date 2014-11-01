@@ -7,8 +7,14 @@ package pollaxmud.entities;
  */
 public class Question {
 	private String Question;
+	private String Answer;
 	
-	public Question(String question) {
+	public Question(String question, String answer) {
 		this.Question = question;
+		this.Answer = answer;
+	}
+	
+	public String printQuestion() {
+		return this.Question;
 	}
 }

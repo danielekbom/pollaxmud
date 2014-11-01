@@ -23,6 +23,7 @@ import pollaxmud.utilities.BookImporter;
 import pollaxmud.utilities.CourseImporter;
 import pollaxmud.utilities.TeacherImporter;
 import pollaxmud.utilities.WorldImporter;
+import pollaxmud.utilities.QuestionImporter;
 import pollaxmud.world.World;
 
 import javax.swing.JFrame;
@@ -39,9 +40,8 @@ public class Pollaxmud {
 		Books = BookImporter.ImportBooks();
 		Courses = CourseImporter.ImportCourses(Books);
 		Teachers = TeacherImporter.ImportTeachers(Courses);
-		// TODO: Add controls here.
+		QuestionImporter.ImportQuestions(Courses);
 
-        
 		initializeWorld();
 		
 		PlayerOne = new Player(StartingWorld.getRoomAtIndex(0), Courses);
@@ -50,6 +50,14 @@ public class Pollaxmud {
 		Canvas mapCanvas = new MapCanvas(PlayerOne);
         JFrame map = new JFrame();
 		initializeMap(mapCanvas, map);
+		
+		//====================== TEST
+		/*System.out.println("Printing all questions: ");
+		for(Course course: Courses) {
+			System.out.println("==========\nCourse: "+ course.getAbbrName()+ "\nQuestions:");
+			course.printAllQuestions();
+		}*/
+		//====================== END TEST
 		
 		Scanner scanner = new Scanner(System.in);
 		String inputString = "";
