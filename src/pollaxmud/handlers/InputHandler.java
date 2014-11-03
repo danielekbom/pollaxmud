@@ -3,6 +3,7 @@ package pollaxmud.handlers;
 import java.awt.Canvas;
 import java.util.Random;
 
+import pollaxmud.Enums.CreatureType;
 import pollaxmud.Enums.Direction;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Creature;
@@ -50,6 +51,8 @@ public class InputHandler {
 				handleInputPickUp(player, inputString);
 			}else if(inputString.startsWith("use key with")){
 				handleInputUseKey(player, inputString);
+			}else if(inputString.startsWith("talk to")){
+				handleInputTalkTo(player, inputString);
 			}else{
 				System.out.println("Unknown command!");
 			}
@@ -142,6 +145,27 @@ public class InputHandler {
 			System.out.println("Door unlocked!");
 		}else{
 			System.out.println("No locked door in that direction!");
+		}
+	}
+	
+	private static void handleInputTalkTo(Player player, String inputString){
+		if(inputString.length() <= 8){
+			System.out.println("Invalid talk command!");
+			return;
+		}
+		String creatureName = inputString.substring(8);
+		Creature talkingTo = player.getCurrentLocation().getCreatureByName(creatureName);
+		if(talkingTo == null){
+			System.out.println("Can not find anyone with that name!");
+			return;
+		}
+		if(talkingTo.getType() == CreatureType.TEACHER){
+			Teacher teacher = (Teacher)talkingTo;
+			System.out.println("Hi,\nmy name is " + teacher.getName());
+			System.out.println("I am the teacher for \"" + teacher.getCourseName() + "\".");
+			if(!player.isPassedCourse(teacher.getCourse()) && !player.isUnfinishedCourse(teacher.getCourse())){
+				System.out.println("You are not enrolled on my course, please type \"enroll " + teacher.getCourseName() + "\" to enroll.");
+			}
 		}
 	}
 }

@@ -246,4 +246,13 @@ public class Room {
 		return randomTeacher;
 	}
 	
+	public Creature getCreatureByName(String name){
+		for(Creature creature : Creatures){
+			if(creature.getName().equalsIgnoreCase(name)){
+				return creature;
+			}
+		}
+		return null;
+	}
+	
 }
