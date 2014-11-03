@@ -1,5 +1,5 @@
 package pollaxmud.entities;
-import pollaxmud.Enums.ItemType;
+import pollaxmud.enums.ItemType;
 
 public class Book extends Item{
 	private String Author;

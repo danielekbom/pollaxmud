@@ -2,10 +2,9 @@ package pollaxmud.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Random;
 
-import pollaxmud.Enums.Direction;
+import pollaxmud.enums.Direction;
 import pollaxmud.world.Room;
 
 public class Player {

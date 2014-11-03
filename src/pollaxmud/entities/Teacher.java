@@ -2,7 +2,7 @@ package pollaxmud.entities;
 
 import java.util.Scanner;
 
-import pollaxmud.Enums.CreatureType;
+import pollaxmud.enums.CreatureType;
 import pollaxmud.main.Pollaxmud;
 
 public class Teacher extends Creature {

@@ -11,8 +11,8 @@ import pollaxmud.entities.Key;
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Player;
+import pollaxmud.enums.Direction;
 import pollaxmud.world.Room;
-import pollaxmud.Enums.Direction;
 
 public class PlayerTest {
 	// Rooms for testing

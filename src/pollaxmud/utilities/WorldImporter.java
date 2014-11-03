@@ -5,9 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import pollaxmud.enums.Direction;
 import pollaxmud.world.Room;
 import pollaxmud.world.World;
-import pollaxmud.Enums.Direction;
 
 public class WorldImporter {
 

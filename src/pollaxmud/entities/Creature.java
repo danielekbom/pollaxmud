@@ -1,5 +1,5 @@
 package pollaxmud.entities;
-import pollaxmud.Enums.CreatureType;
+import pollaxmud.enums.CreatureType;
 
 /**
  * The creature class. For all types of creatures.
