@@ -23,7 +23,7 @@ public class Player {
 	 */
 	public Player(Room location, List<Course> courses){
 		FinishedCourses = initializeFinishedCourses(courses);
-		UnfinishedCourses = initializeUnfinishedCourses(FinishedCourses, courses);
+		UnfinishedCourses = new ArrayList<Course>();//initializeUnfinishedCourses(FinishedCourses, courses);
 		CurrentLocation = location;
 		CurrentBackpack = new Backpack();
 	}
@@ -47,7 +47,7 @@ public class Player {
 		return finishedCourses;
 	}
 	
-	private List<Course> initializeUnfinishedCourses(List<Course> finishedCourses, List<Course> courses) {
+	/*private List<Course> initializeUnfinishedCourses(List<Course> finishedCourses, List<Course> courses) {
 		List<Course> unfinishedCourses = new ArrayList<Course>();
 		for(Course course : courses){
 			if(!courseExists(course.getName(), finishedCourses)){
@@ -55,7 +55,7 @@ public class Player {
 			}
 		}
 		return unfinishedCourses;
-	}
+	}*/
 	
 	private int getCoursesPoints(List<Course> courses){
 		int points = 0;
@@ -171,6 +171,11 @@ public class Player {
 	public void printCourses(boolean finished){
 		System.out.println("---------------------------------------");
 		List<Course> courses = finished ? FinishedCourses : UnfinishedCourses;
+		if(!finished && courses.isEmpty()){
+			System.out.println("You dont have any unfinished courses!");
+			System.out.println("Look for teachers to enroll to new courses if you need more credits for your exam.");
+			return;
+		}
 		int totalCredits = 0;
 		System.out.printf("%-30s%-10s%-30s\n", "Name:", "Credits:", "Book:");
 		for(Course course : courses){
