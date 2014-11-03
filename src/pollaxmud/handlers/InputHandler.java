@@ -68,6 +68,9 @@ public class InputHandler {
 				Teacher talkingTeacher = player.getCurrentLocation().getRandomTeacher();
 				int randQuest = new Random().nextInt(4);
 				if(player.isPassedCourse(talkingTeacher.getCourse()) && (randQuest == 0 || randQuest == 1)){
+					System.out.println("Hi student, I am teacher for " + talkingTeacher.getCourseName());
+					System.out.println("I can see that you have already finished my course.");
+					System.out.println("Here is a question to see if you still have the required knowledge:");
 					if(talkingTeacher.askQuestion()){
 						System.out.println("Im glad you still remember.");
 						System.out.println("Good bye!");
@@ -82,6 +85,8 @@ public class InputHandler {
 					}
 				}
 				if(player.isUnfinishedCourse(talkingTeacher.getCourse()) && (randQuest != 3)){
+					System.out.println("Hi student, I am teacher for " + talkingTeacher.getCourseName());
+					System.out.println("Give me the correct answer on the following question and you will pass the course.");
 					if(talkingTeacher.askQuestion()){
 						if(player.moveCourse(talkingTeacher.getCourse(), true)){
 							System.out.println("That is correct, congratulations!");
@@ -162,8 +167,8 @@ public class InputHandler {
 		}
 		if(talkingTo.getType() == CreatureType.TEACHER){
 			Teacher teacher = (Teacher)talkingTo;
-			System.out.println("Hi,\nmy name is " + teacher.getName());
-			System.out.println("I am the teacher for \"" + teacher.getCourseName() + "\".");
+			System.out.println("Hi student,\nMy name is " + teacher.getName());
+			System.out.println("I am the teacher of \"" + teacher.getCourseName() + "\".");
 			if(!player.isPassedCourse(teacher.getCourse()) && !player.isUnfinishedCourse(teacher.getCourse())){
 				System.out.println("You are not enrolled on my course, do you want to enroll? (yes/no)");
 				String userAnswer = Pollaxmud.scanner.nextLine();
@@ -180,6 +185,35 @@ public class InputHandler {
 					}
 				}else if(userAnswer.equalsIgnoreCase("no")){
 					System.out.println("Allright, good luck anyway!\nCome back if you change your mind.\nGood bye!");
+				}
+			}else if(player.isPassedCourse(teacher.getCourse())){
+				System.out.println("I can see that you have already finished my course.");
+				System.out.println("Here is a question to see if you still have the required knowledge:");
+				if(teacher.askQuestion()){
+					System.out.println("Im glad you still remember.");
+					System.out.println("Good bye!");
+				}else{
+					if(player.moveCourse(teacher.getCourse(), false)){
+						System.out.println("Wrong answer! You need to take this course again,");
+						System.out.println("moving it to your list of unfinished courses.");
+						System.out.println("Cya!");
+					}else{
+						System.out.println("Error!");
+					}
+				}
+			}else if(player.isUnfinishedCourse(teacher.getCourse())){
+				System.out.println("Give me the correct answer on the following question and you will pass the course.");
+				if(teacher.askQuestion()){
+					if(player.moveCourse(teacher.getCourse(), true)){
+						System.out.println("That is correct, congratulations!");
+						System.out.println("You have passed this course.");
+						System.out.println("Good bye!");
+					}else{
+						System.out.println("Error!");
+					}
+				}else{
+					System.out.println("Wrong answer! Good luck next time.");
+					System.out.println("Cya!");
 				}
 			}
 		}
