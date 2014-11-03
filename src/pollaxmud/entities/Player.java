@@ -193,4 +193,12 @@ public class Player {
 		return CurrentBackpack.containsKey();
 	}
 	
+	public boolean addNewCourseToUnfinished(Course course){
+		if(!courseExists(course.getName(), UnfinishedCourses)){
+			UnfinishedCourses.add(course);
+			return true;
+		}
+		return false;
+	}
+	
 }

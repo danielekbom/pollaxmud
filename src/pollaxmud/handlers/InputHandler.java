@@ -10,6 +10,7 @@ import pollaxmud.entities.Creature;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
 import pollaxmud.entities.Teacher;
+import pollaxmud.main.Pollaxmud;
 import pollaxmud.world.Room;
 
 public class InputHandler {
@@ -164,7 +165,22 @@ public class InputHandler {
 			System.out.println("Hi,\nmy name is " + teacher.getName());
 			System.out.println("I am the teacher for \"" + teacher.getCourseName() + "\".");
 			if(!player.isPassedCourse(teacher.getCourse()) && !player.isUnfinishedCourse(teacher.getCourse())){
-				System.out.println("You are not enrolled on my course, please type \"enroll " + teacher.getCourseName() + "\" to enroll.");
+				System.out.println("You are not enrolled on my course, do you want to enroll? (yes/no)");
+				String userAnswer = Pollaxmud.scanner.nextLine();
+				while(!userAnswer.equalsIgnoreCase("yes") && !userAnswer.equalsIgnoreCase("no")){
+					System.out.println("Excuse me?");
+					userAnswer = Pollaxmud.scanner.nextLine();
+				}
+				if(userAnswer.equalsIgnoreCase("yes")){
+					if(player.addNewCourseToUnfinished(teacher.getCourse())){
+						System.out.println("Okey, you are now enrolled at \"" + teacher.getCourseName() + "\".");
+						System.out.println("Good luck with the studies.\nCya!");
+					}else{
+						System.out.println("Error!");
+					}
+				}else if(userAnswer.equalsIgnoreCase("no")){
+					System.out.println("Allright, good luck anyway!\nCome back if you change your mind.\nGood bye!");
+				}
 			}
 		}
 	}
