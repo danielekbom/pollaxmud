@@ -1,7 +1,5 @@
 package pollaxmud.entities;
 
-import java.util.Scanner;
-
 import pollaxmud.enums.CreatureType;
 import pollaxmud.main.Pollaxmud;
 

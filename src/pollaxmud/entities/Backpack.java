@@ -20,7 +20,7 @@ public class Backpack {
 	 */
 	public Backpack(){
 		Capacity = 10;
-		Inventory = new ArrayList();
+		Inventory = new ArrayList<Item>();
 	}
 	
 	/**

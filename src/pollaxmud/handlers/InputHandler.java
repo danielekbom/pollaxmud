@@ -3,14 +3,12 @@ package pollaxmud.handlers;
 import java.awt.Canvas;
 import java.util.Random;
 
-import pollaxmud.entities.Course;
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
 import pollaxmud.entities.Teacher;
 import pollaxmud.enums.CreatureType;
 import pollaxmud.enums.Direction;
-import pollaxmud.main.Pollaxmud;
 import pollaxmud.world.Room;
 
 public class InputHandler {

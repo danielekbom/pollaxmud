@@ -3,7 +3,6 @@ package pollaxmud.entities;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
  * A question to be asked by teachers.

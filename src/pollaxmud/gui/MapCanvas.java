@@ -2,21 +2,15 @@ package pollaxmud.gui;
 
 import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
 
 import pollaxmud.entities.Player;
 
 public class MapCanvas extends Canvas{
 	
+	private static final long serialVersionUID = 1L;
 	Player player;
 	
 	public MapCanvas(Player player){

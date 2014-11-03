@@ -20,4 +20,8 @@ public class Book extends Item{
 		System.out.print(" (" + Author + ")");
 	}
 	
+	public String getYear(){
+		return Year;
+	}
+	
 }	
