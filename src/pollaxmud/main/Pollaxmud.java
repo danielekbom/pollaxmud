@@ -35,6 +35,7 @@ public class Pollaxmud {
 	private static List<Book> Books;
 	private static List<Course> Courses;
 	private static List<Teacher> Teachers;
+	public static Scanner scanner = new Scanner(System.in);
 	
 	public static void main(String[] args) {		
 		Books = BookImporter.ImportBooks();
@@ -59,7 +60,6 @@ public class Pollaxmud {
 		}*/
 		//====================== END TEST
 		
-		Scanner scanner = new Scanner(System.in);
 		String inputString = "";
 		while(!inputString.equalsIgnoreCase("quit")){
 			inputString = scanner.nextLine();

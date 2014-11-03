@@ -61,7 +61,7 @@ public class Course {
 	//For testing purposes: Remove in final version
 	public void printAllQuestions() {
 		for(Question question: this.Questions) {
-			System.out.println(question.printQuestion());
+			question.printQuestion();
 			question.printOptions();
 		}
 	}

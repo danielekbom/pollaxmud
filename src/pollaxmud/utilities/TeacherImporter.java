@@ -91,7 +91,7 @@ public class TeacherImporter {
 		
 		for(Course course : courses) {
 			for(Teacher teacher : teachers) {
-				if(course.getName().equals(teacher.getCourse())) {
+				if(course.getName().equals(teacher.getCourseName())) {
 					found = true;
 					continue;
 				}				

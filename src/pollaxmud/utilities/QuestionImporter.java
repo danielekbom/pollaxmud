@@ -25,7 +25,7 @@ public class QuestionImporter {
 				data = line.split(";");
 				for(Course course : Courses) {
 					if(course.getName().equals(data[0])) {
-						newQuestion = new Question(data[1],data[2],data[3],data[4],data[5]);
+						newQuestion = new Question(data[1],data[2],data[3],data[4]);
 						course.addQuestion(newQuestion);
 						break;
 					}
@@ -42,7 +42,7 @@ public class QuestionImporter {
 	private static void addStandardQuestion(List<Course> Courses) {
 		for(Course course : Courses) {
 			if(course.hasNoQuestions()) {
-				Question newQuestion = new Question("What is my favourite color?", "Blue", "Red", "Green", "Black");
+				Question newQuestion = new Question("What is my favourite color?", "Blue", "Red", "Green");
 				course.addQuestion(newQuestion);
 			}
 		}

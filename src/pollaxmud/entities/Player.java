@@ -65,6 +65,38 @@ public class Player {
 		return points;
 	}
 	
+	public boolean isPassedCourse(Course chk_course) {
+		for(Course course : FinishedCourses) {
+			if (course == chk_course) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean isUnfinishedCourse(Course chk_course) {
+		for(Course course : UnfinishedCourses) {
+			if (course == chk_course) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public boolean moveCourse(Course course, boolean finished){
+		if(finished && !courseExists(course.getName(), FinishedCourses) && courseExists(course.getName(), UnfinishedCourses)){
+			FinishedCourses.add(course);
+			UnfinishedCourses.remove(course);
+			return true;
+		}
+		if(!finished && courseExists(course.getName(), FinishedCourses) && !courseExists(course.getName(), UnfinishedCourses)){
+			UnfinishedCourses.add(course);
+			FinishedCourses.remove(course);
+			return true;
+		}
+		return false;
+	}
+	
 	private boolean courseExists(String courseName, List<Course> courses) {
 		for(Course course : courses) {
 			if(course.getName().equals(courseName)) {

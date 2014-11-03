@@ -1,6 +1,9 @@
 package pollaxmud.entities;
 
+import java.util.Scanner;
+
 import pollaxmud.Enums.CreatureType;
+import pollaxmud.main.Pollaxmud;
 
 public class Teacher extends Creature {
 	private Course Course;
@@ -16,21 +19,31 @@ public class Teacher extends Creature {
 		this.Type = CreatureType.TEACHER;
 	}
 	
+	public Course getCourse() {
+		return this.Course;
+	}
+	
 	/**
 	 * Get the course the teacher is teaching in.
 	 * @return The course name as a String
 	 */
-	public String getCourse() {
+	public String getCourseName() {
 		return Course.getName();
 	}
 	
 	// TODO check for answers and return true if correct?
 	// Kan man öppna en ny scanner när en redan körs?
 	public boolean askQuestion() {
+		System.out.println("Hi student, I am teacher for " + getCourseName());
 		System.out.println("I have a question for you:");
 		Question askQuestion = this.Course.returnRandomQuestion();
 		askQuestion.printQuestion();
 		askQuestion.printOptions();
-		return true;
+		String input = Pollaxmud.scanner.nextLine();
+		while(!input.equals("1") && !input.equals("2") && !input.equals("3")){
+			System.out.println("Wrong input!");
+			input = Pollaxmud.scanner.nextLine();
+		}
+		return askQuestion.checkAnswer(Integer.parseInt(input));
 	}
 }

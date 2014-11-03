@@ -15,18 +15,17 @@ public class Question {
 	private String Answer;
 	private List<String> Options = new ArrayList<String>();
 	
-	public Question(String question, String answer, String option1, String option2, String option3) {
+	public Question(String question, String answer, String option1, String option2) {
 		this.Question = question;
 		this.Answer = answer;
 		this.Options.add(answer);
 		this.Options.add(option1);
 		this.Options.add(option2);
-		this.Options.add(option3);
 		this.shuffleOptions();
 	}
 	
-	public String printQuestion() {
-		return this.Question;
+	public void printQuestion() {
+		System.out.println(this.Question);
 	}
 	
 	public void printOptions() {
@@ -40,5 +39,12 @@ public class Question {
 	public void shuffleOptions() {
 		Collections.shuffle(this.Options);
 		Collections.shuffle(this.Options);
+	}
+	
+	public boolean checkAnswer(int answer){
+		if(Options.get(answer-1).equals(Answer)){
+			return true;
+		}
+		return false;
 	}
 }

@@ -2,9 +2,11 @@ package pollaxmud.world;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import pollaxmud.Enums.Direction;
 import pollaxmud.entities.Creature;
+import pollaxmud.entities.Teacher;
 import pollaxmud.Enums.CreatureType;
 import pollaxmud.entities.Item;
 
@@ -216,6 +218,32 @@ public class Room {
 	
 	public void unlock(){
 		Unlocked = true;
+	}
+	
+	public boolean containsTeacher(){
+		boolean contains = false;
+		for(Creature creature : Creatures){
+			if(creature.getType() == CreatureType.TEACHER){
+				contains = true;
+			}
+		}
+		return contains;
+	}
+	
+	public Teacher getRandomTeacher(){
+		List<Teacher> teachers = new ArrayList<Teacher>();
+		for(Creature creature : Creatures){
+			if(creature.getType() == CreatureType.TEACHER){
+				teachers.add((Teacher)creature);
+			}
+		}
+		int teachersSize = teachers.size();
+		if(teachersSize == 0){
+			return null;
+		}
+		Random random = new Random();
+		Teacher randomTeacher = teachers.get(random.nextInt(teachersSize));
+		return randomTeacher;
 	}
 	
 }
