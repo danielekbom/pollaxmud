@@ -2,3 +2,18 @@ Albert Einstein;Introduktion till IT
 Galileo Galilei;Algebra I
 Isaac Newton;Envariabelanalys
 Aristotle;Baskurs i matematik
+Louis Pasteur;Datorarkitektur
+Charles Darwin;Programkonstruktion och datastrukturer
+Nikolaus Kopernikus;IOOPM
+Michael Faraday;Linjar algebra och geometri
+James Clerk Maxwell;Automater och logik i modellering av IT-system
+John Dalton;Linjar algebra och geometri II
+Steven Hawking;Operativsystem
+Alfred Nobel;Manniska- datorinteraktion
+Carl von Linne;Sannolikhet och statistik
+Gustaf de Laval;Digitalteknik och elektronik
+Bill Gates;Datorkommunikation I
+Steve Jobs;Berakningsvetenskap
+Thomas Edison;Transformmetoder
+Karl Friedrich Gauss;Signaler och inbyggda system I
+Niels Bohr;Diskret matematik
