@@ -1,4 +1,15 @@
-Algebra och geometri 2;Sven Svensson;2014;2
-Matematik startbok 2;Sven Svensson;2014;2
-Intro IT;Sven Svensson;2014;2
-Calculus;Sven Svensson;2014;2
+Algebra och geometri Intro;S.Lofven;2012;2
+Matematik startbok 2;G.Persson;2002;1
+Intro IT;G.Fridolin;2013;2
+Calculus;A.Romson;2009;3
+Computer architecture and design;F.Reinfeldt;1999;2
+Algorithms;J.Bjorklund;1996;3
+Programming in C;G.Hagglund;1986;2
+Elementary linear algebra;A.Loof;2008;2
+Modell checking;J.Sjostedt;2002;1
+Elementary linear algebra 2;M.Sahlin;2010;2
+Operationssystems for dummies;M.Olofsson;1994;1
+Human computer interactions;G.Schyman;1995;1
+Statistics;J.Akesson;2001;1
+Electricity;A.Troberg;2006;1
+Computercommunication;H.Juholt;2003;1
