@@ -148,4 +148,12 @@ public class Player {
 		System.out.printf("%-30s%-10d\n", "Total:", totalCredits);
 	}
 	
+	public void removeKeyFromBackpack(){
+		CurrentBackpack.removeKey();
+	}
+	
+	public boolean hasKey(){
+		return CurrentBackpack.containsKey();
+	}
+	
 }

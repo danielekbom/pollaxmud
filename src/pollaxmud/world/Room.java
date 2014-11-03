@@ -214,4 +214,8 @@ public class Room {
 		return YPosition;
 	}
 	
+	public void unlock(){
+		Unlocked = true;
+	}
+	
 }

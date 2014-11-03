@@ -5,6 +5,7 @@ import java.awt.Canvas;
 import pollaxmud.Enums.Direction;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
+import pollaxmud.world.Room;
 
 public class InputHandler {
 
@@ -93,11 +94,26 @@ public class InputHandler {
 	}
 	
 	private static void handleInputUseKey(Player player, String inputString){
+		if(!player.hasKey()){
+			System.out.println("You dont have any key!");
+			return;
+		}
 		if(inputString.length() <= 13){
 			System.out.println("Invalid direction!");
 			return;
 		}
-		String direction = inputString.substring(13);
-		System.out.println(direction);
+		Direction direction = Direction.stringToDirection(inputString.substring(13));
+		if(direction == null){
+			System.out.println("Not a valid direction!");
+			return;
+		}
+		Room roomToUnlock = player.getCurrentLocation().getRoomInDirection(direction);
+		if(roomToUnlock != null && !roomToUnlock.getUnlocked()){
+			roomToUnlock.unlock();
+			player.removeKeyFromBackpack();
+			System.out.println("Door unlocked!");
+		}else{
+			System.out.println("No locked door in that direction!");
+		}
 	}
 }

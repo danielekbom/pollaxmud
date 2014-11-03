@@ -2,6 +2,7 @@ package pollaxmud.entities;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import pollaxmud.Enums.ItemType;
 
 /**
@@ -65,6 +66,28 @@ public class Backpack {
 			}
 		}
 		System.out.println("------------------------------");
+	}
+	
+	public boolean containsKey(){
+		boolean contains = false;
+		for(Item item : Inventory){
+			if(item.getType() == ItemType.KEY){
+				contains = true;
+			}
+		}
+		return contains;
+	}
+	
+	public void removeKey(){
+		int indexToRemove = -1;
+		for(Item item : Inventory){
+			if(item.getType() == ItemType.KEY){
+				indexToRemove = Inventory.indexOf(item);
+			}
+		}
+		if(indexToRemove != -1){
+			Inventory.remove(indexToRemove);
+		}
 	}
 	
 }
