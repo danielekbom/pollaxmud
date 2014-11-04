@@ -46,16 +46,6 @@ public class Player {
 		return finishedCourses;
 	}
 	
-	/*private List<Course> initializeUnfinishedCourses(List<Course> finishedCourses, List<Course> courses) {
-		List<Course> unfinishedCourses = new ArrayList<Course>();
-		for(Course course : courses){
-			if(!courseExists(course.getName(), finishedCourses)){
-				unfinishedCourses.add(course);
-			}
-		}
-		return unfinishedCourses;
-	}*/
-	
 	/**
 	 * Return the number of credits the player have from 
 	 * the finished courses.
@@ -197,13 +187,6 @@ public class Player {
 		}
 		System.out.printf("%-30s%-10d\n", "Total:", totalCredits);
 	}
-	
-	/*public boolean removeKeyFromBackpack(){
-		if(CurrentBackpack.removeKey()){
-			return true;
-		}
-		return false;
-	}*/
 	
 	public boolean hasKey(){
 		return CurrentBackpack.containsKey();

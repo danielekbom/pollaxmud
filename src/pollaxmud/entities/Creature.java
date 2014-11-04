@@ -3,7 +3,8 @@ import pollaxmud.enums.CreatureType;
 
 /**
  * The creature class. For all types of creatures.
- * @author oscar
+ * A Creature consists of a Name and a CreatureType.
+ * @author Oscar and Daniel
  *
  */
 public class Creature {
@@ -19,8 +20,8 @@ public class Creature {
 	}
 	
 	/**
-	 * Get the type of the creature (Teacher, sphinx, etc).
-	 * @return The type of the creature as a String.
+	 * Get the Type of the creature.
+	 * @return The Type of the creature.
 	 */
 	public CreatureType getType() {
 		return Type;
