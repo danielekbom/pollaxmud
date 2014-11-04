@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 import pollaxmud.enums.Direction;
 import pollaxmud.world.Room;
@@ -21,9 +22,15 @@ public class WorldImporter {
 			String line;
 			String[] data;
 			Room roomToAdd;
+			Random random = new Random();
+			boolean unlocked;
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
-				roomToAdd = new Room(data[0],Boolean.parseBoolean(data[5]),Integer.parseInt(data[6]),Integer.parseInt(data[7]));
+				unlocked = random.nextBoolean();
+				if(unlocked == false && (data[0].startsWith("Entrance") || data[0].startsWith("Hallway") || data[0].startsWith("Skybridge"))){
+					unlocked = true;
+				}
+				roomToAdd = new Room(data[0],unlocked,Integer.parseInt(data[5]),Integer.parseInt(data[6]));
 				importedWorld.addRoom(roomToAdd);
 			}
 			file = new File("world.txt");
