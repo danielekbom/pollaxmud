@@ -35,9 +35,11 @@ public class Pollaxmud {
 	private static List<Course> Courses;
 	private static List<Teacher> Teachers;
 	private static List<Sphinx> TheSphinx;
+	private static boolean GameFinished;
 	public static Scanner scanner = new Scanner(System.in);
 	
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
+		GameFinished = false;
 		Books = BookImporter.ImportBooks();
 		Courses = CourseImporter.ImportCourses(Books);
 		Teachers = TeacherImporter.ImportTeachers(Courses);
@@ -65,7 +67,7 @@ public class Pollaxmud {
 		//====================== END TEST
 		
 		String inputString = "";
-		while(!inputString.equalsIgnoreCase("quit")){
+		while(!inputString.equalsIgnoreCase("quit") && !GameFinished){
 			inputString = scanner.nextLine();
 			InputHandler.handleInput(inputString, PlayerOne, mapCanvas);
 		}
@@ -89,6 +91,10 @@ public class Pollaxmud {
         map.setResizable(false);
         map.add(mapCanvas);
         map.setVisible(true);
+	}
+	
+	public static void setGameFinished(boolean gameFinished){
+		GameFinished = gameFinished;
 	}
 	
 	@SuppressWarnings("unused")

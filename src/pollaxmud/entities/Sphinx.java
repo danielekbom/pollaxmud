@@ -24,6 +24,8 @@ public class Sphinx extends Creature{
 		System.out.println("So you wish to graduate!");
 		if(player.getFinishedCredits() >= 180 && player.getUnfinishedCourses().isEmpty()) {
 			System.out.println("Congratulations! You have completed Pollax. Well done!");
+			System.out.println("Here is your graduation certificate:");
+			printGraduationCert(player);
 			return true;
 		}
 		if(player.getFinishedCredits() < 180){
@@ -33,5 +35,17 @@ public class Sphinx extends Creature{
 		}
 		System.out.println("Go back to school!");
 		return false;
+	}
+	
+	private void printGraduationCert(Player player){
+		System.out.println("#######################################");
+		System.out.println("####### Graduation Certificate ########");
+		System.out.println("#######################################");
+		for(Course course : player.getFinishedCourses()){
+			System.out.println("# " + course.getName());
+		}
+		System.out.println("#######################################");
+		System.out.println("############### Signature: The Sphinx #");
+		System.out.println("#######################################");
 	}
 }

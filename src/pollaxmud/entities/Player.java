@@ -9,7 +9,7 @@ import pollaxmud.world.Room;
 
 public class Player {
 
-	private final int STARTING_HP = 60;
+	private final int STARTING_HP = 180;
 	private List<Course> UnfinishedCourses;
 	private List<Course> FinishedCourses;
 	private Backpack CurrentBackpack;
@@ -240,6 +240,10 @@ public class Player {
 	
 	public List<Course> getUnfinishedCourses(){
 		return UnfinishedCourses;
+	}
+	
+	public List<Course> getFinishedCourses(){
+		return FinishedCourses;
 	}
 	
 }

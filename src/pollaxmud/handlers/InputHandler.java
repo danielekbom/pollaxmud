@@ -10,6 +10,7 @@ import pollaxmud.entities.Sphinx;
 import pollaxmud.entities.Teacher;
 import pollaxmud.enums.CreatureType;
 import pollaxmud.enums.Direction;
+import pollaxmud.main.Pollaxmud;
 import pollaxmud.world.Room;
 
 public class InputHandler {
@@ -101,8 +102,9 @@ public class InputHandler {
 		if(creature != null) {
 			Sphinx sphinx = (Sphinx)creature;
 			if(sphinx.tryToGraduate(player)) {
-				// TODO: Skriv ut diplom enligt uppgift!
-				// TODO: Avsluta spelet!
+				Pollaxmud.setGameFinished(true);
+				System.out.println("Press enter to exit game!");
+				Pollaxmud.scanner.nextLine();
 			}
 		} else {
 			System.out.println("There is no Sphinx here to graduate you.");
