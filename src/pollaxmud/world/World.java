@@ -43,7 +43,7 @@ public class World {
 		Room locationToAddTo;
 		Random rand = new Random();
 		for(Creature creature : creatures){
-			locationToAddTo = this.getRoomAtIndex(rand.nextInt(numberOfRooms));
+			locationToAddTo = roomsList.get(rand.nextInt(numberOfRooms));
 			locationToAddTo.addCreature(creature);
 		}
 	}
