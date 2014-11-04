@@ -15,6 +15,17 @@ public class InputHandler {
 
 	public static void handleInput(String inputString, Player player, Canvas canvas){
 		switch(inputString){
+		case "help":
+		case "h":
+			System.out.println("Commands:\n(Directions are north, south, east and west");
+			System.out.println("go <direction> - To move the player.\n(Or simply use 'n' for north 's' for south etc.)");
+			System.out.println("inventory - Shows your inventory (Quick 'i')");
+			System.out.println("finished - Show finished courses (Quick 'f')");
+			System.out.println("unfinished - Show unfinished courses (Quick 'u'");
+			System.out.println("pick up <item name> - Pick up an item.");
+			System.out.println("use key with <direction> - Use key to unlock room in a direction.");
+			System.out.println("talk to <name> - Talk to someone.");
+			System.out.println("quit - Quit the game.");
 		case "go north":
 		case "n":
 			handleInputGo(player, canvas, Direction.NORTH);
