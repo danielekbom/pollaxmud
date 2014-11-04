@@ -69,25 +69,26 @@ public class Backpack {
 	}
 	
 	public boolean containsKey(){
-		boolean contains = false;
 		for(Item item : Inventory){
 			if(item.getType() == ItemType.KEY){
-				contains = true;
+				return true;
 			}
 		}
-		return contains;
+		return false;
 	}
 	
-	public void removeKey(){
+	public boolean removeItem(String itemName){
 		int indexToRemove = -1;
 		for(Item item : Inventory){
-			if(item.getType() == ItemType.KEY){
+			if(item.getName().equalsIgnoreCase(itemName)){
 				indexToRemove = Inventory.indexOf(item);
 			}
 		}
 		if(indexToRemove != -1){
 			Inventory.remove(indexToRemove);
+			return true;
 		}
+		return false;
 	}
 	
 	public boolean containsItem(Item itemToFind){
@@ -98,6 +99,15 @@ public class Backpack {
 			}
 		}
 		return false;
+	}
+	
+	public Item getItemByName(String name){
+		for(Item item : Inventory){
+			if(item.getName().equalsIgnoreCase(name)){
+				return item;
+			}
+		}
+		return null;
 	}
 	
 }

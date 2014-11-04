@@ -198,12 +198,32 @@ public class Player {
 		System.out.printf("%-30s%-10d\n", "Total:", totalCredits);
 	}
 	
-	public void removeKeyFromBackpack(){
-		CurrentBackpack.removeKey();
-	}
+	/*public boolean removeKeyFromBackpack(){
+		if(CurrentBackpack.removeKey()){
+			return true;
+		}
+		return false;
+	}*/
 	
 	public boolean hasKey(){
 		return CurrentBackpack.containsKey();
+	}
+	
+	public boolean removeItemFromBackpack(String itemName){
+		if(CurrentBackpack.removeItem(itemName)){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean dropItem(String itemName){
+		Item itemToDrop = CurrentBackpack.getItemByName(itemName);
+		if(itemToDrop != null){
+			CurrentBackpack.removeItem(itemName);
+			CurrentLocation.addItem(itemToDrop);
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean addNewCourseToUnfinished(Course course){

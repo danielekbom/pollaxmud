@@ -18,16 +18,7 @@ public class InputHandler {
 		switch(inputString){
 		case "help":
 		case "h":
-			System.out.println("Commands:\t\t(Directions are north, south, east and west)");
-			System.out.println("go <direction>\t\t- To move the player. (Or simply use 'n' for north 's' for south etc.)");
-			System.out.println("inventory\t\t- Shows your inventory (Quick 'i')");
-			System.out.println("finished\t\t- Show finished courses (Quick 'f')");
-			System.out.println("unfinished\t\t- Show unfinished courses (Quick 'u')");
-			System.out.println("pick up <item name>\t- Pick up an item.");
-			System.out.println("use key with <direction>- Use key to unlock room in a direction.");
-			System.out.println("talk to <name>\t\t- Talk to someone.");
-			System.out.println("graduate\t\t- If the sphinx is in the same room you can try to graduate if you have completed atleast 180 credits of courses.");
-			System.out.println("quit\t\t\t- Quit the game.");
+			handleInputHelp();
 			break;
 		case "go north":
 		case "n":
@@ -64,6 +55,8 @@ public class InputHandler {
 		default:
 			if(inputString.startsWith("pick up")){
 				handleInputPickUp(player, inputString);
+			}else if(inputString.startsWith("drop")){
+				handleInputDrop(player, inputString);
 			}else if(inputString.startsWith("use key with")){
 				handleInputUseKey(player, inputString);
 			}else if(inputString.startsWith("talk to")){
@@ -73,7 +66,20 @@ public class InputHandler {
 			}
 		}
 	}
-	
+
+	private static void handleInputHelp() {
+		System.out.println("Commands:\t\t(Directions are north, south, east and west)");
+		System.out.println("go <direction>\t\t- To move the player. (Or simply use 'n' for north 's' for south etc.)");
+		System.out.println("inventory\t\t- Shows your inventory (Quick 'i')");
+		System.out.println("finished\t\t- Show finished courses (Quick 'f')");
+		System.out.println("unfinished\t\t- Show unfinished courses (Quick 'u')");
+		System.out.println("pick up <item name>\t- Pick up an item.");
+		System.out.println("use key with <direction>- Use key to unlock room in a direction.");
+		System.out.println("talk to <name>\t\t- Talk to someone.");
+		System.out.println("graduate\t\t- If the sphinx is in the same room you can try to graduate if you have completed atleast 180 credits of courses.");
+		System.out.println("quit\t\t\t- Quit the game.");
+	}
+
 	private static void handleInputGo(Player player, Canvas canvas, Direction direction) {
 		if(player.walk(direction)) {
 			canvas.repaint();
@@ -130,6 +136,20 @@ public class InputHandler {
 		}
 	}
 	
+	
+	private static void handleInputDrop(Player player, String inputString) {
+		if(inputString.length() <= 5){
+			System.out.println("No item specified!");
+			return;
+		}
+		String itemName = inputString.substring(5);
+		if(player.dropItem(itemName)){
+			System.out.println("You droped \"" + itemName + "\".");
+		}else{
+			System.out.println("You dont have any item with that name!");
+		}
+	}
+	
 	private static void handleInputUseKey(Player player, String inputString){
 		if(!player.hasKey()){
 			System.out.println("You dont have any key!");
@@ -147,7 +167,7 @@ public class InputHandler {
 		Room roomToUnlock = player.getCurrentLocation().getRoomInDirection(direction);
 		if(roomToUnlock != null && !roomToUnlock.getUnlocked()){
 			roomToUnlock.unlock();
-			player.removeKeyFromBackpack();
+			player.removeItemFromBackpack("Keycard");
 			System.out.println("Door unlocked!");
 		}else{
 			System.out.println("No locked door in that direction!");
