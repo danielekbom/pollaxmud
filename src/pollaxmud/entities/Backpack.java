@@ -25,7 +25,7 @@ public class Backpack {
 	
 	/**
 	 * Return the amount of free space in a backpack.
-	 * @return The amount of free space as an int.
+	 * @return The amount of free space as an integer.
 	 */
 	public int getSpace(){
 		int weight = 0;
@@ -38,7 +38,7 @@ public class Backpack {
 	/**
 	 * Adds an item to a backpack.
 	 * @param item The item to add to the backpack.
-	 * @return Return true if the item was added successfully.
+	 * @return Return true if the item was added successfully, else false.
 	 */
 	public boolean addItem(Item item){
 		if(getSpace() >= item.getWeight()){
@@ -68,6 +68,10 @@ public class Backpack {
 		System.out.println("------------------------------");
 	}
 	
+	/**
+	 * Checks if at least one key exists in the backpacks inventory.
+	 * @return True if a key exists, else false.
+	 */
 	public boolean containsKey(){
 		for(Item item : Inventory){
 			if(item.getType() == ItemType.KEY){
@@ -77,6 +81,11 @@ public class Backpack {
 		return false;
 	}
 	
+	/**
+	 * Removes an item from the backpacks inventory with the same name as itemName if such item exists.
+	 * @param itemName The name of the item to remove.
+	 * @return True if an item was successfully removed, else false.
+	 */
 	public boolean removeItem(String itemName){
 		int indexToRemove = -1;
 		for(Item item : Inventory){
@@ -91,6 +100,11 @@ public class Backpack {
 		return false;
 	}
 	
+	/**
+	 * Checks if itemToFind exists in the backpacks inventory list.
+	 * @param itemToFind The item to check if it exists.
+	 * @return True if itemToFind exists, else false.
+	 */
 	public boolean containsItem(Item itemToFind){
 		if(Inventory.isEmpty()) return false;
 		for(Item item : Inventory){
@@ -101,6 +115,11 @@ public class Backpack {
 		return false;
 	}
 	
+	/**
+	 * Get item from the backpacks inventory list by name.
+	 * @param name The name of the item to be returned.
+	 * @return The item with the name "name", and null if such item does not exist.
+	 */
 	public Item getItemByName(String name){
 		for(Item item : Inventory){
 			if(item.getName().equalsIgnoreCase(name)){
