@@ -1,5 +1,5 @@
 package pollaxmud.entities;
-import pollaxmud.Enums.ItemType;
+import pollaxmud.enums.ItemType;
 
 public class Book extends Item{
 	private String Author;
@@ -18,6 +18,10 @@ public class Book extends Item{
 		System.out.print("Book: ");
 		super.printName();
 		System.out.print(" (" + Author + ")");
+	}
+	
+	public String getYear(){
+		return Year;
 	}
 	
 }	

@@ -2,10 +2,9 @@ package pollaxmud.entities;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import java.util.Random;
 
-import pollaxmud.Enums.Direction;
+import pollaxmud.enums.Direction;
 import pollaxmud.world.Room;
 
 public class Player {
@@ -191,6 +190,18 @@ public class Player {
 	
 	public boolean hasKey(){
 		return CurrentBackpack.containsKey();
+	}
+	
+	public boolean addNewCourseToUnfinished(Course course){
+		if(!courseExists(course.getName(), UnfinishedCourses)){
+			UnfinishedCourses.add(course);
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean haveBookForCourse(Course course){
+		return CurrentBackpack.containsItem((Item)course.getBook());
 	}
 	
 }

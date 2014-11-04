@@ -1,4 +1,4 @@
-package pollaxmud.Enums;
+package pollaxmud.enums;
 
 public enum Direction {
 	NORTH, EAST, SOUTH, WEST;

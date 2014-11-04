@@ -3,7 +3,7 @@ package pollaxmud.entities;
 import java.util.ArrayList;
 import java.util.List;
 
-import pollaxmud.Enums.ItemType;
+import pollaxmud.enums.ItemType;
 
 /**
  * This is the class for the players Backpack
@@ -20,7 +20,7 @@ public class Backpack {
 	 */
 	public Backpack(){
 		Capacity = 10;
-		Inventory = new ArrayList();
+		Inventory = new ArrayList<Item>();
 	}
 	
 	/**
@@ -88,6 +88,16 @@ public class Backpack {
 		if(indexToRemove != -1){
 			Inventory.remove(indexToRemove);
 		}
+	}
+	
+	public boolean containsItem(Item itemToFind){
+		if(Inventory.isEmpty()) return false;
+		for(Item item : Inventory){
+			if(item == itemToFind){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

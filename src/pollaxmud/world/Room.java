@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import pollaxmud.Enums.Direction;
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Teacher;
-import pollaxmud.Enums.CreatureType;
 import pollaxmud.entities.Item;
+import pollaxmud.enums.CreatureType;
+import pollaxmud.enums.Direction;
 
 public class Room {
 

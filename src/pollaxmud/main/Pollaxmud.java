@@ -7,14 +7,11 @@
 package pollaxmud.main;
 
 import java.awt.Canvas;
-import java.awt.Frame;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
-import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
 import pollaxmud.entities.Teacher;
 import pollaxmud.gui.MapCanvas;
@@ -86,10 +83,11 @@ public class Pollaxmud {
         map.setVisible(true);
 	}
 	
+	@SuppressWarnings("unused")
 	private boolean validateGameConditiones(){
-		boolean validGame = false;
-		if(coursesHaveTeachers()){
-			validGame = true;
+		boolean validGame = true;
+		if(!coursesHaveTeachers()){
+			validGame = false;
 		}
 		return validGame;
 	}

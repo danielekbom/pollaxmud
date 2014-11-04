@@ -3,13 +3,12 @@ package pollaxmud.handlers;
 import java.awt.Canvas;
 import java.util.Random;
 
-import pollaxmud.Enums.CreatureType;
-import pollaxmud.Enums.Direction;
-import pollaxmud.entities.Course;
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
 import pollaxmud.entities.Teacher;
+import pollaxmud.enums.CreatureType;
+import pollaxmud.enums.Direction;
 import pollaxmud.world.Room;
 
 public class InputHandler {
@@ -67,32 +66,9 @@ public class InputHandler {
 				Teacher talkingTeacher = player.getCurrentLocation().getRandomTeacher();
 				int randQuest = new Random().nextInt(4);
 				if(player.isPassedCourse(talkingTeacher.getCourse()) && (randQuest == 0 || randQuest == 1)){
-					if(talkingTeacher.askQuestion()){
-						System.out.println("Im glad you still remember.");
-						System.out.println("Good bye!");
-					}else{
-						if(player.moveCourse(talkingTeacher.getCourse(), false)){
-							System.out.println("Wrong answer! You need to take this course again,");
-							System.out.println("moving it to your list of unfinished courses.");
-							System.out.println("Cya!");
-						}else{
-							System.out.println("Error!");
-						}
-					}
-				}
-				if(player.isUnfinishedCourse(talkingTeacher.getCourse()) && (randQuest != 3)){
-					if(talkingTeacher.askQuestion()){
-						if(player.moveCourse(talkingTeacher.getCourse(), true)){
-							System.out.println("That is correct, congratulations!");
-							System.out.println("You have passed this course.");
-							System.out.println("Good bye!");
-						}else{
-							System.out.println("Error!");
-						}
-					}else{
-						System.out.println("Wrong answer! Good luck next time.");
-						System.out.println("Cya!");
-					}
+					ConversationHandler.finishedCourseConversation(player, talkingTeacher);
+				}else if(player.isUnfinishedCourse(talkingTeacher.getCourse()) && (randQuest != 3)){
+					ConversationHandler.unfinishedCourseConversation(player, talkingTeacher);
 				}
 			}
 		}
@@ -161,10 +137,12 @@ public class InputHandler {
 		}
 		if(talkingTo.getType() == CreatureType.TEACHER){
 			Teacher teacher = (Teacher)talkingTo;
-			System.out.println("Hi,\nmy name is " + teacher.getName());
-			System.out.println("I am the teacher for \"" + teacher.getCourseName() + "\".");
 			if(!player.isPassedCourse(teacher.getCourse()) && !player.isUnfinishedCourse(teacher.getCourse())){
-				System.out.println("You are not enrolled on my course, please type \"enroll " + teacher.getCourseName() + "\" to enroll.");
+				ConversationHandler.enrollConversation(player, teacher);
+			}else if(player.isPassedCourse(teacher.getCourse())){
+				ConversationHandler.finishedCourseConversation(player, teacher);
+			}else if(player.isUnfinishedCourse(teacher.getCourse())){
+				ConversationHandler.unfinishedCourseConversation(player, teacher);
 			}
 		}
 	}

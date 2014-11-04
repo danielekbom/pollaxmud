@@ -62,7 +62,11 @@ public class Course {
 	public void printAllQuestions() {
 		for(Question question: this.Questions) {
 			question.printQuestion();
-			question.printOptions();
+			question.printOptions(false);
 		}
+	}
+	
+	public Book getBook(){
+		return CourseBook;
 	}
 }

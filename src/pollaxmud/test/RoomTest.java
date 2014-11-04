@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import pollaxmud.Enums.Direction;
+import pollaxmud.enums.Direction;
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Key;
 import pollaxmud.world.Room;

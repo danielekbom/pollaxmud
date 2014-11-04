@@ -3,7 +3,6 @@ package pollaxmud.entities;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
  * A question to be asked by teachers.
@@ -28,9 +27,14 @@ public class Question {
 		System.out.println(this.Question);
 	}
 	
-	public void printOptions() {
+	public void printOptions(boolean haveBook) {
 		int i = 1;
 		for(String option: Options) {
+			if(haveBook && !option.equals(Answer)){
+				haveBook = false;
+				i++;
+				continue;
+			}
 			System.out.println(i+": " + option);
 			i++;
 		}

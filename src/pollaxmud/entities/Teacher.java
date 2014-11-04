@@ -1,8 +1,6 @@
 package pollaxmud.entities;
 
-import java.util.Scanner;
-
-import pollaxmud.Enums.CreatureType;
+import pollaxmud.enums.CreatureType;
 import pollaxmud.main.Pollaxmud;
 
 public class Teacher extends Creature {
@@ -31,14 +29,12 @@ public class Teacher extends Creature {
 		return Course.getName();
 	}
 	
-	// TODO check for answers and return true if correct?
-	// Kan man öppna en ny scanner när en redan körs?
-	public boolean askQuestion() {
-		System.out.println("Hi student, I am teacher for " + getCourseName());
-		System.out.println("I have a question for you:");
+	public boolean askQuestion(Boolean haveBook) {
 		Question askQuestion = this.Course.returnRandomQuestion();
+		System.out.println("---------------------------------------");
 		askQuestion.printQuestion();
-		askQuestion.printOptions();
+		askQuestion.printOptions(haveBook);
+		System.out.println("---------------------------------------");
 		String input = Pollaxmud.scanner.nextLine();
 		while(!input.equals("1") && !input.equals("2") && !input.equals("3")){
 			System.out.println("Wrong input!");
