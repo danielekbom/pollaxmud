@@ -238,4 +238,8 @@ public class Player {
 		return CurrentBackpack.containsItem((Item)course.getBook());
 	}
 	
+	public List<Course> getUnfinishedCourses(){
+		return UnfinishedCourses;
+	}
+	
 }

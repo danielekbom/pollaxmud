@@ -22,11 +22,16 @@ public class Sphinx extends Creature{
 	 */
 	public boolean tryToGraduate(Player player) {
 		System.out.println("So you wish to graduate!");
-		if(player.getFinishedCredits() >= 180) {
+		if(player.getFinishedCredits() >= 180 && player.getUnfinishedCourses().isEmpty()) {
 			System.out.println("Congratulations! You have completed Pollax. Well done!");
 			return true;
 		}
-		System.out.println("And what sort of degree are you expecting to get with " + Integer.toString(player.getFinishedCredits()) + " credits!\nGo back to school!");
+		if(player.getFinishedCredits() < 180){
+			System.out.println("And what sort of degree are you expecting to get with " + Integer.toString(player.getFinishedCredits()) + " credits!");
+		}else{
+			System.out.println("You need to complete all your unfinished courses before you can get your exam!");
+		}
+		System.out.println("Go back to school!");
 		return false;
 	}
 }
