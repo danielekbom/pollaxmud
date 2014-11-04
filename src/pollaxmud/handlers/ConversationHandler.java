@@ -32,10 +32,11 @@ public class ConversationHandler {
 	}
 	
 	public static void finishedCourseConversation(Player player, Teacher teacher){
+		boolean haveBook = player.haveBookForCourse(teacher.getCourse());
 		teacherIntroduction(teacher);
 		System.out.println("I can see that you have already finished my course.");
 		System.out.println("Here is a question to see if you still have the required knowledge:");
-		if(teacher.askQuestion()){
+		if(teacher.askQuestion(haveBook)){
 			System.out.println("Im glad you still remember.");
 			System.out.println("Good bye!");
 		}else{
@@ -50,9 +51,13 @@ public class ConversationHandler {
 	}
 	
 	public static void unfinishedCourseConversation(Player player, Teacher teacher){
+		boolean haveBook = player.haveBookForCourse(teacher.getCourse());
 		teacherIntroduction(teacher);
 		System.out.println("Give me the correct answer on the following question and you will pass the course.");
-		if(teacher.askQuestion()){
+		if(haveBook){
+			System.out.println("And since you are a proper student and have the coursebook with you I will make it a bit easier for you.");
+		}
+		if(teacher.askQuestion(haveBook)){
 			if(player.moveCourse(teacher.getCourse(), true)){
 				System.out.println("That is correct, congratulations!");
 				System.out.println("You have passed this course.");
@@ -62,6 +67,9 @@ public class ConversationHandler {
 			}
 		}else{
 			System.out.println("Wrong answer! Good luck next time.");
+			if(!haveBook){
+				System.out.println("A little tip, - bring the coursebook next time, it will make it a little bit easier for you.");
+			}
 			System.out.println("Cya!");
 		}
 	}

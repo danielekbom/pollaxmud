@@ -200,4 +200,8 @@ public class Player {
 		return false;
 	}
 	
+	public boolean haveBookForCourse(Course course){
+		return CurrentBackpack.containsItem((Item)course.getBook());
+	}
+	
 }

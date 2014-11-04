@@ -29,11 +29,11 @@ public class Teacher extends Creature {
 		return Course.getName();
 	}
 	
-	public boolean askQuestion() {
+	public boolean askQuestion(Boolean haveBook) {
 		Question askQuestion = this.Course.returnRandomQuestion();
 		System.out.println("---------------------------------------");
 		askQuestion.printQuestion();
-		askQuestion.printOptions();
+		askQuestion.printOptions(haveBook);
 		System.out.println("---------------------------------------");
 		String input = Pollaxmud.scanner.nextLine();
 		while(!input.equals("1") && !input.equals("2") && !input.equals("3")){

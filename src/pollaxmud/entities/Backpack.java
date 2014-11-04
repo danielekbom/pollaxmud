@@ -90,4 +90,14 @@ public class Backpack {
 		}
 	}
 	
+	public boolean containsItem(Item itemToFind){
+		if(Inventory.isEmpty()) return false;
+		for(Item item : Inventory){
+			if(item == itemToFind){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
