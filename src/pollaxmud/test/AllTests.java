@@ -6,11 +6,12 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
+	CourseTest.class,
 	RoomTest.class , 
 	PlayerTest.class, 
 	BackpackTest.class, 
 	TeacherTest.class, 
-	CourseTest.class})
+	SphinxTest.class})
 public class AllTests {
 
 }

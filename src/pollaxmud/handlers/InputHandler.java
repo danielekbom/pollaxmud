@@ -96,7 +96,7 @@ public class InputHandler {
 			Sphinx sphinx = (Sphinx)creature;
 			if(sphinx.tryToGraduate(player)) {
 				// TODO: Skriv ut diplom enligt uppgift!
-				// TODO: Roll the end credits!
+				// TODO: Avsluta spelet!
 			}
 		} else {
 			System.out.println("There is no Sphinx here to graduate you.");

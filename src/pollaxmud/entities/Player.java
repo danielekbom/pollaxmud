@@ -93,22 +93,24 @@ public class Player {
 	
 	public boolean moveCourse(Course course, boolean finished){
 		if(finished && !courseExists(course.getName(), FinishedCourses) && courseExists(course.getName(), UnfinishedCourses)){
-			FinishedCourses.add(course);
-			UnfinishedCourses.remove(course);
+			this.FinishedCourses.add(course);
+			this.UnfinishedCourses.remove(course);
 			return true;
 		}
 		if(!finished && courseExists(course.getName(), FinishedCourses) && !courseExists(course.getName(), UnfinishedCourses)){
-			UnfinishedCourses.add(course);
-			FinishedCourses.remove(course);
+			this.UnfinishedCourses.add(course);
+			this.FinishedCourses.remove(course);
 			return true;
 		}
 		return false;
 	}
 	
 	private boolean courseExists(String courseName, List<Course> courses) {
-		for(Course course : courses) {
-			if(course.getName().equals(courseName)) {
-				return true;
+		if(courses != null) {
+			for(Course course : courses) {
+				if(course.getName().equals(courseName)) {
+					return true;
+				}
 			}
 		}
 		return false;

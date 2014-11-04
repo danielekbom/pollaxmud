@@ -30,7 +30,7 @@ public class CourseTest {
 		assertEquals(testCourse2.getName(), "TestCourse2");
 		assertEquals(testCourse2.getAbbrName(), "TestCourse2");
 		assertEquals(testCourse2.getHP(), 5);
-		assertEquals(testCourse2.getBookName(), null);
+		assertEquals(testCourse2.getBookName(), "No book");
 	}
 	
 	@Test
