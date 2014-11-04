@@ -10,7 +10,6 @@ import java.awt.Canvas;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Player;
@@ -40,15 +39,11 @@ public class Pollaxmud {
 	
 	public static void main(String[] args) {
 		GameFinished = false;
-		Books = BookImporter.ImportBooks();
-		Courses = CourseImporter.ImportCourses(Books);
-		Teachers = TeacherImporter.ImportTeachers(Courses);
-		QuestionImporter.ImportQuestions(Courses);
+		importStuff();
 		
 		TheSphinx = new ArrayList<Sphinx>();
-		Sphinx newSphinx = new Sphinx();
-		TheSphinx.add(newSphinx);
-
+		TheSphinx.add(new Sphinx());
+		
 		initializeWorld();
 		
 		PlayerOne = new Player(StartingWorld.getRoomAtIndex(0), Courses);
@@ -74,6 +69,13 @@ public class Pollaxmud {
 		exitGame(map);
 	}
 	
+	private static void importStuff() {
+		Books = BookImporter.ImportBooks();
+		Courses = CourseImporter.ImportCourses(Books);
+		Teachers = TeacherImporter.ImportTeachers(Courses);
+		QuestionImporter.ImportQuestions(Courses);
+	}
+
 	public static void initializeWorld(){
 		StartingWorld = WorldImporter.ImportWorld();
 		StartingWorld.putItemsRandomly(Books);
@@ -101,18 +103,4 @@ public class Pollaxmud {
 		scanner.close();
 		System.out.println("Exits game");
 	}
-	
-	@SuppressWarnings("unused")
-	private boolean validateGameConditiones(){
-		boolean validGame = true;
-		if(!coursesHaveTeachers()){
-			validGame = false;
-		}
-		return validGame;
-	}
-	
-	private boolean coursesHaveTeachers(){
-		return true;
-	}
-
 }
