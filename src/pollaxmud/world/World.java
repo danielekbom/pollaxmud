@@ -32,14 +32,30 @@ public class World {
 		}
 	}
 	
-	public void putCreaturesRandomly(List<? extends Creature> creatures) {
-		int numberOfRooms = Rooms.size();
+	public void putCreaturesRandomly(List<? extends Creature> creatures, boolean onlyLockedRooms){
+		List<Room> roomsList;
+		if(onlyLockedRooms){
+			roomsList = getLockedRooms();
+		}else{
+			roomsList = Rooms;
+		}
+		int numberOfRooms = roomsList.size();
 		Room locationToAddTo;
 		Random rand = new Random();
 		for(Creature creature : creatures){
 			locationToAddTo = this.getRoomAtIndex(rand.nextInt(numberOfRooms));
 			locationToAddTo.addCreature(creature);
 		}
+	}
+	
+	public List<Room> getLockedRooms(){
+		List<Room> lockedRooms = new ArrayList<Room>();
+		for(Room room : Rooms){
+			if(!room.getUnlocked()){
+				lockedRooms.add(room);
+			}
+		}
+		return lockedRooms;
 	}
 	
 	public int getNumberOfLockedRooms(){

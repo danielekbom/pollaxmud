@@ -78,8 +78,8 @@ public class Pollaxmud {
 		StartingWorld = WorldImporter.ImportWorld();
 		StartingWorld.putItemsRandomly(Books);
 		StartingWorld.addKeysToWorld();
-		StartingWorld.putCreaturesRandomly(Teachers);
-		StartingWorld.putCreaturesRandomly(TheSphinx);
+		StartingWorld.putCreaturesRandomly(Teachers, false);
+		StartingWorld.putCreaturesRandomly(TheSphinx, true);
 	}
 	
 	public static void initializeMap(Canvas mapCanvas, JFrame map){
