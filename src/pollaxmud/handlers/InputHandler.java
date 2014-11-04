@@ -121,9 +121,10 @@ public class InputHandler {
 		String itemName = inputString.substring(8);
 		Item itemToPickUp = player.getCurrentLocation().getItemByName(itemName);
 		if(itemToPickUp != null){
-			player.addItemToBackpack(itemToPickUp);
-			player.getCurrentLocation().deleteItemByName(itemName);
-			System.out.println("You picked up: " + itemName);
+			if(player.addItemToBackpack(itemToPickUp)){
+				player.getCurrentLocation().deleteItemByName(itemName);
+				System.out.println("You picked up: " + itemName);
+			}
 		}else{
 			System.out.println("Item does not exists!");
 		}

@@ -163,8 +163,11 @@ public class Player {
 	 * Will put an item into the backpack of the player if there is room.
 	 * @param item The item to add to the backpack.
 	 */
-	public void addItemToBackpack(Item item){
-		CurrentBackpack.addItem(item);
+	public boolean addItemToBackpack(Item item){
+		if(CurrentBackpack.addItem(item)){
+			return true;
+		}
+		return false;
 	}
 	
 	/**
