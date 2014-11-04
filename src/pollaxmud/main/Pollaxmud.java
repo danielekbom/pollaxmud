@@ -71,9 +71,7 @@ public class Pollaxmud {
 			inputString = scanner.nextLine();
 			InputHandler.handleInput(inputString, PlayerOne, mapCanvas);
 		}
-		
-		scanner.close();
-		System.out.println("Exits game");
+		exitGame(map);
 	}
 	
 	public static void initializeWorld(){
@@ -95,6 +93,13 @@ public class Pollaxmud {
 	
 	public static void setGameFinished(boolean gameFinished){
 		GameFinished = gameFinished;
+	}
+	
+	private static void exitGame(JFrame map){
+		map.setVisible(false);
+		map.dispose();
+		scanner.close();
+		System.out.println("Exits game");
 	}
 	
 	@SuppressWarnings("unused")
