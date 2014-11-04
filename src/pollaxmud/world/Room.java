@@ -129,6 +129,10 @@ public class Room {
 				if(creature.getType() == CreatureType.TEACHER) {
 					System.out.println("Teacher: " + creature.getName());
 				}
+				if(creature.getType() == CreatureType.SPHINX) {
+					System.out.println("Sphinx: " + creature.getName());
+				}
+				//  TODO: Add student here.
 			}
 		}
 		System.out.println("---------------------------------------");
@@ -218,6 +222,19 @@ public class Room {
 	
 	public void unlock(){
 		Unlocked = true;
+	}
+	
+	/**
+	 * If there is a Sphinx in the room returns it. If not returns null.
+	 * @return A Sphinx if present, else null.
+	 */
+	public Creature getSphinx() {
+		for(Creature creature : Creatures){
+			if(creature.getType() == CreatureType.SPHINX){
+				return creature;
+			}
+		}
+		return null;
 	}
 	
 	public boolean containsTeacher(){

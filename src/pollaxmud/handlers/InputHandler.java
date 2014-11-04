@@ -6,6 +6,7 @@ import java.util.Random;
 import pollaxmud.entities.Creature;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Player;
+import pollaxmud.entities.Sphinx;
 import pollaxmud.entities.Teacher;
 import pollaxmud.enums.CreatureType;
 import pollaxmud.enums.Direction;
@@ -17,15 +18,17 @@ public class InputHandler {
 		switch(inputString){
 		case "help":
 		case "h":
-			System.out.println("Commands:\n(Directions are north, south, east and west");
-			System.out.println("go <direction> - To move the player.\n(Or simply use 'n' for north 's' for south etc.)");
-			System.out.println("inventory - Shows your inventory (Quick 'i')");
-			System.out.println("finished - Show finished courses (Quick 'f')");
-			System.out.println("unfinished - Show unfinished courses (Quick 'u'");
-			System.out.println("pick up <item name> - Pick up an item.");
-			System.out.println("use key with <direction> - Use key to unlock room in a direction.");
-			System.out.println("talk to <name> - Talk to someone.");
-			System.out.println("quit - Quit the game.");
+			System.out.println("Commands:\t\t(Directions are north, south, east and west)");
+			System.out.println("go <direction>\t\t- To move the player. (Or simply use 'n' for north 's' for south etc.)");
+			System.out.println("inventory\t\t- Shows your inventory (Quick 'i')");
+			System.out.println("finished\t\t- Show finished courses (Quick 'f')");
+			System.out.println("unfinished\t\t- Show unfinished courses (Quick 'u')");
+			System.out.println("pick up <item name>\t- Pick up an item.");
+			System.out.println("use key with <direction>- Use key to unlock room in a direction.");
+			System.out.println("talk to <name>\t\t- Talk to someone.");
+			System.out.println("graduate\t\t- If the sphinx is in the same room you can try to graduate if you have completed atleast 180 credits of courses.");
+			System.out.println("quit\t\t\t- Quit the game.");
+			break;
 		case "go north":
 		case "n":
 			handleInputGo(player, canvas, Direction.NORTH);
@@ -54,6 +57,8 @@ public class InputHandler {
 		case "u":
 			handleInputUnfinished(player);
 			break;
+		case "graduate":
+			handleInputGraduate(player);
 		case "quit":
 			break;
 		default:
@@ -82,6 +87,19 @@ public class InputHandler {
 					ConversationHandler.unfinishedCourseConversation(player, talkingTeacher);
 				}
 			}
+		}
+	}
+	
+	private static void handleInputGraduate(Player player) {
+		Creature creature = player.getCurrentLocation().getSphinx();
+		if(creature != null) {
+			Sphinx sphinx = (Sphinx)creature;
+			if(sphinx.tryToGraduate(player)) {
+				// TODO: Skriv ut diplom enligt uppgift!
+				// TODO: Roll the end credits!
+			}
+		} else {
+			System.out.println("There is no Sphinx here to graduate you.");
 		}
 	}
 	
@@ -155,6 +173,10 @@ public class InputHandler {
 			}else if(player.isUnfinishedCourse(teacher.getCourse())){
 				ConversationHandler.unfinishedCourseConversation(player, teacher);
 			}
+		}
+		if(talkingTo.getType() == CreatureType.SPHINX) {
+			Sphinx sphinx = (Sphinx)talkingTo;
+			sphinx.printUselessInfo();
 		}
 	}
 }

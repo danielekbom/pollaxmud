@@ -7,12 +7,14 @@
 package pollaxmud.main;
 
 import java.awt.Canvas;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Player;
+import pollaxmud.entities.Sphinx;
 import pollaxmud.entities.Teacher;
 import pollaxmud.gui.MapCanvas;
 import pollaxmud.handlers.InputHandler;
@@ -32,6 +34,7 @@ public class Pollaxmud {
 	private static List<Book> Books;
 	private static List<Course> Courses;
 	private static List<Teacher> Teachers;
+	private static List<Sphinx> TheSphinx;
 	public static Scanner scanner = new Scanner(System.in);
 	
 	public static void main(String[] args) {		
@@ -39,6 +42,10 @@ public class Pollaxmud {
 		Courses = CourseImporter.ImportCourses(Books);
 		Teachers = TeacherImporter.ImportTeachers(Courses);
 		QuestionImporter.ImportQuestions(Courses);
+		
+		TheSphinx = new ArrayList<Sphinx>();
+		Sphinx newSphinx = new Sphinx();
+		TheSphinx.add(newSphinx);
 
 		initializeWorld();
 		
@@ -72,6 +79,7 @@ public class Pollaxmud {
 		StartingWorld.putItemsRandomly(Books);
 		StartingWorld.addKeysToWorld();
 		StartingWorld.putCreaturesRandomly(Teachers);
+		StartingWorld.putCreaturesRandomly(TheSphinx);
 	}
 	
 	public static void initializeMap(Canvas mapCanvas, JFrame map){

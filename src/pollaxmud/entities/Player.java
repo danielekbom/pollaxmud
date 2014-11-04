@@ -56,6 +56,15 @@ public class Player {
 		return unfinishedCourses;
 	}*/
 	
+	/**
+	 * Return the number of credits the player have from 
+	 * the finished courses.
+	 * @return Finished credits as an int.
+	 */
+	public int getFinishedCredits() {
+		return getCoursesPoints(this.FinishedCourses);
+	}
+	
 	private int getCoursesPoints(List<Course> courses){
 		int points = 0;
 		for(Course course : courses){
