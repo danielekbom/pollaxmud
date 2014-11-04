@@ -3,13 +3,20 @@ package pollaxmud.entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 import pollaxmud.enums.Direction;
 import pollaxmud.world.Room;
 
+/**
+ * Class for representing the Player that the person that is playing the game is controlling.
+ * A Player has a list of Unfinished courses, a list of Finished courses, a Backpack,
+ * a CurrentLocation which is the Room the Player is currently in,
+ * and an integer representing how many finished high school points the Player should start with.
+ * @author Daniel and Oscar
+ *
+ */
 public class Player {
 
-	private final int STARTING_HP = 180;
+	private final int STARTING_HP = 60;
 	private List<Course> UnfinishedCourses;
 	private List<Course> FinishedCourses;
 	private Backpack CurrentBackpack;
