@@ -6,7 +6,8 @@ import java.util.List;
 import pollaxmud.enums.ItemType;
 
 /**
- * This is the class for the players Backpack
+ * This is the class for the players Backpack.
+ * A Backpack have a max Capacity and a list of Items called Inventory.
  * @author Oscar and Daniel
  *
  */
@@ -16,7 +17,7 @@ public class Backpack {
 	private List<Item> Inventory;
 	
 	/**
-	 * Constructor for a backpack
+	 * Constructor for a backpack.
 	 */
 	public Backpack(){
 		Capacity = 10;
