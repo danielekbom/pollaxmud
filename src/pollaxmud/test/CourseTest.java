@@ -17,7 +17,6 @@ public class CourseTest {
 	// Questions
 	private Question Question1 = new Question("Question1?", "Answer", "Option1", "Option2");
 	private Question Question2 = new Question("Question2?", "Answer", "Option1", "Option2");
-	private Question Question3 = new Question("Question3?", "Answer", "Option1", "Option2");
 	
 	@Test
 	public void testCourseGetters() {
