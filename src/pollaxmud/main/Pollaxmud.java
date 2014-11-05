@@ -48,7 +48,7 @@ public class Pollaxmud {
 	 * Main method which is the starting point of the game.
 	 * World, Player, Books, Courses, Teachers and a Sphinx are created.
 	 * This method also contains the actual game loop, which is a loop looking for user input until "quit" is inputed, which exits the game.  
-	 * @param args
+	 * @param args Program parameters.
 	 */
 	public static void main(String[] args) {
 		GameFinished = false;

@@ -194,6 +194,7 @@ public class Player {
 	/**
 	 * Will put an item into the backpack of the player if there is room.
 	 * @param item True if the Item was successfully added to the backpack, else false.
+	 * @return True if the add was successful, else false.
 	 */
 	public boolean addItemToBackpack(Item item){
 		if(CurrentBackpack.addItem(item)){
