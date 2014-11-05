@@ -4,6 +4,11 @@ import pollaxmud.entities.Player;
 import pollaxmud.entities.Teacher;
 import pollaxmud.main.Pollaxmud;
 
+/**
+ * 
+ * @author Daniel
+ *
+ */
 public class ConversationHandler {
 
 	public static void teacherIntroduction(Teacher teacher){
