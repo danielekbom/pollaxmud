@@ -94,7 +94,6 @@ public class BackpackTest {
 		assertTrue(TestBackpack4.addItem(testItem6));
 		// Get the one first added to the backpack.
 		assertEquals(TestBackpack4.getItemByName("Keycard"), testItem5);
-		
 	}
 	
 

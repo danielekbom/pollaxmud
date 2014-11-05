@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import pollaxmud.entities.Book;
+import pollaxmud.enums.ItemType;
 
 public class BookTest {
 	private Book testBook1 = new Book("Test book 1", "Test author 1", "2014", 3);
@@ -26,7 +27,11 @@ public class BookTest {
 	@Test
 	public void testGetWeight() {
 		assertEquals(testBook1.getWeight(), 3);
-
+	}
+	
+	@Test
+	public void testGetType() {
+		assertEquals(testBook1.getType(), ItemType.BOOK);
 	}
 
 }
