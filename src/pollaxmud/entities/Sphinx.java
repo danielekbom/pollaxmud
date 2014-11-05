@@ -2,8 +2,18 @@ package pollaxmud.entities;
 
 import pollaxmud.enums.CreatureType;
 
+/**
+ * A class representing a Sphinx, which inherits from the Creature class.
+ * The Sphinx is used in the game as a creature who graduates the player at the end of the game.
+ * A Sphinx has a Name and a CreatureType.
+ * @author Daniel and Oscar
+ *
+ */
 public class Sphinx extends Creature{
 
+	/**
+	 * The constructor of a Sphinx.
+	 */
 	public Sphinx () {
 		this.Name = "Sphinx of Pollax";
 		this.Type = CreatureType.SPHINX;
@@ -18,7 +28,9 @@ public class Sphinx extends Creature{
 	
 	/**
 	 * Try to graduate and complete the game.
-	 * @return True if you graduate else false.
+	 * If the player meets all the requirements for graduation, then he will be graduated.
+	 * @param player The Player object who the player of the game is controlling. 
+	 * @return True if the player successfully graduated, else false.
 	 */
 	public boolean tryToGraduate(Player player) {
 		System.out.println("So you wish to graduate!");
@@ -37,6 +49,10 @@ public class Sphinx extends Creature{
 		return false;
 	}
 	
+	/**
+	 * Prints the graduation certificate when the player graduates.
+	 * @param player The Player object who the player of the game is controlling. 
+	 */
 	private void printGraduationCert(Player player){
 		System.out.println("#######################################");
 		System.out.println("####### Graduation Certificate ########");

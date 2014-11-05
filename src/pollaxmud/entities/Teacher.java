@@ -3,6 +3,13 @@ package pollaxmud.entities;
 import pollaxmud.enums.CreatureType;
 import pollaxmud.main.Pollaxmud;
 
+/**
+ * This class represents a teacher in the game.
+ * The teacher can ask questions to the player, which then have the chance to complete courses.
+ * A teacher inherits from the Creature class. It has a Name, a CreatureType and a specific course bounded to itself.
+ * @author Daniel and Oscar
+ *
+ */
 public class Teacher extends Creature {
 	private Course Course;
 	
@@ -17,18 +24,28 @@ public class Teacher extends Creature {
 		this.Type = CreatureType.TEACHER;
 	}
 	
+	/**
+	 * Getter for the teacher's course.
+	 * @return The course that is bounded to the teacher.
+	 */
 	public Course getCourse() {
 		return this.Course;
 	}
 	
 	/**
-	 * Get the course the teacher is teaching in.
-	 * @return The course name as a String
+	 * Get the Name of the course the teacher is teaching in.
+	 * @return The name of the teacher's course.
 	 */
 	public String getCourseName() {
 		return Course.getName();
 	}
 	
+	/**
+	 * Asks a question from the bounded course to the user.
+	 * The question and options are printed and the player is then able to give an answer.
+	 * @param haveBook Whether the player have to book for the bounden course.
+	 * @return True if the player gives the correct answer, else false.
+	 */
 	public boolean askQuestion(Boolean haveBook) {
 		Question askQuestion = this.Course.returnRandomQuestion();
 		System.out.println("---------------------------------------");
