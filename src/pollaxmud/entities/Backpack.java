@@ -42,7 +42,7 @@ public class Backpack {
 	 * @return Return true if the item was added successfully, else false.
 	 */
 	public boolean addItem(Item item){
-		if(getSpace() >= item.getWeight()){
+		if(getSpace() >= item.getWeight() && !containsItem(item)){
 			Inventory.add(item);
 			return true;
 		}
