@@ -61,6 +61,10 @@ public class World {
 		}else{
 			roomsList = Rooms;
 		}
+		if(roomsList.size() == 0){
+			System.out.println("No locked rooms to add creatures to!");
+			return;
+		}
 		int numberOfRooms = roomsList.size();
 		Room locationToAddTo;
 		Random rand = new Random();
@@ -104,7 +108,11 @@ public class World {
 	 * @return The room with the given index in the worlds rooms list.
 	 */
 	public Room getRoomAtIndex(int index){
-		return Rooms.get(index);
+		if(index >= 0 && index < Rooms.size()){
+			return Rooms.get(index);
+		}else{
+			return null;
+		}
 	}
 	
 	/**
@@ -132,6 +140,14 @@ public class World {
 			keys.add(new Key());
 		}
 		putItemsRandomly(keys);
+	}
+	
+	/**
+	 * Getter for the World's list of rooms.
+	 * @return A list of the Rooms in the world.
+	 */
+	public List<Room> getRooms(){
+		return Rooms;
 	}
 	
 }
