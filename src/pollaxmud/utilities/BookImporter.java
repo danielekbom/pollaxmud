@@ -10,10 +10,18 @@ import java.util.List;
 import pollaxmud.entities.Book;
 
 /**
- * Imports books from books.txt
+ * Imports Books from books.txt
+ * The format of the file is one book on each line.
+ * The format of a line is "BookName;Author;Year;Weight".
+ * The text file needs to be placed in the project root.
+ * @author Daniel and Oscar
  */
 public class BookImporter {
 
+	/**
+	 * Imports the books.
+	 * @return A list of imported Books.
+	 */
 	public static List<Book> ImportBooks(){
 		List<Book> books = new ArrayList<Book>();
 		

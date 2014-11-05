@@ -8,12 +8,23 @@ import java.util.List;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Question;
 
+/**
+ * Imports Questions from questions.txt
+ * The format of the file is one Question on each line.
+ * The format of a line is "CourseName;QuestionString;Correct answer;Wrong answer;Another wrong answer".
+ * The text file needs to be placed in the project root.
+ * @author Daniel and Oscar
+ */
 public class QuestionImporter {
 	
+	/**
+	 * Imports the questions and adds them to its corresponding course.
+	 * @param Courses A list of courses which the questions should be added to.
+	 */
 	public static void ImportQuestions(List<Course> Courses){
 		
 		try{
-			File file = new File("Questions.txt");
+			File file = new File("questions.txt");
 			FileReader fileReader = new FileReader(file);
 			BufferedReader bufferedReader = new BufferedReader(fileReader);
 			String line;
@@ -37,6 +48,10 @@ public class QuestionImporter {
 		}
 	}
 	
+	/**
+	 * Adds a standard question to the courses that did not had any corresponding questions in the questions.txt file.
+	 * @param Courses List of courses.
+	 */
 	private static void addStandardQuestion(List<Course> Courses) {
 		for(Course course : Courses) {
 			if(course.hasNoQuestions()) {

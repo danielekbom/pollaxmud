@@ -10,8 +10,20 @@ import pollaxmud.enums.Direction;
 import pollaxmud.world.Room;
 import pollaxmud.world.World;
 
+/**
+ * Imports Rooms from world.txt and adds them to a World.
+ * The format of the file is one Room on each line.
+ * The format of a line is "RoomName;North RoomName;East RoomName;South RoomName;West RoomName;X-coordinate;Y-coordinate".
+ * The x and y coordinates are used to draw the player on the map canvas when its walking around in the world.
+ * The text file needs to be placed in the project root.
+ * @author Daniel and Oscar
+ */
 public class WorldImporter {
 
+	/**
+	 * Imports the Rooms and adds them to a world.
+	 * @return A world with the imported Rooms.
+	 */
 	public static World ImportWorld(){
 		World importedWorld = new World();
 		
