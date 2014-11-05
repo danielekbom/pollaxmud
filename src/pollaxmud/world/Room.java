@@ -10,6 +10,14 @@ import pollaxmud.entities.Item;
 import pollaxmud.enums.CreatureType;
 import pollaxmud.enums.Direction;
 
+/**
+ * Class representing a Room.
+ * A room consists of a Name, a x and y coordinate, lists of Creatures and Items,
+ * and a boolean representing whether the Room is locked or not.
+ * It also consists of four Room fields, one in each direction.
+ * @author Daniel and Oscar
+ *
+ */
 public class Room {
 
 	private String Name;
@@ -206,7 +214,7 @@ public class Room {
 	
 	/**
 	 * Gets the x-coordinate for a room.
-	 * @return The x-coordinate as a Int.
+	 * @return The x-coordinate.
 	 */
 	public int getXPosition(){
 		return XPosition;
@@ -214,12 +222,15 @@ public class Room {
 	
 	/**
 	 * Gets the y-coordinate for a room.
-	 * @return The y-coordinate as a Int.
+	 * @return The y-coordinate.
 	 */
 	public int getYPosition(){
 		return YPosition;
 	}
 	
+	/**
+	 * Unlocks the room.
+	 */
 	public void unlock(){
 		Unlocked = true;
 	}
@@ -237,6 +248,10 @@ public class Room {
 		return null;
 	}
 	
+	/**
+	 * Checks if the room contains a Teacher.
+	 * @return True if the room contains a Teacher, else false.
+	 */
 	public boolean containsTeacher(){
 		boolean contains = false;
 		for(Creature creature : Creatures){
@@ -247,6 +262,10 @@ public class Room {
 		return contains;
 	}
 	
+	/**
+	 * Get a random teacher from the room if there is any teachers.
+	 * @return A Teacher if there is any in the room, else null.
+	 */
 	public Teacher getRandomTeacher(){
 		List<Teacher> teachers = new ArrayList<Teacher>();
 		for(Creature creature : Creatures){
@@ -263,6 +282,11 @@ public class Room {
 		return randomTeacher;
 	}
 	
+	/**
+	 * Finds a creature in the room with the same name as a given string.
+	 * @param name The given string to compare with creature names.
+	 * @return A Creature with the same name as the given string if such Creature exists, else null.
+	 */
 	public Creature getCreatureByName(String name){
 		for(Creature creature : Creatures){
 			if(creature.getName().equalsIgnoreCase(name)){
