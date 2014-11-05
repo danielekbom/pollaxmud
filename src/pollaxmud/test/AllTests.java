@@ -7,6 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 @RunWith(Suite.class)
 @SuiteClasses({ 
 	BookTest.class,
+	KeyTest.class,
 	CourseTest.class,
 	RoomTest.class , 
 	PlayerTest.class, 
