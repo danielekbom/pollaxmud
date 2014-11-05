@@ -26,11 +26,14 @@ public class CourseTest {
 		assertEquals(testCourse1.getAbbrName(), "TestCourse with a fairly ...");
 		assertEquals(testCourse1.getHP(), 10);
 		assertEquals(testCourse1.getBookName(), "Test book 1");
+		assertEquals(testCourse1.getBook(), testItem1);
 		//Tests course 2 (Short name, no book)
 		assertEquals(testCourse2.getName(), "TestCourse2");
 		assertEquals(testCourse2.getAbbrName(), "TestCourse2");
 		assertEquals(testCourse2.getHP(), 5);
 		assertEquals(testCourse2.getBookName(), "No book");
+		assertEquals(testCourse2.getBook(), null);
+
 	}
 	
 	@Test
