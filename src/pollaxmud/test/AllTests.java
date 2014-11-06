@@ -9,6 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	BookTest.class,
 	KeyTest.class,
 	CourseTest.class,
+	QuestionTest.class,
 	RoomTest.class , 
 	PlayerTest.class, 
 	BackpackTest.class, 
