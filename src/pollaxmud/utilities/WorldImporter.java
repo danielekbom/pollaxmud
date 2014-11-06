@@ -61,6 +61,9 @@ public class WorldImporter {
 			fileReader.close();
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(Exception e){
+			System.err.println(e.getMessage() + ":\n\tError while impoting the world! You can not play like this.\n"
+					+ "Your world.txt may be corrupted.");
 		}
 		
 		return importedWorld;

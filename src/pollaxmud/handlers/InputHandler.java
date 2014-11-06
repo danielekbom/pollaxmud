@@ -28,6 +28,15 @@ public class InputHandler {
 	 * @param canvas The canvas where that map is drawn.
 	 */
 	public static void handleInput(String inputString, Player player, Canvas canvas){
+		try{
+			if(inputString == null || player == null || canvas == null){
+				throw new NullPointerException();
+			}
+		}catch(NullPointerException e){
+			System.err.println("NullPointerException:\n\tWeird stuff just happened!"
+					+ "Important things are null which means inputs can not be handled.");
+			return;
+		}
 		switch(inputString){
 		case "help":
 		case "h":

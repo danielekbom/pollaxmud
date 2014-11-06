@@ -38,11 +38,12 @@ public class BookImporter {
 				books.add(newBook);
 			}
 			fileReader.close();
-			
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(Exception e){
+			System.err.println(e.getMessage() + ":\n\tError while impoting Books! You can not play like this.\n"
+					+ "Your books.txt may be corrupted.");
 		}
-		
 		return books;
 	}
 }

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
+
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Question;
 
@@ -45,6 +46,9 @@ public class QuestionImporter {
 			
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(Exception e){
+			System.err.println(e.getMessage() + ":\n\tError while impoting Questions! You can not play like this.\n"
+					+ "Your questions.txt may be corrupted.");
 		}
 	}
 	

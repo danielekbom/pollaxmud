@@ -45,6 +45,9 @@ public class CourseImporter {
 			
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(Exception e){
+			System.err.println(e.getMessage() + ":\n\tError while impoting Courses! You can not play like this.\n"
+					+ "Your courses.txt may be corrupted.");
 		}
 		return courses;
 	}

@@ -51,6 +51,9 @@ public class TeacherImporter {
 			
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(Exception e){
+			System.err.println(e.getMessage() + ":\n\tError while impoting Teachers! You can not play like this.\n"
+					+ "Your teachers.txt may be corrupted.");
 		}
 		teachers = addMissingTeachers(teachers, courses);
 		return teachers;
