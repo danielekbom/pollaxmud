@@ -55,7 +55,7 @@ public class WorldImporter {
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
 				if(data.length != 7){
-					throw new CustomException("Import file has invalid format!","CorruptedImportFileException");
+					throw new CustomException("Import file world.txt has invalid format!","CorruptedImportFileException");
 				}
 				roomToAdd = importedWorld.getRoomByName(data[0]);
 				if(roomToAdd != null){
