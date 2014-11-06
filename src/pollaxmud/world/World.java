@@ -7,6 +7,7 @@ import java.util.Random;
 import pollaxmud.entities.Item;
 import pollaxmud.entities.Key;
 import pollaxmud.entities.Creature;
+import pollaxmud.exceptions.CustomException;
 
 /**
  * Class representing a World.
@@ -30,8 +31,14 @@ public class World {
 	 * @param roomToAdd Room to be added to the world.
 	 */
 	public void addRoom(Room roomToAdd){
-		if(roomToAdd != null){
-			Rooms.add(roomToAdd);
+		try{
+			if(roomToAdd != null){
+				Rooms.add(roomToAdd);
+			}else{
+				throw new CustomException("Cant add null to a World's Rooms list!","NullRoomException");
+			}
+		}catch(CustomException e){
+			e.printMessage();
 		}
 	}
 	
@@ -108,9 +115,10 @@ public class World {
 	 * @return The room with the given index in the worlds rooms list.
 	 */
 	public Room getRoomAtIndex(int index){
-		if(index >= 0 && index < Rooms.size()){
+		try{
 			return Rooms.get(index);
-		}else{
+		}catch(IndexOutOfBoundsException e){
+			System.err.println("IndexOutOfBoundsException:\n\tTried to get a room at an invalid index!");
 			return null;
 		}
 	}
