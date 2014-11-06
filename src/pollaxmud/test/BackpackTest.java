@@ -50,6 +50,8 @@ public class BackpackTest {
 		// Remove something that's not there.
 		assertFalse(TestBackpack.removeItem("Test book 3"));
 		assertEquals(TestBackpack.getSpace(), 10);
+		// Try to add null
+		assertFalse(TestBackpack.addItem(null));
 	}
 	
 	@Test

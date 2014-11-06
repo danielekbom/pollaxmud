@@ -78,6 +78,7 @@ public class Pollaxmud {
 		while(!inputString.equalsIgnoreCase("quit") && !GameFinished){
 			inputString = scanner.nextLine();
 			InputHandler.handleInput(inputString, PlayerOne, mapCanvas);
+			PlayerOne.addItemToBackpack(null);
 		}
 		exitGame(map);
 	}

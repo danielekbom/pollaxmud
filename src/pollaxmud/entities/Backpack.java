@@ -30,10 +30,15 @@ public class Backpack {
 	 */
 	public int getSpace(){
 		int weight = 0;
-		for(Item item : Inventory){
-			weight += item.getWeight();
+		try{
+			for(Item item : Inventory){
+				weight += item.getWeight();
+			}
+			return Capacity - weight;
+		}catch(NullPointerException e){
+			System.out.println("NullPointerException:\n\tInventory is null!");
+			return -1;
 		}
-		return Capacity - weight;
 	}
 	
 	/**
@@ -42,9 +47,17 @@ public class Backpack {
 	 * @return Return true if the item was added successfully, else false.
 	 */
 	public boolean addItem(Item item){
-		if(getSpace() >= item.getWeight() && !containsItem(item)){
-			Inventory.add(item);
-			return true;
+		try{
+			if(getSpace() >= item.getWeight() && !containsItem(item)){
+				Inventory.add(item);
+				return true;
+			}
+		}catch(NullPointerException e){
+			System.err.println("NullPointerException:\n\tCan not add null to the backpack!");
+			return false;
+		}catch(Exception e){
+			System.err.println(e.toString() + ":\n\tSomething went wrong!");
+			return false;
 		}
 		System.out.println("Not enough space in backpack!");
 		return false;
@@ -54,19 +67,28 @@ public class Backpack {
 	 * Will print the backpacks inventory to the terminal.
 	 */
 	public void printInventory(){
-		if(Inventory.isEmpty()){
-			System.out.println("Backpack is empty!");
+		try{
+			if(Inventory.isEmpty()){
+				System.out.println("Backpack is empty!");
+				return;
+			}
+		}catch(NullPointerException e){
+			System.err.println("NullPointerException:\n\tInventory is null!");
 			return;
 		}
-		System.out.println("Inventory:\tFree space: " + getSpace() + " liter");
-		for(Item item : Inventory){
-			if(item.getType() == ItemType.BOOK){
-				System.out.println("Book: " + ((Book) item).getName() + " (" + item.getWeight() + " liter)");
-			}else if(item.getType() == ItemType.KEY){
-				System.out.println(item.getName() + " (" + item.getWeight() + " liter)");
+		try{
+			System.out.println("Inventory:\tFree space: " + getSpace() + " liter");
+			for(Item item : Inventory){
+				if(item.getType() == ItemType.BOOK){
+					System.out.println("Book: " + ((Book) item).getName() + " (" + item.getWeight() + " liter)");
+				}else if(item.getType() == ItemType.KEY){
+					System.out.println(item.getName() + " (" + item.getWeight() + " liter)");
+				}
 			}
+			System.out.println("------------------------------");
+		}catch(Exception e){
+			System.err.println("Exception:\n\tSomething whent wrong!");
 		}
-		System.out.println("------------------------------");
 	}
 	
 	/**
@@ -74,6 +96,7 @@ public class Backpack {
 	 * @return True if a key exists, else false.
 	 */
 	public boolean containsKey(){
+		if(Inventory == null) return false;
 		for(Item item : Inventory){
 			if(item.getType() == ItemType.KEY){
 				return true;
@@ -88,6 +111,8 @@ public class Backpack {
 	 * @return True if an item was successfully removed, else false.
 	 */
 	public boolean removeItem(String itemName){
+		if(itemName == null) return false;
+		if(Inventory == null) return false;
 		int indexToRemove = -1;
 		for(Item item : Inventory){
 			if(item.getName().equalsIgnoreCase(itemName)){
@@ -107,6 +132,7 @@ public class Backpack {
 	 * @return True if itemToFind exists, else false.
 	 */
 	public boolean containsItem(Item itemToFind){
+		if(itemToFind == null) return false;
 		if(Inventory.isEmpty()) return false;
 		for(Item item : Inventory){
 			if(item == itemToFind){
@@ -122,6 +148,8 @@ public class Backpack {
 	 * @return The item with the name "name", and null if such item does not exist.
 	 */
 	public Item getItemByName(String name){
+		if(name == null) return null;
+		if(Inventory == null || Inventory.size() == 0) return null;
 		for(Item item : Inventory){
 			if(item.getName().equalsIgnoreCase(name)){
 				return item;
