@@ -6,7 +6,10 @@ import org.junit.Test;
 
 import pollaxmud.enums.Direction;
 import pollaxmud.entities.Book;
+import pollaxmud.entities.Course;
 import pollaxmud.entities.Key;
+import pollaxmud.entities.Sphinx;
+import pollaxmud.entities.Teacher;
 import pollaxmud.world.Room;
 
 public class RoomTest {
@@ -17,9 +20,12 @@ public class RoomTest {
 	private Room testRoom3 = new Room("Test room 1", false);
 	// Items for testing
 	private Book testItem1 = new Book("Test book 1", "Test author 1", "1999", 3);
-	private Book testItem2 = new Book("Test book 2", "Test author 2", "2000", 2);
 	private Key testItem3 = new Key();
 	private Key testItem4 = new Key();
+	// Creatures for testing
+	private Course testCourse = new Course("Test course", null, 5);
+	private Teacher testTeacher = new Teacher("Test teacher", testCourse);
+	private Sphinx testSphinx = new Sphinx();
 	
 	@Test
 	public void testName() {
@@ -78,6 +84,10 @@ public class RoomTest {
 		assertEquals(testRoom1.getUnlocked(), true);
 		assertEquals(testRoom2.getUnlocked(), true);
 		assertEquals(testRoom3.getUnlocked(), false);
+		testRoom3.unlock();
+		assertEquals(testRoom3.getUnlocked(), true);
+		testRoom2.unlock();
+		assertEquals(testRoom2.getUnlocked(), true);
 	}
 	
 	@Test
@@ -89,5 +99,22 @@ public class RoomTest {
 		assertEquals(testRoom3.getXPosition(), 0);
 		assertEquals(testRoom3.getYPosition(), 0);
 	}
-
+	
+	@Test
+	public void testCreature() {
+		// Try to get creature from empty room.
+		assertFalse(testRoom1.containsTeacher());
+		assertEquals(testRoom1.getCreatureByName("Test teacher"), null);
+		// Add teacher and get it.
+		testRoom1.addCreature(testTeacher);
+		assertEquals(testRoom1.getCreatureByName("Test teacher"), testTeacher);
+		// Test random teacher method with only 1 teacher.
+		assertEquals(testRoom1.getRandomTeacher(), testTeacher);
+		// Test contains teacher.
+		assertTrue(testRoom1.containsTeacher());
+		// Add sphinx and get it
+		assertEquals(testRoom1.getSphinx(), null);
+		testRoom1.addCreature(testSphinx);
+		assertEquals(testRoom1.getSphinx(), testSphinx);
+	}
 }
