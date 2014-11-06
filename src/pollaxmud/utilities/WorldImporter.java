@@ -65,7 +65,6 @@ public class WorldImporter {
 			System.err.println(e.getMessage() + ":\n\tError while impoting the world! You can not play like this.\n"
 					+ "Your world.txt may be corrupted.");
 		}
-		
 		return importedWorld;
 	}
 	
