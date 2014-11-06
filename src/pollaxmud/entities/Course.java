@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import pollaxmud.exceptions.CustomException;
+
 /**
  * This class represents a course.
  * A course consists of a Name(title), a CourseBook, an amount of high school points it is worth and a list of Questions.
@@ -73,7 +75,15 @@ public class Course {
 	 * @param newQuestion The question to add.
 	 */
 	public void addQuestion(Question newQuestion) {
-		this.Questions.add(newQuestion);
+		try{
+			if(newQuestion != null){
+				this.Questions.add(newQuestion);
+			}else{
+				throw new CustomException("Tried to add null question!","NullQuestionException");
+			}
+		}catch(CustomException e){
+			e.printMessage();
+		}
 	}
 	
 	/**
@@ -81,7 +91,15 @@ public class Course {
 	 * @return A random question from Question list.
 	 */
 	public Question returnRandomQuestion() {
-		int length = this.Questions.size();
+		try{
+			if(Questions.size() == 0){
+				throw new CustomException("Course missing questions!","NoQuestionsException");
+			}
+		}catch(CustomException e){
+			e.printMessage();
+			return null;
+		}
+		int length = Questions.size();
 		Random random = new Random();
 		return this.Questions.get(random.nextInt(length));
 	}
