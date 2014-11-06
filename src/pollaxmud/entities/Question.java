@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import pollaxmud.exceptions.CustomException;
+
 /**
  * A question to be asked by teachers.
  * A question consists of a Question, an Answer and a list of Options.
@@ -44,6 +46,14 @@ public class Question {
 	 * @param haveBook Whether two or three options should be printed.
 	 */
 	public void printOptions(boolean haveBook) {
+		try{
+			if(Options.size() < 3){
+				throw new CustomException("To few options for question!","QuestionMissingOptionsException");
+			}
+		}catch(CustomException e){
+			e.printMessage();
+			return;
+		}
 		int i = 1;
 		for(String option: Options) {
 			if(haveBook && !option.equals(Answer)){
@@ -70,6 +80,14 @@ public class Question {
 	 * @return True if the answer is correct, else false.
 	 */
 	public boolean checkAnswer(int answer){
+		try{
+			if(Options.size() < 3){
+				throw new CustomException("To few options for question!","QuestionMissingOptionsException");
+			}
+		}catch(CustomException e){
+			e.printMessage();
+			return false;
+		}
 		if(Options.get(answer-1).equals(Answer)){
 			return true;
 		}
