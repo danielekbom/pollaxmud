@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Random;
 
 import pollaxmud.enums.Direction;
+import pollaxmud.exceptions.CustomException;
 import pollaxmud.world.Room;
 import pollaxmud.world.World;
 
@@ -38,6 +39,9 @@ public class WorldImporter {
 			boolean unlocked;
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
+				if(data.length != 7){
+					throw new CustomException("Import file world.txt has invalid format!","CorruptedImportFileException");
+				}
 				unlocked = random.nextBoolean();
 				if(unlocked == false && (data[0].startsWith("Entrance") || data[0].startsWith("Hallway") || data[0].startsWith("Skybridge"))){
 					unlocked = true;
@@ -50,6 +54,9 @@ public class WorldImporter {
 			bufferedReader = new BufferedReader(fileReader);
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
+				if(data.length != 7){
+					throw new CustomException("Import file has invalid format!","CorruptedImportFileException");
+				}
 				roomToAdd = importedWorld.getRoomByName(data[0]);
 				if(roomToAdd != null){
 					if(!data[1].equals("X"))roomToAdd.setRoomInDirection(importedWorld.getRoomByName(data[1]), Direction.NORTH);
@@ -58,9 +65,12 @@ public class WorldImporter {
 					if(!data[4].equals("X"))roomToAdd.setRoomInDirection(importedWorld.getRoomByName(data[4]), Direction.WEST);
 				}
 			}
+			bufferedReader.close();
 			fileReader.close();
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(CustomException e){
+			e.printMessage();
 		}catch(Exception e){
 			System.err.println(e.getMessage() + ":\n\tError while impoting the world! You can not play like this.\n"
 					+ "Your world.txt may be corrupted.");
