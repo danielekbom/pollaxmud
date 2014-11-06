@@ -68,4 +68,6 @@ local.properties
 .cproject
  
 # PDT-specific
-.buildpath
+.buildpath/.classpath~
+/.project~
+/.classpath~
