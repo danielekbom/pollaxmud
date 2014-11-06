@@ -99,6 +99,7 @@ public class InputHandler {
 		System.out.println("finished\t\t- Show finished courses (Quick 'f')");
 		System.out.println("unfinished\t\t- Show unfinished courses (Quick 'u')");
 		System.out.println("pick up <item name>\t- Pick up an item.");
+		System.out.println("drop <item name>\t- Drop an item.");
 		System.out.println("use key with <direction>- Use key to unlock room in a direction.");
 		System.out.println("talk to <name>\t\t- Talk to someone.");
 		System.out.println("graduate\t\t- If the sphinx is in the same room you can try to graduate if you have completed atleast 180 credits of courses.");
