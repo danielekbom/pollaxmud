@@ -64,7 +64,10 @@ public class PlayerTest {
 		// Dropping items
 		assertTrue(tester.dropItem("Test book 2"));
 		assertEquals(5, tester.getBackpackCapacity());
+		// Drop item you don't have.
 		assertFalse(tester.dropItem("Test book 2"));
+		// See if dropped item is in the room
+		assertEquals(tester.getCurrentLocation().getItemByName("Test book 2"), testItem2);
 	}
 	
 	@Test
@@ -85,5 +88,58 @@ public class PlayerTest {
 		tester.walk(Direction.SOUTH);
 		assertEquals(testRoom1, tester.getCurrentLocation());
 	}
+	
+	@Test
+	public void testCourses() {
+		// Courses for testing
+		Course testCourse1 = new Course("Test course 1", testItem1, 5);
+		Course testCourse2 = new Course("Test course 2", null, 10);
+		Course testCourse3 = new Course("Test course 3", testItem3, 15);
 
+		// Test empty lists of courses.
+		assertTrue(tester.getFinishedCourses().isEmpty());
+		assertTrue(tester.getUnfinishedCourses().isEmpty());
+		assertEquals(tester.getFinishedCredits(), 0);
+		// Test if player has a book for a course
+		assertFalse(tester.haveBookForCourse(testCourse1));
+		assertTrue(tester.addItemToBackpack(testItem1));
+		assertTrue(tester.haveBookForCourse(testCourse1));
+		// Add courses to players unfinished courses
+		assertTrue(tester.addNewCourseToUnfinished(testCourse1));
+		// Try adding it again.
+		assertFalse(tester.addNewCourseToUnfinished(testCourse1));
+		// See if the course was added.
+		assertTrue(tester.isUnfinishedCourse(testCourse1));
+		assertFalse(tester.isPassedCourse(testCourse1));
+		assertFalse(tester.isUnfinishedCourse(testCourse2));
+		assertFalse(tester.isPassedCourse(testCourse2));
+		// Move course to finished
+		assertTrue(tester.moveCourse(testCourse1, true));
+		assertTrue(tester.isPassedCourse(testCourse1));
+		assertFalse(tester.isUnfinishedCourse(testCourse1));
+		// Add second course and move it.
+		assertTrue(tester.addNewCourseToUnfinished(testCourse2));
+		assertTrue(tester.isUnfinishedCourse(testCourse2));
+		assertTrue(tester.moveCourse(testCourse2, true));
+		assertTrue(tester.isPassedCourse(testCourse2));
+		assertFalse(tester.isUnfinishedCourse(testCourse2));
+		// Check credits
+		assertEquals(tester.getFinishedCredits(), 15);
+		// Move courses back
+		assertTrue(tester.moveCourse(testCourse1, false));
+		assertFalse(tester.isPassedCourse(testCourse1));
+		assertTrue(tester.isUnfinishedCourse(testCourse1));
+		assertTrue(tester.moveCourse(testCourse2, false));
+		assertFalse(tester.isPassedCourse(testCourse2));
+		assertTrue(tester.isUnfinishedCourse(testCourse2));
+		assertEquals(tester.getFinishedCredits(), 0);
+		// Try to move course to same category
+		assertFalse(tester.moveCourse(testCourse1, false));
+		// Try to move course that doesn't exists.
+		assertFalse(tester.moveCourse(testCourse3, true));
+		assertFalse(tester.isPassedCourse(testCourse3));
+		assertFalse(tester.isUnfinishedCourse(testCourse3));
+		// Try move with null
+		assertFalse(tester.moveCourse(null, true));
+	}
 }

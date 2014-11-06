@@ -46,7 +46,7 @@ public class Player {
 		int coursesSize = courses.size();
 		// TEST
 		if(coursesSize < 1) {
-			return null;
+			return finishedCourses;
 		}
 		Course courseToAdd = null;
 		Random rand = new Random();
@@ -71,9 +71,12 @@ public class Player {
 	/**
 	 * Calculates the sum of high school points of the courses in the courses list parameter.
 	 * @param courses The list of courses used in the calculation.
-	 * @return The sum of high school points of the courses in the "courses" parameter.
+	 * @return The sum of the credits of the courses in the "courses" parameter.
 	 */
 	private int getCoursesPoints(List<Course> courses){
+		if (courses.isEmpty()) {
+			return 0;
+		}
 		int points = 0;
 		for(Course course : courses){
 			points += course.getHP();
@@ -118,6 +121,7 @@ public class Player {
 	 * @return True if the course was successfully moved, else false.
 	 */
 	public boolean moveCourse(Course course, boolean finished){
+		if(course == null) { return false; }
 		if(finished && !courseExists(course.getName(), FinishedCourses) && courseExists(course.getName(), UnfinishedCourses)){
 			this.FinishedCourses.add(course);
 			this.UnfinishedCourses.remove(course);
