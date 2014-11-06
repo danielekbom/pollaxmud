@@ -10,12 +10,20 @@ import java.util.List;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Teacher;
 
+/**
+ * Will import Teachers from "teachers.txt" and if the courses
+ * they teach in exists they will be added to a List of teachers
+ * that will be returned.
+ * The format of the file is one Teacher on each line.
+ * The format of a line is "TeacherName;CourseName".
+ * The text file needs to be placed in the project root.
+ * @author Daniel and Oscar
+ */
 public class TeacherImporter {
 
+
 	/**
-	 * Will import Teachers from "teachers.txt" and if the courses
-	 * they teach in exists they will be added to a List of teachers
-	 * that will be returned.
+	 * Imports the Teachers.
 	 * @param courses The list of courses for the game.
 	 * @return A list of the teachers to add in game.
 	 */
@@ -78,13 +86,13 @@ public class TeacherImporter {
 		return false;
 	}
 	
-/**
- * Takes a list of teachers and a list of courses. If there are courses without
- * teachers they get a new teacher assigned to them.
- * @param teachers List of teachers.
- * @param courses List of courses.
- * @return A list of teachers with the new teachers added to the old ones.
- */
+	/**
+	 * Takes a list of teachers and a list of courses. If there are courses without
+	 * teachers they get a new teacher assigned to them.
+	 * @param teachers List of teachers.
+	 * @param courses List of courses.
+	 * @return A list of teachers with the new teachers added to the old ones.
+	 */
 	private static List<Teacher> addMissingTeachers(List<Teacher> teachers, List<Course> courses) {
 		boolean found = false;
 		List<Teacher> newTeachersList = new ArrayList<Teacher>();
@@ -102,7 +110,7 @@ public class TeacherImporter {
 			}
 			found = false;
 		}
-		teachers.addAll(newTeachersList); // Merging the lists?
+		teachers.addAll(newTeachersList);
 		return teachers;
 	}
 }

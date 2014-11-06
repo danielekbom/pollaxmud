@@ -5,17 +5,26 @@ import pollaxmud.entities.Teacher;
 import pollaxmud.main.Pollaxmud;
 
 /**
- * 
+ * Class used to for conversations.
  * @author Daniel
  *
  */
 public class ConversationHandler {
 
+	/**
+	 * Prints the introduction of a teacher.
+	 * @param teacher The teacher which is talking.
+	 */
 	public static void teacherIntroduction(Teacher teacher){
 		System.out.println("Hi student,\nMy name is " + teacher.getName());
 		System.out.println("I am the teacher of \"" + teacher.getCourseName() + "\".");
 	}
 	
+	/**
+	 * Prints the conversation when the player is enrolling on a course.
+	 * @param player The player to be enrolled.
+	 * @param teacher The teacher who is talking.
+	 */
 	public static void enrollConversation(Player player, Teacher teacher){
 		teacherIntroduction(teacher);
 		System.out.println("You are not enrolled on my course, do you want to enroll? (yes/no)");
@@ -36,6 +45,11 @@ public class ConversationHandler {
 		}
 	}
 	
+	/**
+	 * Prints the conversation if a player talks to a teacher that teaches an already finished course.
+	 * @param player The player who is talking to the teacher.
+	 * @param teacher The teacher who is talking.
+	 */
 	public static void finishedCourseConversation(Player player, Teacher teacher){
 		boolean haveBook = player.haveBookForCourse(teacher.getCourse());
 		teacherIntroduction(teacher);
@@ -55,6 +69,11 @@ public class ConversationHandler {
 		}
 	}
 	
+	/**
+	 * Prints the conversation if a player talks to a teacher that teaches a course that is not finished.
+	 * @param player The player who is talking to the teacher.
+	 * @param teacher The teacher who is talking.
+	 */
 	public static void unfinishedCourseConversation(Player player, Teacher teacher){
 		boolean haveBook = player.haveBookForCourse(teacher.getCourse());
 		teacherIntroduction(teacher);

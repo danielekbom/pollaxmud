@@ -13,7 +13,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	PlayerTest.class, 
 	BackpackTest.class, 
 	TeacherTest.class, 
-	SphinxTest.class})
+	SphinxTest.class,
+	WorldTest.class})
 public class AllTests {
 
 }

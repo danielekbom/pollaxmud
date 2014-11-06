@@ -13,8 +13,20 @@ import pollaxmud.enums.Direction;
 import pollaxmud.main.Pollaxmud;
 import pollaxmud.world.Room;
 
+/**
+ * Class for handling user input.
+ * @author Daniel and Oscar
+ *
+ */
 public class InputHandler {
 
+	/**
+	 * Chooses the correct action depending on the user input.
+	 * Prints "Unknown command!" if the input is not a valid command.
+	 * @param inputString The user input.
+	 * @param player The Player that the player who plays the game is controlling.
+	 * @param canvas The canvas where that map is drawn.
+	 */
 	public static void handleInput(String inputString, Player player, Canvas canvas){
 		switch(inputString){
 		case "help":
@@ -68,6 +80,9 @@ public class InputHandler {
 		}
 	}
 
+	/**
+	 * Prints the help text that shows all the existing commands.
+	 */
 	private static void handleInputHelp() {
 		System.out.println("Commands:\t\t(Directions are north, south, east and west)");
 		System.out.println("go <direction>\t\t- To move the player. (Or simply use 'n' for north 's' for south etc.)");
@@ -81,6 +96,13 @@ public class InputHandler {
 		System.out.println("quit\t\t\t- Quit the game.");
 	}
 
+	/**
+	 * Moving the player in a given direction.
+	 * The canvas is also repainted.
+	 * @param player The player to move.
+	 * @param canvas The canvas to repaint.
+	 * @param direction The direction to move the player in.
+	 */
 	private static void handleInputGo(Player player, Canvas canvas, Direction direction) {
 		if(player.walk(direction)) {
 			canvas.repaint();
@@ -97,6 +119,10 @@ public class InputHandler {
 		}
 	}
 	
+	/**
+	 * Trying to graduate the player using the Sphinx class.
+	 * @param player The player to graduate.
+	 */
 	private static void handleInputGraduate(Player player) {
 		Creature creature = player.getCurrentLocation().getSphinx();
 		if(creature != null) {
@@ -111,16 +137,29 @@ public class InputHandler {
 		}
 	}
 	
+	/**
+	 * Prints a list of the player's finished courses.
+	 * @param player The player to print courses for.
+	 */
 	private static void handleInputFinished(Player player){
 		System.out.println("Finished courses: ");
 		player.printCourses(true);
 	}
 	
+	/**
+	 * Prints a list of the player's unfinished courses.
+	 * @param player The player to print courses for.
+	 */
 	private static void handleInputUnfinished(Player player){
 		System.out.println("Unfinished courses: ");
 		player.printCourses(false);
 	}
 	
+	/**
+	 * Method that moves an item with a given name from the player's current location to the player's backpack.
+	 * @param player The player that the user is controlling.
+	 * @param inputString The input that contains the name of the item to move to the backpack.
+	 */
 	private static void handleInputPickUp(Player player, String inputString) {
 		if(inputString.length() <= 8){
 			System.out.println("No item specified!");
@@ -138,7 +177,11 @@ public class InputHandler {
 		}
 	}
 	
-	
+	/**
+	 * Method that moves an item with a given name from the player's backpack to the player's current location.
+	 * @param player The player that the user is controlling.
+	 * @param inputString The input that contains the name of the item to move to the current location.
+	 */
 	private static void handleInputDrop(Player player, String inputString) {
 		if(inputString.length() <= 5){
 			System.out.println("No item specified!");
@@ -152,6 +195,12 @@ public class InputHandler {
 		}
 	}
 	
+	/**
+	 * Unlocks a locked room(if it exists) in the direction given in the inputString.
+	 * Unlocks only if the player have a key in its backpack.
+	 * @param player The player which is trying to unlock a room.
+	 * @param inputString The input from the user.
+	 */
 	private static void handleInputUseKey(Player player, String inputString){
 		if(!player.hasKey()){
 			System.out.println("You dont have any key!");
@@ -176,6 +225,11 @@ public class InputHandler {
 		}
 	}
 	
+	/**
+	 * Method that starts a conversation with a creature with a name given in the inputString, if such creature exists.
+	 * @param player The player that the user is controlling.
+	 * @param inputString The user input string.
+	 */
 	private static void handleInputTalkTo(Player player, String inputString){
 		if(inputString.length() <= 8){
 			System.out.println("Invalid talk command!");

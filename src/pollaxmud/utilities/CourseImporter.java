@@ -10,8 +10,20 @@ import java.util.List;
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
 
+/**
+ * Imports Courses from courses.txt
+ * The format of the file is one Course on each line.
+ * The format of a line is "CourseName;BookName;High school points".
+ * The text file needs to be placed in the project root.
+ * @author Daniel and Oscar
+ */
 public class CourseImporter {
 
+	/**
+	 * Imports the Courses.
+	 * @param books A list of books.
+	 * @return A list of the imported Courses.
+	 */
 	public static List<Course> ImportCourses(List<Book> books){
 		List<Course> courses = new ArrayList<Course>();
 
@@ -37,6 +49,12 @@ public class CourseImporter {
 		return courses;
 	}
 	
+	/**
+	 * Method to find the Book with the same name as a given string.
+	 * @param name The given string used to find a book which name equals the string.
+	 * @param Books A list of books to look in.
+	 * @return The Book with the same name as the given string if such book exists, else null.
+	 */
 	private static Book findBook(String name, List<Book> Books) {
 		for(Book book : Books) {
 			if(book.getName().equals(name)) {
