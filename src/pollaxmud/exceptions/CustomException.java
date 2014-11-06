@@ -1,7 +1,7 @@
 package pollaxmud.exceptions;
 
 /**
- * A class used to store custom exceptions used in the game.
+ * A class used to create custom exceptions used in the game.
  * @author Daniel and Oscar
  *
  */
