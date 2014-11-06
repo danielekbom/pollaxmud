@@ -29,9 +29,6 @@ public class BackpackTest {
 		assertEquals(TestBackpack.getSpace(), 10);
 		assertTrue(TestBackpack.addItem(testItem1));
 		assertEquals(TestBackpack.getSpace(), 7);
-		// Add same item twice
-		assertFalse(TestBackpack.addItem(testItem1));
-		assertEquals(TestBackpack.getSpace(), 7);
 		// Add more items
 		assertTrue(TestBackpack.addItem(testItem2));
 		assertEquals(TestBackpack.getSpace(), 5);
