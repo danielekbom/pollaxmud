@@ -17,7 +17,7 @@ public class QuestionTest {
 			testQuestion1.printOptions(false);
 			testQuestion1.printOptions(true);
 		} catch(Exception e){ 
-			fail("Couldn't print question");
+			fail("Couldn't print questions.");
 		}
 	}
 	

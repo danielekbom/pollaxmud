@@ -6,6 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ 
+	// Entities
 	BookTest.class,
 	KeyTest.class,
 	CourseTest.class,
@@ -15,7 +16,9 @@ import org.junit.runners.Suite.SuiteClasses;
 	BackpackTest.class, 
 	TeacherTest.class, 
 	SphinxTest.class,
-	WorldTest.class})
+	WorldTest.class,
+	// Handlers
+	ConversationHandlerTest.class})
 public class AllTests {
 
 }

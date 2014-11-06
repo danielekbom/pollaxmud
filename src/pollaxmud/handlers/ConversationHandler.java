@@ -16,8 +16,10 @@ public class ConversationHandler {
 	 * @param teacher The teacher which is talking.
 	 */
 	public static void teacherIntroduction(Teacher teacher){
-		System.out.println("Hi student,\nMy name is " + teacher.getName());
-		System.out.println("I am the teacher of \"" + teacher.getCourseName() + "\".");
+		if(teacher != null) {
+			System.out.println("Hi student,\nMy name is " + teacher.getName());
+			System.out.println("I am the teacher of \"" + teacher.getCourseName() + "\".");
+		}
 	}
 	
 	/**
