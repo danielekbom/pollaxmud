@@ -3,7 +3,9 @@ package pollaxmud.entities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 import pollaxmud.enums.Direction;
+import pollaxmud.exceptions.CustomException;
 import pollaxmud.world.Room;
 
 /**
@@ -29,7 +31,7 @@ public class Player {
 	 */
 	public Player(Room location, List<Course> courses){
 		FinishedCourses = initializeFinishedCourses(courses);
-		UnfinishedCourses = new ArrayList<Course>();//initializeUnfinishedCourses(FinishedCourses, courses);
+		UnfinishedCourses = new ArrayList<Course>();
 		CurrentLocation = location;
 		CurrentBackpack = new Backpack();
 	}
@@ -43,6 +45,14 @@ public class Player {
 	 */
 	private List<Course> initializeFinishedCourses(List<Course> courses) {
 		List<Course> finishedCourses = new ArrayList<Course>();
+		try{
+			if(courses.size() == 0 || getCoursesPoints(courses) < STARTING_HP){
+				throw new CustomException("Sum of credits in courses is not enough to create a player!","NotEnoughCoursesException");
+			}
+		}catch(CustomException e){
+			e.printMessage();
+			return finishedCourses;
+		}
 		int coursesSize = courses.size();
 		// TEST
 		if(coursesSize < 1) {
@@ -74,7 +84,7 @@ public class Player {
 	 * @return The sum of the credits of the courses in the "courses" parameter.
 	 */
 	private int getCoursesPoints(List<Course> courses){
-		if (courses.isEmpty()) {
+		if (courses == null || courses.isEmpty()) {
 			return 0;
 		}
 		int points = 0;
@@ -90,6 +100,7 @@ public class Player {
 	 * @return True if "chk_course" is finished, else false.
 	 */
 	public boolean isPassedCourse(Course chk_course) {
+		if(chk_course == null) return false;
 		for(Course course : FinishedCourses) {
 			if (course == chk_course) {
 				return true;
@@ -104,6 +115,7 @@ public class Player {
 	 * @return True if "chk_course" is in the Player's list of unfinished courses, else false.
 	 */
 	public boolean isUnfinishedCourse(Course chk_course) {
+		if(chk_course == null) return false;
 		for(Course course : UnfinishedCourses) {
 			if (course == chk_course) {
 				return true;
@@ -121,7 +133,7 @@ public class Player {
 	 * @return True if the course was successfully moved, else false.
 	 */
 	public boolean moveCourse(Course course, boolean finished){
-		if(course == null) { return false; }
+		if(course == null) return false;
 		if(finished && !courseExists(course.getName(), FinishedCourses) && courseExists(course.getName(), UnfinishedCourses)){
 			this.FinishedCourses.add(course);
 			this.UnfinishedCourses.remove(course);
@@ -142,11 +154,10 @@ public class Player {
 	 * @return True if the course was found in the list, else false.
 	 */
 	private boolean courseExists(String courseName, List<Course> courses) {
-		if(courses != null) {
-			for(Course course : courses) {
-				if(course.getName().equals(courseName)) {
-					return true;
-				}
+		if(courses == null) return false;
+		for(Course course : courses) {
+			if(course.getName().equals(courseName)) {
+				return true;
 			}
 		}
 		return false;
@@ -280,6 +291,7 @@ public class Player {
 	 * @return True if the add was successful, elase false.
 	 */
 	public boolean addNewCourseToUnfinished(Course course){
+		if(course == null) return false;
 		if(!courseExists(course.getName(), UnfinishedCourses)){
 			UnfinishedCourses.add(course);
 			return true;
