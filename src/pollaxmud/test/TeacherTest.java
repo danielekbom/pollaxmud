@@ -25,7 +25,6 @@ public class TeacherTest {
 
 	@Test
 	public void testTeacherAskQuestion() {
-		// TODO: This shit...
-		//fail("Not implemented teacher askQuestion test.");
+
 	}
 }

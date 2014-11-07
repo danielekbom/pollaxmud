@@ -52,6 +52,7 @@ public class WorldTest {
 		assertTrue("getRoomAtIndex", TestWorld_1.getRoomAtIndex(1).getName().equals("TestWorld_1_Room_2"));
 		assertTrue("getRoomAtIndex", TestWorld_1.getRoomAtIndex(2) == null);
 		assertTrue("getRoomAtIndex", TestWorld_1.getRoomAtIndex(-1) == null);
+		assertTrue("getRoomAtIndex", TestWorld_1.getRoomAtIndex(543) == null);
 		assertTrue("getRoomByName", TestWorld_1.getRoomByName("noRoom") == null);
 		TestWorld_2.addRoom(new Room("TestWorld_2_Room_1", false));
 		TestWorld_2.addKeysToWorld();
