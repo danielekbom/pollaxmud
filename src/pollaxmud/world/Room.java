@@ -63,6 +63,7 @@ public class Room {
 	 * @param itemToAdd The item to add.
 	 */
 	public void addItem(Item itemToAdd){
+		if(itemToAdd == null) return;
 		Items.add(itemToAdd);
 	}
 	
@@ -88,6 +89,8 @@ public class Room {
 	 * @return The item.
 	 */
 	public Item getItemByName(String name){
+		if(name == null) return null;
+		if(Items.size() == 0) return null;
 		for(Item item : Items){
 			if(item.getName().equalsIgnoreCase(name)){
 				return item;
@@ -101,6 +104,8 @@ public class Room {
 	 * @param name The name of the item to delete.
 	 */
 	public void deleteItemByName(String name){
+		if(Items.size() == 0) return;
+		if(name == null) return;
 		boolean found = false;
 		int itemIndex = 0;
 		for(Item item : Items){
@@ -267,6 +272,7 @@ public class Room {
 	 * @return A Teacher if there is any in the room, else null.
 	 */
 	public Teacher getRandomTeacher(){
+		if(Creatures.size() == 0) return null;
 		List<Teacher> teachers = new ArrayList<Teacher>();
 		for(Creature creature : Creatures){
 			if(creature.getType() == CreatureType.TEACHER){

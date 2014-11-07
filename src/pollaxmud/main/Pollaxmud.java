@@ -10,6 +10,7 @@ import java.awt.Canvas;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import pollaxmud.entities.Book;
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Player;
@@ -57,6 +58,7 @@ public class Pollaxmud {
 		TheSphinx = new ArrayList<Sphinx>();
 		TheSphinx.add(new Sphinx());
 		
+		printStartText();
 		initializeWorld();
 		
 		PlayerOne = new Player(StartingWorld.getRoomAtIndex(0), Courses);
@@ -66,14 +68,6 @@ public class Pollaxmud {
         JFrame map = new JFrame();
 		initializeMap(mapCanvas, map);
 		
-		//====================== TEST
-		/*System.out.println("Printing all questions: ");
-		for(Course course: Courses) {
-			System.out.println("==========\nCourse: "+ course.getAbbrName()+ "\nQuestions:");
-			course.printAllQuestions();
-		}*/
-		//====================== END TEST
-		
 		String inputString = "";
 		while(!inputString.equalsIgnoreCase("quit") && !GameFinished){
 			inputString = scanner.nextLine();
@@ -82,6 +76,17 @@ public class Pollaxmud {
 		exitGame(map);
 	}
 	
+	private static void printStartText() {
+		System.out.println("#######################################");
+		System.out.println("Dear Student,");
+		System.out.println("Welcome to the Great School of Pollax!");
+		System.out.println("Finish courses to collect high school points, at least 180 points is needed to get a graduation.");
+		System.out.println("When you have at least 180 points, and no unfinished courses, then go find the Sphinx of Pollax and he will give you a Graduation Certificate.");
+		System.out.println("Say \"help\" to see a list of all possible commands.");
+		System.out.println("Good luck!");
+		System.out.println("#######################################");
+	}
+
 	/**
 	 * Method that imports parts of the game.
 	 * The Books, Courses and Teachers are imported and assigned to its corresponding fields.

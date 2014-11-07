@@ -9,6 +9,7 @@ import java.util.List;
 
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Teacher;
+import pollaxmud.exceptions.CustomException;
 
 /**
  * Will import Teachers from "teachers.txt" and if the courses
@@ -39,6 +40,9 @@ public class TeacherImporter {
 			Teacher newTeacher;
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
+				if(data.length != 2){
+					throw new CustomException("Import file teachers.txt has invalid format!","CorruptedImportFileException");
+				}
 				if(courseExists(data[1], courses)) {
 					Course teachersCourse = getCourse(data[1], courses);
 					newTeacher = new Teacher(data[0], teachersCourse);
@@ -47,10 +51,13 @@ public class TeacherImporter {
 					System.out.println("No course named" + data [1] + ". Not adding teacher " + data[0]);
 				}
 			}
+			bufferedReader.close();
 			fileReader.close();
 			
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(CustomException e){
+			e.printMessage();
 		}catch(Exception e){
 			System.err.println(e.getMessage() + ":\n\tError while impoting Teachers! You can not play like this.\n"
 					+ "Your teachers.txt may be corrupted.");

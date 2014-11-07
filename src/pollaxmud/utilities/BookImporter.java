@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pollaxmud.entities.Book;
+import pollaxmud.exceptions.CustomException;
 
 /**
  * Imports Books from books.txt
@@ -34,12 +35,18 @@ public class BookImporter {
 			Book newBook;
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
+				if(data.length != 4){
+					throw new CustomException("Import file books.txt has invalid format!","CorruptedImportFileException");
+				}
 				newBook = new Book(data[0],data[1],data[2],Integer.parseInt(data[3]));
 				books.add(newBook);
 			}
+			bufferedReader.close();
 			fileReader.close();
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(CustomException e){
+			e.printMessage();
 		}catch(Exception e){
 			System.err.println(e.getMessage() + ":\n\tError while impoting Books! You can not play like this.\n"
 					+ "Your books.txt may be corrupted.");

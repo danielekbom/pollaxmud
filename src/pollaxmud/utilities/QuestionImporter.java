@@ -8,6 +8,7 @@ import java.util.List;
 
 import pollaxmud.entities.Course;
 import pollaxmud.entities.Question;
+import pollaxmud.exceptions.CustomException;
 
 /**
  * Imports Questions from questions.txt
@@ -33,6 +34,9 @@ public class QuestionImporter {
 			Question newQuestion;
 			while((line = bufferedReader.readLine()) != null){
 				data = line.split(";");
+				if(data.length != 5){
+					throw new CustomException("Import file questions.txt has invalid format!","CorruptedImportFileException");
+				}
 				for(Course course : Courses) {
 					if(course.getName().equals(data[0])) {
 						newQuestion = new Question(data[1],data[2],data[3],data[4]);
@@ -42,10 +46,13 @@ public class QuestionImporter {
 				}
 			}
 			addStandardQuestion(Courses);
+			bufferedReader.close();
 			fileReader.close();
 			
 		}catch(IOException e){
 			e.printStackTrace();
+		}catch(CustomException e){
+			e.printMessage();
 		}catch(Exception e){
 			System.err.println(e.getMessage() + ":\n\tError while impoting Questions! You can not play like this.\n"
 					+ "Your questions.txt may be corrupted.");
