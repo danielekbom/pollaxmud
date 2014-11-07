@@ -17,6 +17,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	TeacherTest.class, 
 	SphinxTest.class,
 	WorldTest.class,
+	InputHandlerTest.class,
 	// Handlers
 	ConversationHandlerTest.class})
 public class AllTests {
