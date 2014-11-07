@@ -1,5 +1,6 @@
 pollaxmud.entities
 pollaxmud.enums
+pollaxmud.exceptions
 pollaxmud.gui
 pollaxmud.handlers
 pollaxmud.main
