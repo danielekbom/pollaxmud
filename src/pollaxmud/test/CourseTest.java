@@ -49,9 +49,6 @@ public class CourseTest {
 		testCourse2.addQuestion(Question2);
 		assertFalse(testCourse2.hasNoQuestions());
 		assertEquals(testCourse2.returnRandomQuestion(), Question2);
-
-		// How to test for randomness?
-		
 	}
 
 }
