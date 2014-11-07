@@ -35,7 +35,7 @@ CLASSES = \
 	pollaxmud/utilities/WorldImporter.java \
 	pollaxmud/world/package-info.java \
 	pollaxmud/world/Room.java \
-	pollaxmud/world/World.java \
+	pollaxmud/world/World.java
 
 default: classes
 
